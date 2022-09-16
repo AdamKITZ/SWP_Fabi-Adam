@@ -1,0 +1,4 @@
+  name: BedwarsPlugin
+  main: at.fabiadam.main.MainBedwars
+  version: 1.0
+  api-version: 1.19
