@@ -18,5 +18,6 @@ public class MainBedwars extends JavaPlugin {
         //Register all listeners
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new playerWorldChangeEvent(), this);
+        pluginManager.registerEvents(new playerJoinEvent(), this);
     }
 }
