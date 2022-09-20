@@ -15,8 +15,8 @@ public class playerWorldChangeEvent implements Listener {
     public void onWorldChangeEvent(PlayerChangedWorldEvent event) {
         playerCount = Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().size();
         if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")) {
-            event.getPlayer().sendMessage("§bCurrent Players: " + playerCount + "\n§bPlayers required to start: " + minPlayerCount);
-            event.getPlayer().sendMessage("§aWelcome to the Bedwars lobby!\nYou can start a round by typing §6/start§a before the timer stops");
+            event.getPlayer().sendMessage("§bPlayers: " + playerCount + "/" + maxPlayerCount + "\n§bPlayers required to start: " + minPlayerCount);
+            event.getPlayer().sendMessage("§aYou can start a round by typing §6/start§a before the timer stops");
         }
     }
 }
