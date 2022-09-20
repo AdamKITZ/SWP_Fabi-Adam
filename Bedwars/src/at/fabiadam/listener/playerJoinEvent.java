@@ -10,7 +10,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class playerJoinEvent implements Listener {
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
-        Location spawn = new Location(Bukkit.getWorld("world"), 180, 68, -48);
+        Location spawn = new Location(Bukkit.getWorld("world"), 180.5, 68, -48.5);
+        event.getPlayer().teleport(spawn);
         event.getPlayer().sendMessage("§aWelcome to the Bedwars Server!\nYou can click on the sign to join the game lobby!");
     }
 }
