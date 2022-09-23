@@ -1,16 +1,14 @@
 package at.fabiadam.listener;
 
-
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 
-public class playerInteractEvent implements Listener {
+public class playerInteractEntityEvent implements Listener {
 
     @EventHandler
-    public void onPlayerInteract (PlayerInteractEvent event){
+    public void onPlayerInteractEntityEvent(PlayerInteractAtEntityEvent event){
         if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")){
             if(event.getPlayer().getGameMode() == GameMode.SURVIVAL){
                 event.setCancelled(true);
