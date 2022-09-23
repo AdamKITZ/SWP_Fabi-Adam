@@ -8,8 +8,10 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainBedwars extends JavaPlugin {
+    private static MainBedwars plugin;
     @Override
     public void onEnable() {
+        plugin = this;
         System.out.println("Bedwars Plugin enabled!");
 
         //Register all created commands
@@ -19,5 +21,9 @@ public class MainBedwars extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new playerWorldChangeEvent(), this);
         pluginManager.registerEvents(new playerJoinEvent(), this);
+    }
+
+    public static MainBedwars getPlugin() {
+        return plugin;
     }
 }
