@@ -2,6 +2,7 @@ package at.fabiadam.listener;
 
 import at.fabiadam.main.MainBedwars;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
@@ -46,6 +47,10 @@ public class playerWorldChangeEvent implements Listener {
                 }
                 if(i <= 0) {
                     Bukkit.getScheduler().cancelTask(taskId);
+                    Location bedwarsSpawn = new Location(Bukkit.getWorld("world_bedwars"), 0.5, 75, 0.5);
+                    Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
+                        player.teleport(bedwarsSpawn);
+                    });
                 }
 
                 i--;
