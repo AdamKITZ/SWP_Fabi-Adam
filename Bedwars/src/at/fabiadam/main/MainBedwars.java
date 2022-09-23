@@ -1,6 +1,7 @@
 package at.fabiadam.main;
 
 import at.fabiadam.commands.startRound;
+import at.fabiadam.listener.playerInteractEvent;
 import at.fabiadam.listener.playerJoinEvent;
 import at.fabiadam.listener.playerWorldChangeEvent;
 import org.bukkit.Bukkit;
@@ -21,6 +22,7 @@ public class MainBedwars extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new playerWorldChangeEvent(), this);
         pluginManager.registerEvents(new playerJoinEvent(), this);
+        pluginManager.registerEvents(new playerInteractEvent(), this);
     }
 
     public static MainBedwars getPlugin() {
