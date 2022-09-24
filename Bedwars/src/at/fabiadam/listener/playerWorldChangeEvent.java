@@ -26,7 +26,7 @@ public class playerWorldChangeEvent implements Listener {
             event.getPlayer().sendMessage("§bPlayers required to start: " + minPlayerCount);
             event.getPlayer().sendMessage("§aYou can start a round by typing §6/start§a before the timer stops");
         }
-        if(playerCount >= maxPlayerCount) {
+        if(playerCount >= minPlayerCount) {
             startGame();
         }
     }
