@@ -12,6 +12,6 @@ public class playerJoinEvent implements Listener {
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
         Location spawn = new Location(Bukkit.getWorld("world"), 180.5, 68, -48.5);
         event.getPlayer().teleport(spawn);
-        event.setJoinMessage("§aWelcome to the Bedwars Server!\nYou can click on the sign to join the game lobby!");
+        event.setJoinMessage("§aWelcome to the Server!\nYou can click on the sign to join the game lobby!");
     }
 }
