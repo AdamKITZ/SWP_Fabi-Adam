@@ -6,6 +6,7 @@ import org.bukkit.Location;
 
 import static at.fabiadam.listener.playerWorldChangeEvent.minPlayerCount;
 import static at.fabiadam.listener.playerWorldChangeEvent.playerCount;
+import static at.fabiadam.timers.spawnerTimer.startSpawnerScheduler;
 
 public class lobbyTimer {
     private static int taskId = 0;
@@ -39,6 +40,7 @@ public class lobbyTimer {
                     Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
                         player.teleport(bedwarsSpawn);
                     });
+                    startSpawnerScheduler();
                 }
 
                 i--;
