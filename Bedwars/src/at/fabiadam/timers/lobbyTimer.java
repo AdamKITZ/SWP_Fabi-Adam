@@ -19,7 +19,7 @@ public class lobbyTimer {
         }
         //Start timer and set the task id to a variable to cancel the timer later
         taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
-            int i = 60;
+            int i = 20;
             @Override
             public void run() {
                 checkPlayerCount();
