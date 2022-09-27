@@ -45,6 +45,8 @@ public class lobbyTimer {
             }
 
         }, 0, 20);
+
+
     }
     //Stop the scheduler if there are not enough players and reset variables
     public static void checkPlayerCount() {
