@@ -37,9 +37,10 @@ public class Team {
         isBedActive = bedActive;
     }
 
-    public Team(String color, int playerCount, List<Player> players, boolean isBedActive) {
+    public Team(String color, int playerCount, int maxPlayerCount, List<Player> players, boolean isBedActive) {
         this.color = color;
         this.playerCount = playerCount;
+        this.maxPlayerCount = maxPlayerCount;
         this.players = players;
         this.isBedActive = isBedActive;
     }
