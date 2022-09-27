@@ -1,6 +1,6 @@
 package at.fabiadam.main;
 
-import at.fabiadam.commands.startRound;
+import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.listener.entityDamageByEntityEvent;
 import at.fabiadam.listener.playerInteractEvent;
 import at.fabiadam.listener.playerJoinEvent;
@@ -17,7 +17,7 @@ public class MainBedwars extends JavaPlugin {
         System.out.println("Bedwars Plugin enabled!");
 
         //Register all created commands
-        getCommand("start").setExecutor(new startRound());
+        getCommand("start").setExecutor(new startLobbyTimer());
 
         //Register all listeners
         PluginManager pluginManager = Bukkit.getPluginManager();
