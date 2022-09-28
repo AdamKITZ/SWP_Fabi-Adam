@@ -11,7 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainBedwars extends JavaPlugin {
     private static MainBedwars plugin;
-    //Just a GitHub test line
+    //Just a GitHub test line 2
     @Override
     public void onEnable() {
         plugin = this;
