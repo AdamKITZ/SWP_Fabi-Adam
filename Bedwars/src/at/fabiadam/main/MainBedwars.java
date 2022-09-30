@@ -3,10 +3,7 @@ package at.fabiadam.main;
 import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.gameStates;
-import at.fabiadam.listener.entityDamageByEntityEvent;
-import at.fabiadam.listener.playerInteractEvent;
-import at.fabiadam.listener.playerJoinEvent;
-import at.fabiadam.listener.playerWorldChangeEvent;
+import at.fabiadam.listener.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -32,6 +29,7 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new playerJoinEvent(), this);
         pluginManager.registerEvents(new playerInteractEvent(), this);
         pluginManager.registerEvents(new entityDamageByEntityEvent(), this);
+        pluginManager.registerEvents(new playerDropEvent(), this);
     }
 
     public static MainBedwars getPlugin() {
