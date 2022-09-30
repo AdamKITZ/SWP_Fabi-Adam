@@ -13,9 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainBedwars extends JavaPlugin {
     private static MainBedwars plugin;
-
     private GameStateManager gameStateManager;
-
     @Override
     public void onEnable() {
         plugin = this;
