@@ -1,6 +1,8 @@
 package at.fabiadam.main;
 
 import at.fabiadam.commands.startLobbyTimer;
+import at.fabiadam.gameStates.GameStateManager;
+import at.fabiadam.gameStates.gameStates;
 import at.fabiadam.listener.entityDamageByEntityEvent;
 import at.fabiadam.listener.playerInteractEvent;
 import at.fabiadam.listener.playerJoinEvent;
@@ -11,11 +13,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainBedwars extends JavaPlugin {
     private static MainBedwars plugin;
-    //Just a GitHub test line 2
+    private GameStateManager gameStateManager;
     @Override
     public void onEnable() {
         plugin = this;
         System.out.println("Bedwars Plugin enabled!");
+
+        gameStateManager = new GameStateManager(this);
+
+        gameStateManager.setGameState(gameStates.LOBBY);
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
@@ -31,4 +37,5 @@ public class MainBedwars extends JavaPlugin {
     public static MainBedwars getPlugin() {
         return plugin;
     }
+
 }
