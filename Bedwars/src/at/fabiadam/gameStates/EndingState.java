@@ -1,6 +1,6 @@
 package at.fabiadam.gameStates;
 
-public class endingState extends gameStates {
+public class EndingState extends GameState {
 
     @Override
     public void start() {
