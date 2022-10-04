@@ -7,9 +7,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.util.Locale;
-
-import static at.fabiadam.timers.lobbyTimer.startScheduler;
 
 public class setSpawner implements CommandExecutor {
 
@@ -21,12 +18,13 @@ public class setSpawner implements CommandExecutor {
         if(sender instanceof Player) {
             Player player = (Player) sender;
             if(player.hasPermission("bedwars.start")) {
-                if(player.getWorld().getName().equals("world_bedwars_l")) {
+                if(player.getWorld().getName().equals("world_bedwars")) {
                     if(args[0].equalsIgnoreCase("bronze") || args[0].equalsIgnoreCase("iron") || args[0].equalsIgnoreCase("gold")) {
-                        if (args[0].matches("[1-4]")) {
+                        if (args[1].matches("[1-4]+")) {
                             FileConfiguration config = plugin.getConfig();
                             config.set("spawner." + args[0] + "." + args[1] + ".log", player.getLocation());
                             player.sendMessage("§b" + args[0].toUpperCase() + " spawner set!");
+                            plugin.saveConfig();
                         }
                     }
                 } else {

@@ -13,8 +13,10 @@ public class spawnerTimer {
     private static int taskId = 0;
     private static World bedwarsWorld;
     private static double time;
+    private MainBedwars plugin;
 
-    public static void startSpawnerScheduler() {
+    public void startSpawnerScheduler() {
+        plugin = MainBedwars.getPlugin();
         bedwarsWorld = Bukkit.getWorld("world_bedwars");
         time = 0;
         Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
@@ -36,17 +38,23 @@ public class spawnerTimer {
         bedwarsWorld.dropItem(new Location(bedwarsWorld, -49.5, 76, 4.5), new ItemStack(Material.BRICK));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, 50.5, 76, -3.5), new ItemStack(Material.BRICK));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, -3.5, 76, -49.5), new ItemStack(Material.BRICK));
+        bedwarsWorld.dropItem(new Location(bedwarsWorld, -1.52, 78.00, 62.70), new ItemStack(Material.BRICK));
     }
     public static void dropIron() {
         bedwarsWorld.dropItem(new Location(bedwarsWorld, -3.5, 76, 50.5), new ItemStack(Material.IRON_INGOT));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, -49.5, 76, -3.5), new ItemStack(Material.IRON_INGOT));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, 50.5, 76, 4.5), new ItemStack(Material.IRON_INGOT));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, 4.5, 76, -49.5), new ItemStack(Material.IRON_INGOT));
+        bedwarsWorld.dropItem(new Location(bedwarsWorld, -1.52, 78.00, 62.70), new ItemStack(Material.IRON_INGOT));
     }
     public static void dropGold() {
         bedwarsWorld.dropItem(new Location(bedwarsWorld, 0.5, 75.00, -2.5), new ItemStack(Material.GOLD_INGOT));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, 3.5, 75.00, 0.5), new ItemStack(Material.GOLD_INGOT));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, 0.5, 75.00, 3.5), new ItemStack(Material.GOLD_INGOT));
         bedwarsWorld.dropItem(new Location(bedwarsWorld, -2.5, 75.00, 0.5), new ItemStack(Material.GOLD_INGOT));
+    }
+
+    public spawnerTimer getSpawnerTimer() {
+        return this;
     }
 }
