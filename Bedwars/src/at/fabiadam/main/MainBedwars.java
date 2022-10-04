@@ -1,5 +1,6 @@
 package at.fabiadam.main;
 
+import at.fabiadam.commands.setSpawner;
 import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.GameState;
@@ -24,6 +25,7 @@ public class MainBedwars extends JavaPlugin {
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
+        getCommand("setspawner").setExecutor(new setSpawner());
 
         //Register all listeners
         PluginManager pluginManager = Bukkit.getPluginManager();
