@@ -44,6 +44,9 @@ public class spawnerTimer {
         bedwarsWorld.dropItem(new Location(bedwarsWorld, 4.5, 76, -49.5), new ItemStack(Material.IRON_INGOT));
     }
     public static void dropGold() {
-
+        bedwarsWorld.dropItem(new Location(bedwarsWorld, 0.5, 75.00, -2.5), new ItemStack(Material.GOLD_INGOT));
+        bedwarsWorld.dropItem(new Location(bedwarsWorld, 3.5, 75.00, 0.5), new ItemStack(Material.GOLD_INGOT));
+        bedwarsWorld.dropItem(new Location(bedwarsWorld, 0.5, 75.00, 3.5), new ItemStack(Material.GOLD_INGOT));
+        bedwarsWorld.dropItem(new Location(bedwarsWorld, -2.5, 75.00, 0.5), new ItemStack(Material.GOLD_INGOT));
     }
 }

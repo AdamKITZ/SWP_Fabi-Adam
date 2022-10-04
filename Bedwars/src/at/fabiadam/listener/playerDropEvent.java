@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 
 public class playerDropEvent implements Listener {
         @EventHandler
-        public void onplayerDropEvent(PlayerDropItemEvent event){
+        public void onPlayerDropEvent(PlayerDropItemEvent event){
             Player player = event.getPlayer();
             if(player.getWorld().getName().equals("world_bedwars_l")){
                 if(player.getGameMode() == GameMode.SURVIVAL){

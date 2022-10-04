@@ -24,7 +24,7 @@ public class lobbyTimer {
             public void run() {
                 checkPlayerCount();
                 //Send title to all players in the world with the current time
-                if(i <  6 || i == 30 || i > 56) {
+                if(i <  6 || i == 30 || i > 16) {
                     Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
                         player.sendTitle("§6Start in", "§a" + i + "");
                     });

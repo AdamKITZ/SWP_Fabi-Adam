@@ -14,6 +14,7 @@ public class playerWorldChangeEvent implements Listener {
     public static int maxPlayerCount = 4;
     public static int minPlayerCount = 2;
 
+
     @EventHandler
     public void onWorldChangeEvent(PlayerChangedWorldEvent event) {
         //Send message to all players in the world
@@ -21,11 +22,10 @@ public class playerWorldChangeEvent implements Listener {
             playerCount = Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().size();
         }
         if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")) {
-            Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
-                player.sendMessage("§a" + event.getPlayer().getName() + " joined the game!");
-                player.sendMessage("§a" + playerCount + "/" + maxPlayerCount + " players in the game!");
+            Bukkit.getServer().getWorld(MainBedwars.PREFIX + "world_bedwars_l").getPlayers().forEach(player -> {
+                player.sendMessage(MainBedwars.PREFIX + "§a" + event.getPlayer().getName() + " joined the game!");
+                player.sendMessage(MainBedwars.PREFIX + "§a" + playerCount + "/" + maxPlayerCount + " players in the game!");
             });
-            event.getPlayer().sendMessage("§bPlayers required to start: " + minPlayerCount);
         }
         checkPlayerCount();
     }

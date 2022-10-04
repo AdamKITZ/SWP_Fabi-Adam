@@ -2,13 +2,15 @@ package at.fabiadam.main;
 
 import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.gameStates.GameStateManager;
-import at.fabiadam.gameStates.gameStates;
+import at.fabiadam.gameStates.GameState;
 import at.fabiadam.listener.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainBedwars extends JavaPlugin {
+
+    public static final String PREFIX = "§8[§6Bedwars§8]§r ";
     private static MainBedwars plugin;
     private GameStateManager gameStateManager;
     @Override
@@ -18,7 +20,7 @@ public class MainBedwars extends JavaPlugin {
 
         gameStateManager = new GameStateManager(this);
 
-        gameStateManager.setGameState(gameStates.LOBBY);
+        gameStateManager.setGameState(GameState.LOBBY);
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
@@ -36,4 +38,7 @@ public class MainBedwars extends JavaPlugin {
         return plugin;
     }
 
+    public GameStateManager getGameStateManager() {
+        return gameStateManager;
+    }
 }
