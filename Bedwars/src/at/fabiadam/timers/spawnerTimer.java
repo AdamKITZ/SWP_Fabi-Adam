@@ -5,7 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.inventory.Inventory;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 
 
@@ -14,9 +14,11 @@ public class spawnerTimer {
     private static World bedwarsWorld;
     private static double time;
     private MainBedwars plugin;
+    private FileConfiguration config;
 
     public void startSpawnerScheduler() {
         plugin = MainBedwars.getPlugin();
+        config = plugin.getConfig();
         bedwarsWorld = Bukkit.getWorld("world_bedwars");
         time = 0;
         Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
@@ -33,25 +35,23 @@ public class spawnerTimer {
             }
         }, 0, 20);
     }
-    public static void dropBrick() {
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, 4.5, 76, 50.5), new ItemStack(Material.BRICK));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, -49.5, 76, 4.5), new ItemStack(Material.BRICK));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, 50.5, 76, -3.5), new ItemStack(Material.BRICK));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, -3.5, 76, -49.5), new ItemStack(Material.BRICK));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, -1.52, 78.00, 62.70), new ItemStack(Material.BRICK));
+    public void dropBrick() {
+        bedwarsWorld.dropItem(config.getLocation("spawner.bronze.1.log"), new ItemStack(Material.BRICK));
+        bedwarsWorld.dropItem(config.getLocation("spawner.bronze.2.log"), new ItemStack(Material.BRICK));
+        bedwarsWorld.dropItem(config.getLocation("spawner.bronze.3.log"), new ItemStack(Material.BRICK));
+        bedwarsWorld.dropItem(config.getLocation("spawner.bronze.4.log"), new ItemStack(Material.BRICK));
     }
-    public static void dropIron() {
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, -3.5, 76, 50.5), new ItemStack(Material.IRON_INGOT));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, -49.5, 76, -3.5), new ItemStack(Material.IRON_INGOT));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, 50.5, 76, 4.5), new ItemStack(Material.IRON_INGOT));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, 4.5, 76, -49.5), new ItemStack(Material.IRON_INGOT));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, -1.52, 78.00, 62.70), new ItemStack(Material.IRON_INGOT));
+    public void dropIron() {
+        bedwarsWorld.dropItem(config.getLocation("spawner.iron.1.log"), new ItemStack(Material.IRON_INGOT));
+        bedwarsWorld.dropItem(config.getLocation("spawner.iron.2.log"), new ItemStack(Material.IRON_INGOT));
+        bedwarsWorld.dropItem(config.getLocation("spawner.iron.3.log"), new ItemStack(Material.IRON_INGOT));
+        bedwarsWorld.dropItem(config.getLocation("spawner.iron.4.log"), new ItemStack(Material.IRON_INGOT));
     }
-    public static void dropGold() {
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, 0.5, 75.00, -2.5), new ItemStack(Material.GOLD_INGOT));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, 3.5, 75.00, 0.5), new ItemStack(Material.GOLD_INGOT));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, 0.5, 75.00, 3.5), new ItemStack(Material.GOLD_INGOT));
-        bedwarsWorld.dropItem(new Location(bedwarsWorld, -2.5, 75.00, 0.5), new ItemStack(Material.GOLD_INGOT));
+    public void dropGold() {
+        bedwarsWorld.dropItem(config.getLocation("spawner.gold.1.log"), new ItemStack(Material.GOLD_INGOT));
+        bedwarsWorld.dropItem(config.getLocation("spawner.gold.2.log"), new ItemStack(Material.GOLD_INGOT));
+        bedwarsWorld.dropItem(config.getLocation("spawner.gold.3.log"), new ItemStack(Material.GOLD_INGOT));
+        bedwarsWorld.dropItem(config.getLocation("spawner.gold.4.log"), new ItemStack(Material.GOLD_INGOT));
     }
 
     public spawnerTimer getSpawnerTimer() {
