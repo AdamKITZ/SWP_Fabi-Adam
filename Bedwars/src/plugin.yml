@@ -7,6 +7,6 @@
     start:
       description: Used to start a round of bedwars before the timer counts to zero
       usage: /start
-    setspawner:
+    bw:
       description: Used to set different spawner locations
       usage: /setspawner <spawner> <id>
