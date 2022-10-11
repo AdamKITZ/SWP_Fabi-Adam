@@ -16,9 +16,7 @@ public class playerDeathEvent implements Listener {
         Player player = event.getEntity();
         if(player.getWorld().getName().equals("world_bedwars_l")){
             if(player.getGameMode() == GameMode.SURVIVAL){
-                ItemStack stick = new ItemStack(Material.STICK);
-                stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 70);
-                player.getInventory().addItem(stick);
+                event.setKeepInventory(true);
             }
         }
     }
