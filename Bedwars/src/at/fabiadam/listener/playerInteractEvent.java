@@ -3,9 +3,12 @@ package at.fabiadam.listener;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class playerInteractEvent implements Listener {
 
@@ -14,6 +17,13 @@ public class playerInteractEvent implements Listener {
         if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")){
             if(event.getPlayer().getGameMode() == GameMode.SURVIVAL){
                 event.setCancelled(true);
+                if(event.getPlayer().getLocation().getY() <= 70){
+                    if(!event.getPlayer().getInventory().contains(Material.STICK)) {
+                        ItemStack stick = new ItemStack(Material.STICK);
+                        stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
+                        event.getPlayer().getInventory().addItem(stick);
+                    }
+                }
             }
         }
     }

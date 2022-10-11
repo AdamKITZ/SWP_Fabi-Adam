@@ -23,7 +23,6 @@ public class playerWorldChangeEvent implements Listener {
     public void onWorldChangeEvent(PlayerChangedWorldEvent event) {
 
         lobbyTimer = LobbyTimer.getLobbyTimer();
-        //Send message to all players in the world
         if(event.getPlayer().getWorld().getName().equals("world_bedwars_l") || event.getFrom().getName().equals("world_bedwars_l")) {
             playerCount = Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().size();
         }
@@ -32,14 +31,17 @@ public class playerWorldChangeEvent implements Listener {
                 player.sendMessage(MainBedwars.PREFIX + "§a" + event.getPlayer().getName() + " joined the game!");
                 player.sendMessage(MainBedwars.PREFIX + "§a" + playerCount + "/" + maxPlayerCount + " players in the game!");
             });
+            Player player = event.getPlayer();
+            ItemStack stick = new ItemStack(Material.STICK);
+            stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
+            player.getInventory().addItem(stick);
+        }
+        if(event.getPlayer().getWorld().equals("world_bedwars")) {
+            event.getPlayer().getInventory().clear();
         }
         checkPlayerCount();
         Player player = event.getPlayer();
-        if(event.getPlayer().getWorld().getName().equals("world_bedwars_l") || event.getFrom().getName().equals("world_bedwars_l")) {
-            ItemStack stick = new ItemStack(Material.STICK);
-            stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 70);
-            player.getInventory().addItem(stick);
-        }
+
     }
     //Start the timer if there are enough players
     public void checkPlayerCount() {
