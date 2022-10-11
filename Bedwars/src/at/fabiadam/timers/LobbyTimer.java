@@ -7,12 +7,13 @@ import org.bukkit.Location;
 import static at.fabiadam.listener.playerWorldChangeEvent.minPlayerCount;
 import static at.fabiadam.listener.playerWorldChangeEvent.playerCount;
 
-public class lobbyTimer {
-    private spawnerTimer spawnerTimer;
+public class LobbyTimer {
+    private static LobbyTimer lobbyTimer;
+    private SpawnerTimer spawnerTimer;
     private static int taskId = 0;
     private static boolean commandUsed = false;
     public void startScheduler(boolean cmdUsed) {
-        spawnerTimer = spawnerTimer.getSpawnerTimer();
+        spawnerTimer = MainBedwars.getSpawnerTimer();
         commandUsed = cmdUsed;
         //Return if the timer is already running
         if(taskId != 0) {
@@ -65,7 +66,7 @@ public class lobbyTimer {
         }
     }
 
-    public lobbyTimer getLobbyTimer() {
-        return this;
+    public static LobbyTimer getLobbyTimer() {
+        return lobbyTimer;
     }
 }

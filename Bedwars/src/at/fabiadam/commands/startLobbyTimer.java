@@ -1,16 +1,18 @@
 package at.fabiadam.commands;
 
-import at.fabiadam.timers.lobbyTimer;
+import at.fabiadam.main.MainBedwars;
+import at.fabiadam.timers.LobbyTimer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class startLobbyTimer implements CommandExecutor {
-    private lobbyTimer lobbyTimer;
+    private LobbyTimer lobbyTimer;
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        lobbyTimer = lobbyTimer.getLobbyTimer();
+        lobbyTimer = MainBedwars.getLobbyTimer();
+        //lobbyTimer = LobbyTimer.getLobbyTImer();
         if(sender instanceof Player) {
             Player player = (Player) sender;
             if(player.hasPermission("bedwars.start")) {
