@@ -37,7 +37,7 @@ public class playerWorldChangeEvent implements Listener {
         Player player = event.getPlayer();
         if(event.getPlayer().getWorld().getName().equals("world_bedwars_l") || event.getFrom().getName().equals("world_bedwars_l")) {
             ItemStack stick = new ItemStack(Material.STICK);
-            stick.addEnchantment(Enchantment.KNOCKBACK, 1000);
+            stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 70);
             player.getInventory().addItem(stick);
         }
     }
