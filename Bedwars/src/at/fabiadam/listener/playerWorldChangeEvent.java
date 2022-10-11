@@ -3,9 +3,13 @@ package at.fabiadam.listener;
 import at.fabiadam.main.MainBedwars;
 import at.fabiadam.timers.LobbyTimer;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.inventory.ItemStack;
 
 
 public class playerWorldChangeEvent implements Listener {
@@ -17,6 +21,7 @@ public class playerWorldChangeEvent implements Listener {
 
     @EventHandler
     public void onWorldChangeEvent(PlayerChangedWorldEvent event) {
+        Player player = event.getPlayer();
         lobbyTimer = LobbyTimer.getLobbyTimer();
         //Send message to all players in the world
         if(event.getPlayer().getWorld().getName().equals("world_bedwars_l") || event.getFrom().getName().equals("world_bedwars_l")) {
@@ -29,6 +34,11 @@ public class playerWorldChangeEvent implements Listener {
             });
         }
         checkPlayerCount();
+        if(event.getPlayer().getWorld().getName().equals("world_bedwars_l") || event.getFrom().getName().equals("world_bedwars_l")) {
+            ItemStack stick = new ItemStack(Material.STICK);
+            stick.addEnchantment(Enchantment.KNOCKBACK, 1000);
+            player.getInventory().addItem(stick);
+        }
     }
     //Start the timer if there are enough players
     public void checkPlayerCount() {
