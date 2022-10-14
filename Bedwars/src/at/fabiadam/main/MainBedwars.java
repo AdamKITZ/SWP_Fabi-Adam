@@ -42,6 +42,7 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new entityDamageByEntityEvent(), this);
         pluginManager.registerEvents(new playerDropEvent(), this);
         pluginManager.registerEvents(new playerDeathEvent(), this);
+        pluginManager.registerEvents(new blockBreakEvent(), this);
     }
 
     public static MainBedwars getPlugin() {
