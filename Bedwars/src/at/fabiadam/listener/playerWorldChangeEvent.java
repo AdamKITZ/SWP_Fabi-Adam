@@ -32,6 +32,9 @@ public class playerWorldChangeEvent implements Listener {
                 player.sendMessage(MainBedwars.PREFIX + "§a" + playerCount + "/" + maxPlayerCount + " players in the game!");
             });
             Player player = event.getPlayer();
+            player.getInventory().clear();
+            player.setHealth(20);
+            player.setFoodLevel(20);
             ItemStack stick = new ItemStack(Material.STICK);
             stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
             player.getInventory().addItem(stick);
