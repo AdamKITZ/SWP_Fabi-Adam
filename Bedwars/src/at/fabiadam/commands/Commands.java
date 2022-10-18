@@ -61,8 +61,27 @@ public class Commands implements CommandExecutor, TabCompleter {
                             } else {
                                 player.sendMessage("§cYou can not do this on your current world!");
                             }
+                        } else {
+                            player.sendMessage("§cYou do not have enough permission to perform this action!");
                         }
                         break;
+                    case "setspawn":
+                        if(player.hasPermission("bedwars.setspawn")) {
+                            if(player.getWorld().getName().equals("world_bedwars")) {
+                                if(args.length == 2) {
+                                    if(args[1].equalsIgnoreCase("red") || args[1].equalsIgnoreCase("blue") || args[1].equalsIgnoreCase("green") || args[1].equalsIgnoreCase("yellow")) {
+                                        FileConfiguration config = plugin.getConfig();
+                                        config.set("team." + args[1] + ".log", player.getLocation());
+                                        player.sendMessage("§b" + args[1].toUpperCase() + " spawn set!");
+                                        plugin.saveConfig();
+                                    }
+                                } else {
+                                    player.sendMessage("Usage: " + command.getUsage());
+                                }
+                            }
+                        }  else {
+                            player.sendMessage("§cYou do not have enough permission to perform this action!");
+                        }
                     default:
                         break;
             }
@@ -79,6 +98,7 @@ public class Commands implements CommandExecutor, TabCompleter {
         if(strings.length == 1) {
             result.add("setspawner");
             result.add("setbed");
+            result.add("setspawn");
         }
         return result;
     }
