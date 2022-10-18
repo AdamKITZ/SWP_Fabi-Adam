@@ -8,6 +8,7 @@ import at.fabiadam.gameStates.GameState;
 import at.fabiadam.listener.*;
 import at.fabiadam.timers.LobbyTimer;
 import at.fabiadam.timers.SpawnerTimer;
+import at.fabiadam.util.BedwarsUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +20,7 @@ public class MainBedwars extends JavaPlugin {
     private static LobbyTimer lobbyTimer;
     private static SpawnerTimer spawnerTimer;
     private GameStateManager gameStateManager;
+    private static BedwarsUtil util;
 
     @Override
     public void onEnable() {
@@ -29,6 +31,7 @@ public class MainBedwars extends JavaPlugin {
         spawnerTimer = new SpawnerTimer();
         gameStateManager = new GameStateManager(this);
         gameStateManager.setGameState(GameState.LOBBY);
+        util = new BedwarsUtil();
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
@@ -39,7 +42,7 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new playerWorldChangeEvent(), this);
         pluginManager.registerEvents(new playerJoinEvent(), this);
         pluginManager.registerEvents(new playerInteractEvent(), this);
-        //pluginManager.registerEvents(new entityDamageByEntityEvent(), this);
+        pluginManager.registerEvents(new entityDamageByEntityEvent(), this);
         pluginManager.registerEvents(new playerDropEvent(), this);
         pluginManager.registerEvents(new playerDeathEvent(), this);
         pluginManager.registerEvents(new blockBreakEvent(), this);
@@ -54,6 +57,7 @@ public class MainBedwars extends JavaPlugin {
     public static SpawnerTimer getSpawnerTimer() {
         return spawnerTimer;
     }
+    public static BedwarsUtil getUtil() { return util; }
     public GameStateManager getGameStateManager() {
         return gameStateManager;
     }

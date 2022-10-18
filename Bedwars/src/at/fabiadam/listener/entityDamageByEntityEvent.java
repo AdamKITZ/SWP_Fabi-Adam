@@ -1,5 +1,6 @@
 package at.fabiadam.listener;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,7 +16,7 @@ public class entityDamageByEntityEvent implements Listener {
             Player player = (Player) event.getEntity();
             if(player.getWorld().getName().equals("world_bedwars_l")){
                 if(player.getGameMode() == GameMode.SURVIVAL){
-                    if(player.getLocation().getY () < 70) {
+                    if(player.getLocation().getY () > 70) {
                         event.setCancelled(true);
                     }
                 }

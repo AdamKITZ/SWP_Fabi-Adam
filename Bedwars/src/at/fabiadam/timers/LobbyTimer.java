@@ -1,5 +1,7 @@
 package at.fabiadam.timers;
 
+import at.fabiadam.gameStates.GameState;
+import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.main.MainBedwars;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -10,6 +12,7 @@ import static at.fabiadam.listener.playerWorldChangeEvent.playerCount;
 public class LobbyTimer {
     private static LobbyTimer lobbyTimer;
     private SpawnerTimer spawnerTimer;
+    private GameStateManager gameStateManager;
     private static int taskId = 0;
     private static boolean commandUsed = false;
     public void startScheduler(boolean cmdUsed) {
@@ -43,6 +46,8 @@ public class LobbyTimer {
                         player.teleport(bedwarsSpawn);
                     });
                     spawnerTimer.startSpawnerScheduler();
+                    gameStateManager = MainBedwars.getPlugin().getGameStateManager();
+                    gameStateManager.setGameState(GameState.GAME);
                 }
 
                 i--;
