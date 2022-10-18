@@ -1,5 +1,6 @@
 package at.fabiadam.listener;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -17,6 +18,18 @@ public class blockBreakEvent implements Listener {
             if(event.getPlayer().getGameMode() == GameMode.SURVIVAL){
                 if(!(event.getBlock().getType() == Material.RED_BED)) {
                     event.setCancelled(true);
+                }
+                else if(event.getBlock().getType() == Material.RED_BED){
+                    Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
+                }
+                else if(event.getBlock().getType() == Material.BLUE_BED){
+                    Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
+                }
+                else if(event.getBlock().getType() == Material.GREEN_BED){
+                    Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
+                }
+                else if(event.getBlock().getType() == Material.YELLOW_BED){
+                    Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
                 }
             }
         }
