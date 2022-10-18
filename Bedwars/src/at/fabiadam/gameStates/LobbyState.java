@@ -1,6 +1,7 @@
 package at.fabiadam.gameStates;
 
 import at.fabiadam.main.MainBedwars;
+import at.fabiadam.util.BedwarsUtil;
 import org.bukkit.Bukkit;
 
 public class LobbyState extends GameState {

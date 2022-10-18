@@ -2,6 +2,7 @@ package at.fabiadam.objects;
 
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
@@ -43,6 +44,10 @@ public class Team {
         this.maxPlayerCount = maxPlayerCount;
         this.players = players;
         this.isBedActive = isBedActive;
+    }
+
+    public String getTeamColor() {
+        return color;
     }
 
 
