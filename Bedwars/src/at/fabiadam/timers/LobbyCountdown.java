@@ -6,18 +6,19 @@ import at.fabiadam.main.MainBedwars;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
-import static at.fabiadam.listener.playerWorldChangeEvent.minPlayerCount;
 import static at.fabiadam.listener.playerWorldChangeEvent.playerCount;
 
-public class LobbyTimer {
-    private static LobbyTimer lobbyTimer;
+public class LobbyCountdown extends Timer {
+    private static final int LOBBY_COUNTDOWN = 20;
+    private MainBedwars plugin;
     private SpawnerTimer spawnerTimer;
     private GameStateManager gameStateManager;
     private static int taskId = 0;
-    private static boolean commandUsed = false;
-    public void startScheduler(boolean cmdUsed) {
-        spawnerTimer = MainBedwars.getSpawnerTimer();
-        commandUsed = cmdUsed;
+
+    @Override
+    public void start() {
+        plugin = MainBedwars.getPlugin();
+        spawnerTimer = plugin.getSpawnerTimer();
         //Return if the timer is already running
         if(taskId != 0) {
             return;
@@ -27,7 +28,6 @@ public class LobbyTimer {
             int i = 20;
             @Override
             public void run() {
-                checkPlayerCount();
                 //Send title to all players in the world with the current time
                 if(i <  6 || i == 30 || i > 16) {
                     Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
@@ -39,14 +39,12 @@ public class LobbyTimer {
                     //Reset
                     Bukkit.getScheduler().cancelTask(taskId);
                     taskId = 0;
-                    commandUsed = false;
                     //Teleport players
                     Location bedwarsSpawn = new Location(Bukkit.getWorld("world_bedwars"), 0.5, 75, 0.5);
                     Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
                         player.teleport(bedwarsSpawn);
                     });
-                    spawnerTimer.startSpawnerScheduler();
-                    gameStateManager = MainBedwars.getPlugin().getGameStateManager();
+                    gameStateManager = plugin.getGameStateManager();
                     gameStateManager.setGameState(GameState.GAME);
                 }
 
@@ -57,21 +55,10 @@ public class LobbyTimer {
 
 
     }
-    //Stop the scheduler if there are not enough players and reset variables
-    public static void checkPlayerCount() {
-        if(playerCount < minPlayerCount) {
-            if(!commandUsed) {
-                Bukkit.getScheduler().cancelTask(taskId);
-                taskId = 0;
-                commandUsed = false;
-                Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
-                    player.sendMessage("§cTimer Stopped! Not enough players to start the game!");
-                });
-            }
-        }
-    }
 
-    public static LobbyTimer getLobbyTimer() {
-        return lobbyTimer;
+    @Override
+    public void stop() {
+        Bukkit.getScheduler().cancelTask(taskId);
+        taskId = 0;
     }
 }

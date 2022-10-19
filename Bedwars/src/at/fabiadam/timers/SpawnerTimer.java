@@ -37,22 +37,22 @@ public class SpawnerTimer {
     }
     public void dropBrick() {
         for(int i = 1; i < 5; i++) {
-            if (config.contains("spawner.bronze." + i + ".log")) {
-                bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".log"), new ItemStack(Material.BRICK));
+            if (config.contains("spawner.bronze." + i + ".loc")) {
+                bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".loc"), new ItemStack(Material.BRICK));
             }
         }
     }
     public void dropIron() {
         for(int i = 1; i < 5; i++) {
-            if (config.contains("spawner.bronze." + i + ".log")) {
-                bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".log"), new ItemStack(Material.IRON_INGOT));
+            if (config.contains("spawner.bronze." + i + ".loc")) {
+                bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".loc"), new ItemStack(Material.IRON_INGOT));
             }
         }
     }
     public void dropGold() {
         for(int i = 1; i < 5; i++) {
-            if (config.contains("spawner.bronze." + i + ".log")) {
-                bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".log"), new ItemStack(Material.GOLD_INGOT));
+            if (config.contains("spawner.bronze." + i + ".loc")) {
+                bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".loc"), new ItemStack(Material.GOLD_INGOT));
             }
         }
     }
