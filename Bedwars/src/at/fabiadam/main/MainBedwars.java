@@ -1,12 +1,11 @@
 package at.fabiadam.main;
 
 import at.fabiadam.commands.Commands;
-import at.fabiadam.commands.setSpawner;
 import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.GameState;
 import at.fabiadam.listener.*;
-import at.fabiadam.timers.LobbyTimer;
+import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
 import org.bukkit.Bukkit;
@@ -17,17 +16,17 @@ public class MainBedwars extends JavaPlugin {
 
     public static final String PREFIX = "§8[§6Bedwars§8]§r ";
     private static MainBedwars plugin;
-    private static LobbyTimer lobbyTimer;
-    private static SpawnerTimer spawnerTimer;
+    private static LobbyCountdown lobbyCountdown;
+    private SpawnerTimer spawnerTimer;
     private GameStateManager gameStateManager;
-    private static BedwarsUtil util;
+    private BedwarsUtil util;
 
     @Override
     public void onEnable() {
         plugin = this;
-        System.out.println("Bedwars Plugin enabled!");
+        Bukkit.getConsoleSender().sendMessage(PREFIX + "Plugin enabled");
 
-        lobbyTimer = new LobbyTimer();
+        lobbyCountdown = new LobbyCountdown();
         spawnerTimer = new SpawnerTimer();
         gameStateManager = new GameStateManager(this);
         gameStateManager.setGameState(GameState.LOBBY);
@@ -47,17 +46,21 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new playerDeathEvent(), this);
         pluginManager.registerEvents(new blockBreakEvent(), this);
     }
+    @Override
+    public void onDisable() {
+        Bukkit.getConsoleSender().sendMessage(PREFIX + "Plugin disabled");
+    }
 
     public static MainBedwars getPlugin() {
         return plugin;
     }
-    public static LobbyTimer getLobbyTimer() {
-        return lobbyTimer;
+    public static LobbyCountdown getLobbyTimer() {
+        return lobbyCountdown;
     }
-    public static SpawnerTimer getSpawnerTimer() {
+    public SpawnerTimer getSpawnerTimer() {
         return spawnerTimer;
     }
-    public static BedwarsUtil getUtil() { return util; }
+    public BedwarsUtil getUtil() { return util; }
     public GameStateManager getGameStateManager() {
         return gameStateManager;
     }
