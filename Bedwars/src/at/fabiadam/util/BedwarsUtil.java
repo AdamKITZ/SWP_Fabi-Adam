@@ -62,6 +62,7 @@ public class BedwarsUtil {
     }
 
     public List<Location> getSpawnBlocks(Location spawn) {
+        spawn = spawn.getBlock().getLocation();
         List<Location> spawnBlocks = new ArrayList<>();
         spawnBlocks.add(spawn);
         spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY(), spawn.getZ()));
