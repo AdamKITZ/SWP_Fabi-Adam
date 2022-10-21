@@ -29,7 +29,7 @@ public class Commands implements CommandExecutor, TabCompleter {
                                     if(args[1].equalsIgnoreCase("bronze") || args[1].equalsIgnoreCase("iron") || args[1].equalsIgnoreCase("gold")) {
                                         if (args[2].matches("[1-4]+")) {
                                             FileConfiguration config = plugin.getConfig();
-                                            config.set("spawner." + args[1] + "." + args[1] + ".loc", player.getLocation());
+                                            config.set("spawner." + args[1] + "." + args[2] + ".loc", player.getLocation());
                                             player.sendMessage("§b" + args[1].toUpperCase() + " spawner set!");
                                             plugin.saveConfig();
                                         }
