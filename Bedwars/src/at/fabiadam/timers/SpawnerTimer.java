@@ -44,21 +44,16 @@ public class SpawnerTimer {
     }
     public void dropIron() {
         for(int i = 1; i < 5; i++) {
-            if (config.contains("spawner.bronze." + i + ".loc")) {
+            if (config.contains("spawner.iron." + i + ".loc")) {
                 bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".loc"), new ItemStack(Material.IRON_INGOT));
             }
         }
     }
     public void dropGold() {
         for(int i = 1; i < 5; i++) {
-            if (config.contains("spawner.bronze." + i + ".loc")) {
+            if (config.contains("spawner.gold." + i + ".loc")) {
                 bedwarsWorld.dropItem(config.getLocation("spawner.bronze." + i + ".loc"), new ItemStack(Material.GOLD_INGOT));
             }
         }
-    }
-
-
-    public SpawnerTimer getSpawnerTimer() {
-        return this;
     }
 }
