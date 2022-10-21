@@ -16,6 +16,9 @@ public class GameStateManager {
         gameStates[2] = new EndingState();
     }
 
+    public GameState getGameState() {
+        return currentGameState;
+    }
 
     public void setGameState(int gameStateNumber) {
         if (currentGameState != null) {

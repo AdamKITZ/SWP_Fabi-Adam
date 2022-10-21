@@ -26,10 +26,10 @@ public class Commands implements CommandExecutor, TabCompleter {
                         if(player.hasPermission("bedwars.setspawner")) {
                             if(player.getWorld().getName().equals("world_bedwars")) {
                                 if(args.length == 3) {
-                                    if(args[1].equalsIgnoreCase("bronze") || args[0].equalsIgnoreCase("iron") || args[0].equalsIgnoreCase("gold")) {
+                                    if(args[1].equalsIgnoreCase("bronze") || args[1].equalsIgnoreCase("iron") || args[1].equalsIgnoreCase("gold")) {
                                         if (args[2].matches("[1-4]+")) {
                                             FileConfiguration config = plugin.getConfig();
-                                            config.set("spawner." + args[1] + "." + args[1] + ".log", player.getLocation());
+                                            config.set("spawner." + args[1] + "." + args[1] + ".loc", player.getLocation());
                                             player.sendMessage("§b" + args[1].toUpperCase() + " spawner set!");
                                             plugin.saveConfig();
                                         }
@@ -50,7 +50,7 @@ public class Commands implements CommandExecutor, TabCompleter {
                                 if(args.length == 2) {
                                     if(args[1].equalsIgnoreCase("red") || args[1].equalsIgnoreCase("blue") || args[1].equalsIgnoreCase("green") || args[1].equalsIgnoreCase("yellow")) {
                                         FileConfiguration config = plugin.getConfig();
-                                        config.set("bed." + args[1] + ".log", player.getLocation());
+                                        config.set("bed." + args[1] + ".loc", player.getLocation());
                                         player.sendMessage("§b" + args[1].toUpperCase() + " bed set!");
                                         plugin.saveConfig();
                                     }
@@ -71,9 +71,11 @@ public class Commands implements CommandExecutor, TabCompleter {
                                 if(args.length == 2) {
                                     if(args[1].equalsIgnoreCase("red") || args[1].equalsIgnoreCase("blue") || args[1].equalsIgnoreCase("green") || args[1].equalsIgnoreCase("yellow")) {
                                         FileConfiguration config = plugin.getConfig();
-                                        config.set("team." + args[1] + ".log", player.getLocation());
+                                        config.set("team." + args[1] + ".teamSpawn", player.getLocation());
                                         player.sendMessage("§b" + args[1].toUpperCase() + " spawn set!");
                                         plugin.saveConfig();
+                                    } else {
+                                        player.sendMessage("Usage: " + command.getUsage());
                                     }
                                 } else {
                                     player.sendMessage("Usage: " + command.getUsage());
@@ -99,6 +101,23 @@ public class Commands implements CommandExecutor, TabCompleter {
             result.add("setspawner");
             result.add("setbed");
             result.add("setspawn");
+        } else if(strings.length == 2) {
+            switch (strings[0].toLowerCase()) {
+                case "setspawner":
+                    result.add("bronze");
+                    result.add("iron");
+                    result.add("gold");
+                    break;
+                case "setbed":
+                case "setspawn":
+                    result.add("red");
+                    result.add("blue");
+                    result.add("green");
+                    result.add("yellow");
+                    break;
+                default:
+                    break;
+            }
         }
         return result;
     }
