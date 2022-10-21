@@ -16,8 +16,11 @@ public class onPlayerDeath implements Listener {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
         Player player = (Player) event.getEntity();
-        player.spigot().respawn();
-        Team team = util.getPlayerTeam(player);
-        player.teleport(team.getTeamSpawn());
+        if(player.getWorld().getName().equals("world_bedwars")) {
+            player.spigot().respawn();
+            Team team = util.getPlayerTeam(player);
+            player.teleport(team.getTeamSpawn());
+        }
+
     }
 }
