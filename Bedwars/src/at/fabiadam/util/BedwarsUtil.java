@@ -3,6 +3,7 @@ package at.fabiadam.util;
 import at.fabiadam.main.MainBedwars;
 import at.fabiadam.objects.Team;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
@@ -20,8 +21,8 @@ public class BedwarsUtil {
         plugin = MainBedwars.getPlugin();
         FileConfiguration config = plugin.getConfig();
         red = new Team("red", 1, config.getLocation("team.red.teamSpawn"));
-        blue = new Team("blue", 1, config.getLocation("team.green.teamSpawn"));
-        green = new Team("green", 1,  config.getLocation("team.blue.teamSpawn"));
+        blue = new Team("blue", 1, config.getLocation("team.blue.teamSpawn"));
+        green = new Team("green", 1,  config.getLocation("team.green.teamSpawn"));
         yellow = new Team("yellow", 1,  config.getLocation("team.yellow.teamSpawn"));
         teamList.add(red);
         teamList.add(blue);
@@ -41,6 +42,15 @@ public class BedwarsUtil {
 
     }
 
+    public Team getPlayerTeam(Player player) {
+        for(int i = 0; i<4; i++) {
+            if(teamList.get(i).getPlayers().contains(player)) {
+                return teamList.get(i);
+            }
+        }
+        return null;
+    }
+
     public void teleportTeams() {
         teamList.forEach(team -> {
             if(team.getPlayerCount() > 0) {
@@ -49,6 +59,29 @@ public class BedwarsUtil {
                 });
             }
         });
+    }
+
+    public List<Location> getSpawnBlocks(Location spawn) {
+        List<Location> spawnBlocks = new ArrayList<>();
+        spawnBlocks.add(spawn);
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY(), spawn.getZ()));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() - 1, spawn.getY(), spawn.getZ()));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX(), spawn.getY(), spawn.getZ() + 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX(), spawn.getY(), spawn.getZ() - 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY(), spawn.getZ() + 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() - 1, spawn.getY(), spawn.getZ() - 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY(), spawn.getZ() - 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() - 1, spawn.getY(), spawn.getZ() + 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX(), spawn.getY() + 1, spawn.getZ()));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY() + 1, spawn.getZ()));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() - 1, spawn.getY() + 1, spawn.getZ()));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX(), spawn.getY() + 1, spawn.getZ() + 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX(), spawn.getY() + 1, spawn.getZ() - 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY() + 1, spawn.getZ() + 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() - 1, spawn.getY() + 1, spawn.getZ() - 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY() + 1, spawn.getZ() - 1));
+        spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() - 1, spawn.getY() + 1, spawn.getZ() + 1));
+        return spawnBlocks;
     }
 
 }

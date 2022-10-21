@@ -14,12 +14,9 @@ public class blockBreakEvent implements Listener {
 
     @EventHandler
     public void onBlockBreakEvent(BlockBreakEvent event) {
-        if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")){
+        if(event.getPlayer().getWorld().getName().equals("world_bedwars")){
             if(event.getPlayer().getGameMode() == GameMode.SURVIVAL){
-                if(!(event.getBlock().getType() == Material.RED_BED)) {
-                    event.setCancelled(true);
-                }
-                else if(event.getBlock().getType() == Material.RED_BED){
+                if(event.getBlock().getType() == Material.RED_BED){
                     Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
                 }
                 else if(event.getBlock().getType() == Material.BLUE_BED){
@@ -30,6 +27,8 @@ public class blockBreakEvent implements Listener {
                 }
                 else if(event.getBlock().getType() == Material.YELLOW_BED) {
                     Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
+                } else {
+                    event.setCancelled(true);
                 }
             }
         }
