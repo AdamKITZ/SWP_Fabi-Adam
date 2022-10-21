@@ -28,7 +28,7 @@ public class blockBreakEvent implements Listener {
                 else if(event.getBlock().getType() == Material.GREEN_BED){
                     Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
                 }
-                else if(event.getBlock().getType() == Material.YELLOW_BED){
+                else if(event.getBlock().getType() == Material.YELLOW_BED) {
                     Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7hat das Bett zerstört!");
                 }
             }

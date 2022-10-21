@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -23,6 +24,22 @@ public class playerInteractEvent implements Listener {
                         stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
                         event.getPlayer().getInventory().addItem(stick);
                     }
+                }
+            }
+        }
+        else if (event.getPlayer().getWorld().getName().equals("world_bedwars")){
+            if(event.getAction() == Action.RIGHT_CLICK_BLOCK){
+                if(event.getClickedBlock().getType() == Material.RED_BED){
+                    event.setCancelled(true);
+                }
+                else if (event.getClickedBlock().getType() == Material.GREEN_BED){
+                    event.setCancelled(true);
+                }
+                else if(event.getClickedBlock().getType() == Material.BLUE_BED){
+                    event.setCancelled(true);
+                }
+                else if(event.getClickedBlock().getType() == Material.YELLOW_BED){
+                    event.setCancelled(true);
                 }
             }
         }
