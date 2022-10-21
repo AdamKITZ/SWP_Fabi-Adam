@@ -14,7 +14,7 @@ public class blockBreakEvent implements Listener {
 
     @EventHandler
     public void onBlockBreakEvent(BlockBreakEvent event) {
-        if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")){
+        if(event.getPlayer().getWorld().getName().equals("world_bedwars")){
             if(event.getPlayer().getGameMode() == GameMode.SURVIVAL){
                 if(!(event.getBlock().getType() == Material.RED_BED)) {
                     event.setCancelled(true);
