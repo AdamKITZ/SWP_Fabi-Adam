@@ -8,8 +8,10 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.ItemMergeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class playerInteractEvent implements Listener {
 
@@ -22,6 +24,8 @@ public class playerInteractEvent implements Listener {
                     if(!event.getPlayer().getInventory().contains(Material.STICK)) {
                         ItemStack stick = new ItemStack(Material.STICK);
                         stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
+                        ItemMeta stickMeta = stick.getItemMeta();
+                        stickMeta.setDisplayName("§6§lKnockback Stick");
                         event.getPlayer().getInventory().addItem(stick);
                     }
                 }
