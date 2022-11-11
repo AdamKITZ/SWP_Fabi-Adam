@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 
 public class LobbyState extends GameState {
     public static final int MAX_PLAYERS = 4;
-    public static final int MIN_PLAYERS = 2;
+    public static final int MIN_PLAYERS = 1;
     private MainBedwars plugin;
 
     @Override
@@ -17,7 +17,7 @@ public class LobbyState extends GameState {
 
     @Override
     public void stop() {
-        // TODO Auto-generated method stub
+
     }
 }
 

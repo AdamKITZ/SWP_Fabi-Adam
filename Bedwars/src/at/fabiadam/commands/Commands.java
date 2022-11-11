@@ -16,7 +16,6 @@ public class Commands implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         plugin = MainBedwars.getPlugin();
         if(sender instanceof Player) {
             if(command.getName().equalsIgnoreCase("bw")) {

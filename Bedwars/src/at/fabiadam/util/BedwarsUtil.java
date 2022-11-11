@@ -51,6 +51,15 @@ public class BedwarsUtil {
         return null;
     }
 
+    public int isBedActiv(Player player) {
+        Team team = getPlayerTeam(player);
+        if(team.isBedActive()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public void teleportTeams() {
         teamList.forEach(team -> {
             if(team.getPlayerCount() > 0) {
