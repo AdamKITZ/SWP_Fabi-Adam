@@ -26,6 +26,7 @@ public class playerInteractEvent implements Listener {
                         stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
                         ItemMeta stickMeta = stick.getItemMeta();
                         stickMeta.setDisplayName("§6§lKnockback Stick");
+                        stick.setItemMeta(stickMeta);
                         event.getPlayer().getInventory().addItem(stick);
                     }
                 }
