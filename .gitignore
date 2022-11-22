@@ -23,6 +23,7 @@
 hs_err_pid*
 
 # self added files
-.idea/
+workspace.xml
+tasks.xml
 *.iml
 
