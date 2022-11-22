@@ -23,4 +23,6 @@
 hs_err_pid*
 
 # self added files
-*.xml
+.idea/
+*.iml
+
