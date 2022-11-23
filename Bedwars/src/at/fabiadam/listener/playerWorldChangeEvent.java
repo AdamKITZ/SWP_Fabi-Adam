@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 
 public class playerWorldChangeEvent implements Listener {
@@ -59,7 +60,10 @@ public class playerWorldChangeEvent implements Listener {
                 player.setFoodLevel(20);
                 ItemStack stick = new ItemStack(Material.STICK);
                 stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
-                player.getInventory().addItem(stick);
+                ItemMeta stickMeta = stick.getItemMeta();
+                stickMeta.setDisplayName("§6§lKnockback Stick");
+                stick.setItemMeta(stickMeta);
+                event.getPlayer().getInventory().addItem(stick);
             }
         }, 5);
     }
