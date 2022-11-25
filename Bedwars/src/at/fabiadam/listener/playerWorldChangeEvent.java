@@ -64,6 +64,7 @@ public class playerWorldChangeEvent implements Listener {
                 stickMeta.setDisplayName("§6§lKnockback Stick");
                 stick.setItemMeta(stickMeta);
                 event.getPlayer().getInventory().addItem(stick);
+
             }
         }, 5);
     }

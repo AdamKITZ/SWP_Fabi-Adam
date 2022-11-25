@@ -13,13 +13,17 @@ import java.util.List;
 
 public class BedwarsUtil {
     private MainBedwars plugin;
+
+    private Board board;
     public List<Team> teamList = new ArrayList<>();
     public Team red;
     public Team blue;
     public Team green;
     public Team yellow;
+
     public void start() {
         plugin = MainBedwars.getPlugin();
+        board = plugin.getBoard();
         FileConfiguration config = plugin.getConfig();
         red = new Team("red", 1, config.getLocation("team.red.teamSpawn"));
         blue = new Team("blue", 1, config.getLocation("team.blue.teamSpawn"));
@@ -30,8 +34,7 @@ public class BedwarsUtil {
         teamList.add(green);
         teamList.add(yellow);
 
-        //create scoreboard
-        Board board = new Board();
+
 
         //Each player should be put into a team --> If team is full, try next team
         List<Player> players = Bukkit.getServer().getWorld("world_bedwars").getPlayers();
@@ -40,6 +43,8 @@ public class BedwarsUtil {
                 if(teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
                     teamList.get(i).addPlayer(p);
                     p.sendMessage(MainBedwars.PREFIX + "You are in team " + teamList.get(i).getTeamColor());
+                    board.setScoreboard(p);
+
                     break;
                 }
             }
