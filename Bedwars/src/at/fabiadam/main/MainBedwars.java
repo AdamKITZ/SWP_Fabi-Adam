@@ -5,6 +5,7 @@ import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.GameState;
 import at.fabiadam.listener.*;
+import at.fabiadam.scoreboard.Board;
 import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
@@ -47,6 +48,7 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new blockBreakEvent(), this);
         pluginManager.registerEvents(new onPlayerDeath(), this);
         pluginManager.registerEvents(new blockPlaceEvent(), this);
+        pluginManager.registerEvents(new Board(), this);
     }
     @Override
     public void onDisable() {

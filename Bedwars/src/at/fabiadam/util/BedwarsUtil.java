@@ -2,6 +2,7 @@ package at.fabiadam.util;
 
 import at.fabiadam.main.MainBedwars;
 import at.fabiadam.objects.Team;
+import at.fabiadam.scoreboard.Board;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,6 +29,10 @@ public class BedwarsUtil {
         teamList.add(blue);
         teamList.add(green);
         teamList.add(yellow);
+
+        //create scoreboard
+        Board board = new Board();
+
         //Each player should be put into a team --> If team is full, try next team
         List<Player> players = Bukkit.getServer().getWorld("world_bedwars").getPlayers();
         players.forEach(p -> {
