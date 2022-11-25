@@ -21,6 +21,7 @@ public class MainBedwars extends JavaPlugin {
     private SpawnerTimer spawnerTimer;
     private GameStateManager gameStateManager;
     private BedwarsUtil util;
+    private Board board;
 
     @Override
     public void onEnable() {
@@ -32,6 +33,7 @@ public class MainBedwars extends JavaPlugin {
         gameStateManager = new GameStateManager(this);
         gameStateManager.setGameState(GameState.LOBBY);
         util = new BedwarsUtil();
+        board = new Board();
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
@@ -48,7 +50,6 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new blockBreakEvent(), this);
         pluginManager.registerEvents(new onPlayerDeath(), this);
         pluginManager.registerEvents(new blockPlaceEvent(), this);
-        pluginManager.registerEvents(new Board(), this);
     }
     @Override
     public void onDisable() {
@@ -67,5 +68,9 @@ public class MainBedwars extends JavaPlugin {
     public BedwarsUtil getUtil() { return util; }
     public GameStateManager getGameStateManager() {
         return gameStateManager;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 }
