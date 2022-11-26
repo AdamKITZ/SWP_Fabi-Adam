@@ -19,8 +19,10 @@ public class Board {
             Objective object = board.registerNewObjective("test", "dummy");
 
             object.setDisplaySlot(DisplaySlot.SIDEBAR);
-            object.setDisplayName("§a§lWelcome!");
+            object.setDisplayName("§a§lScoreboard");
 
+
+            object.getScore(Bukkit.getName() + "'s Scoreboard").setScore(5);
             object.getScore(" ").setScore(5);
             object.getScore("§a✓ §cRed").setScore(4);
             object.getScore("§a✓ §aGreen").setScore(3);
