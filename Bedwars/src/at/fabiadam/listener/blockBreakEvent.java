@@ -22,10 +22,10 @@ public class blockBreakEvent implements Listener {
     public void onBlockBreakEvent(BlockBreakEvent event) {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
-        if(event.getPlayer().getWorld().getName().equals("world_bedwars")){
-            if(event.getPlayer().getGameMode() == GameMode.SURVIVAL){
-                if(event.getBlock().getType() == Material.RED_BED){
-                    if(util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("red")) {
+        if (event.getPlayer().getWorld().getName().equals("world_bedwars")) {
+            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+                if (event.getBlock().getType() == Material.RED_BED) {
+                    if (util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("red")) {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.red.bed", 0);
@@ -33,27 +33,24 @@ public class blockBreakEvent implements Listener {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §c§lRED §7bed!");
                     }
 
-                }
-                else if(event.getBlock().getType() == Material.BLUE_BED){
-                    if(util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("blue")) {
+                } else if (event.getBlock().getType() == Material.BLUE_BED) {
+                    if (util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("blue")) {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.blue.bed", 0);
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §9§lBLUE §7bed!");
                     }
-                }
-                else if(event.getBlock().getType() == Material.GREEN_BED){
-                    if(util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("greeb")) {
+                } else if (event.getBlock().getType() == Material.GREEN_BED) {
+                    if (util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("greeb")) {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.green.bed", 0);
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §a§lGREEN §7bed!");
                     }
-                }
-                else if(event.getBlock().getType() == Material.YELLOW_BED) {
-                    if(util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("yellow")) {
+                } else if (event.getBlock().getType() == Material.YELLOW_BED) {
+                    if (util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("yellow")) {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.yellow.bed", 0);

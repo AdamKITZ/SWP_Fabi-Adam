@@ -51,6 +51,7 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new onPlayerDeath(), this);
         pluginManager.registerEvents(new blockPlaceEvent(), this);
     }
+
     @Override
     public void onDisable() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "Plugin disabled");
@@ -59,13 +60,19 @@ public class MainBedwars extends JavaPlugin {
     public static MainBedwars getPlugin() {
         return plugin;
     }
+
     public static LobbyCountdown getLobbyTimer() {
         return lobbyCountdown;
     }
+
     public SpawnerTimer getSpawnerTimer() {
         return spawnerTimer;
     }
-    public BedwarsUtil getUtil() { return util; }
+
+    public BedwarsUtil getUtil() {
+        return util;
+    }
+
     public GameStateManager getGameStateManager() {
         return gameStateManager;
     }

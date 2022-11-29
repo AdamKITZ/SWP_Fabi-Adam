@@ -9,14 +9,15 @@ import org.bukkit.entity.Player;
 
 public class startLobbyTimer implements CommandExecutor {
     private LobbyCountdown lobbyCountdown;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         lobbyCountdown = MainBedwars.getLobbyTimer();
         //lobbyCountdown = LobbyCountdown.getLobbyTImer();
-        if(sender instanceof Player) {
+        if (sender instanceof Player) {
             Player player = (Player) sender;
-            if(player.hasPermission("bedwars.start")) {
-                if(player.getWorld().getName().equals("world_bedwars_l")) {
+            if (player.hasPermission("bedwars.start")) {
+                if (player.getWorld().getName().equals("world_bedwars_l")) {
                     lobbyCountdown.start();
                 } else {
                     player.sendMessage("§cYou can not do this on your current world!");
