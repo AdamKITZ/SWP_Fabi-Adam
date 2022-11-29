@@ -12,10 +12,10 @@ import org.bukkit.inventory.ItemStack;
 public class playerDeathEvent implements Listener {
 
     @EventHandler
-    public void onPlayerDeathEvent(PlayerDeathEvent event){
+    public void onPlayerDeathEvent(PlayerDeathEvent event) {
         Player player = event.getEntity();
-        if(player.getWorld().getName().equals("world_bedwars_l")){
-            if(player.getGameMode() == GameMode.SURVIVAL){
+        if (player.getWorld().getName().equals("world_bedwars_l")) {
+            if (player.getGameMode() == GameMode.SURVIVAL) {
                 event.setKeepInventory(true);
             }
         }

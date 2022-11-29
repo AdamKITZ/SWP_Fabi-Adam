@@ -7,5 +7,6 @@ public abstract class GameState {
     public static final int END = 2;
 
     public abstract void start();
+
     public abstract void stop();
 }

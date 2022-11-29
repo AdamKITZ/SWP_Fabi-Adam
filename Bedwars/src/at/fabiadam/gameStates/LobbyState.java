@@ -9,6 +9,7 @@ public class LobbyState extends GameState {
     public static final int MIN_PLAYERS = 1;
     private MainBedwars plugin;
 
+
     @Override
     public void start() {
         this.plugin = MainBedwars.getPlugin();

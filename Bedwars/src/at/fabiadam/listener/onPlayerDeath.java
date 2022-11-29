@@ -12,13 +12,14 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 public class onPlayerDeath implements Listener {
     private MainBedwars plugin;
     private BedwarsUtil util;
+
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
         Player player = (Player) event.getEntity();
-        if(player.getWorld().getName().equals("world_bedwars")) {
-            if(util.isBedActiv(player) == 1) {
+        if (player.getWorld().getName().equals("world_bedwars")) {
+            if (util.isBedActiv(player) == 1) {
                 player.spigot().respawn();
                 Team team = util.getPlayerTeam(player);
                 player.teleport(team.getTeamSpawn());

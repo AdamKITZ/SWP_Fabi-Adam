@@ -20,22 +20,23 @@ public class LobbyCountdown extends Timer {
         plugin = MainBedwars.getPlugin();
         spawnerTimer = plugin.getSpawnerTimer();
         //Return if the timer is already running
-        if(taskId != 0) {
+        if (taskId != 0) {
             return;
         }
         //Start timer and set the task id to a variable to cancel the timer later
         taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
             int i = 20;
+
             @Override
             public void run() {
                 //Send title to all players in the world with the current time
-                if(i <  6 || i == 30 || i > 16) {
+                if (i < 6 || i == 30 || i > 16) {
                     Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
                         player.sendTitle("§6Start in", "§a" + i + "");
                     });
                 }
                 //Teleport all players to the game world and reset variables
-                if(i <= 0) {
+                if (i <= 0) {
                     //Reset
                     Bukkit.getScheduler().cancelTask(taskId);
                     taskId = 0;

@@ -1,11 +1,7 @@
 package at.fabiadam.scoreboard;
 
-import  org.bukkit.Bukkit;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerChangedWorldEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
@@ -13,11 +9,10 @@ import org.bukkit.scoreboard.Scoreboard;
 public class Board {
 
 
-    public void setScoreboard(Player player){
-        if(player.getWorld().getName().equals("world_bedwars")){
+    public void setScoreboard(Player player) {
+        if (player.getWorld().getName().equals("world_bedwars")) {
             Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
             Objective object = board.registerNewObjective("test", "dummy");
-
             object.setDisplaySlot(DisplaySlot.SIDEBAR);
             object.setDisplayName("§a§lScoreboard");
 
@@ -31,6 +26,11 @@ public class Board {
             player.setScoreboard(board);
         }
 
+    }
+
+
+    public void updateScoreboard(Player player) {
+        //Coming soon
     }
 
 }
