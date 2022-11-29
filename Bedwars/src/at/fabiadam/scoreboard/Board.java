@@ -28,7 +28,7 @@ public class Board {
 
 
     public void updateScoreboard(Player player) {
-        //Coming soon
+        //Coming soon test
     }
 
 }
