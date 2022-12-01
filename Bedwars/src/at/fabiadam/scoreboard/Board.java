@@ -16,8 +16,7 @@ public class Board {
             object.setDisplaySlot(DisplaySlot.SIDEBAR);
             object.setDisplayName("§a§lScoreboard");
 
-
-            object.getScore(Bukkit.getName() + "'s Scoreboard").setScore(5);
+            object.getScore(Bukkit.getName() + "'s Scoreboard").setScore(6);
             object.getScore(" ").setScore(5);
             object.getScore("§a✓ §cRed").setScore(4);
             object.getScore("§a✓ §aGreen").setScore(3);
