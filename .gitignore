@@ -27,3 +27,5 @@ workspace.xml
 tasks.xml
 *.iml
 
+# IntelliJ
+out/
