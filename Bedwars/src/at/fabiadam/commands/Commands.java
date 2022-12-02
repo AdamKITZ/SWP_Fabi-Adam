@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Commands implements CommandExecutor, TabCompleter {
+public class  Commands implements CommandExecutor, TabCompleter {
     public MainBedwars plugin;
 
     @Override

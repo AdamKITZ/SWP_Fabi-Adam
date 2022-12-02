@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 
 public class Board {
 
@@ -32,4 +33,30 @@ public class Board {
 
     }
 
+    private ColourEnum getColourEnum(Player player){
+        if(player.getWorld().getName().equals("world_bedwars")){
+            if(player.getDisplayName().contains("§y")){
+                return ColourEnum.ENTRY_0;
+            } else if(player.getDisplayName().contains("§cc")){
+                return ColourEnum.ENTRY_1;
+            } else if(player.getDisplayName().contains("§c")){
+                return ColourEnum.ENTRY_2;
+            }
+        }
+        return null;
+    }
+
+    private Team getTeam(Player player){
+        if(player.getWorld().getName().equals("world_bedwars")){
+            Scoreboard board = player.getScoreboard();
+            if(board.getTeam(getColourEnum(player).getEntryString()) == null){
+                Team team = board.registerNewTeam(getColourEnum(player).getEntryString());
+                team.addEntry(getColourEnum(player).getEntryString());
+                return team;
+            } else {
+                return board.getTeam(getColourEnum(player).getEntryString());
+            }
+        }
+        return null;
+    }
 }
