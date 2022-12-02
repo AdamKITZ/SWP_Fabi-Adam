@@ -27,20 +27,19 @@ public class BedwarsUtil {
         FileConfiguration config = plugin.getConfig();
         red = new Team("red", 1, config.getLocation("team.red.teamSpawn"));
         blue = new Team("blue", 1, config.getLocation("team.blue.teamSpawn"));
-        green = new Team("green", 1,  config.getLocation("team.green.teamSpawn"));
-        yellow = new Team("yellow", 1,  config.getLocation("team.yellow.teamSpawn"));
+        green = new Team("green", 1, config.getLocation("team.green.teamSpawn"));
+        yellow = new Team("yellow", 1, config.getLocation("team.yellow.teamSpawn"));
         teamList.add(red);
         teamList.add(blue);
         teamList.add(green);
         teamList.add(yellow);
 
 
-
         //Each player should be put into a team --> If team is full, try next team
         List<Player> players = Bukkit.getServer().getWorld("world_bedwars").getPlayers();
         players.forEach(p -> {
-            for(int i = 0; i<4; i++) {
-                if(teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
+            for (int i = 0; i < 4; i++) {
+                if (teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
                     teamList.get(i).addPlayer(p);
                     p.sendMessage(MainBedwars.PREFIX + "You are in team " + teamList.get(i).getTeamColor());
                     board.setScoreboard(p);
@@ -53,8 +52,8 @@ public class BedwarsUtil {
     }
 
     public Team getPlayerTeam(Player player) {
-        for(int i = 0; i<4; i++) {
-            if(teamList.get(i).getPlayers().contains(player)) {
+        for (int i = 0; i < 4; i++) {
+            if (teamList.get(i).getPlayers().contains(player)) {
                 return teamList.get(i);
             }
         }
@@ -63,7 +62,7 @@ public class BedwarsUtil {
 
     public int isBedActiv(Player player) {
         Team team = getPlayerTeam(player);
-        if(team.isBedActive()) {
+        if (team.isBedActive()) {
             return 1;
         } else {
             return 0;
@@ -72,7 +71,7 @@ public class BedwarsUtil {
 
     public void teleportTeams() {
         teamList.forEach(team -> {
-            if(team.getPlayerCount() > 0) {
+            if (team.getPlayerCount() > 0) {
                 team.getPlayers().forEach(p -> {
                     p.teleport(team.getTeamSpawn());
                 });

@@ -11,12 +11,12 @@ import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 public class entityDamageByEntityEvent implements Listener {
 
     @EventHandler
-    public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event){
-        if(event.getEntity() instanceof Player) {
+    public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
+        if (event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
-            if(player.getWorld().getName().equals("world_bedwars_l")){
-                if(player.getGameMode() == GameMode.SURVIVAL){
-                    if(player.getLocation().getY () > 70) {
+            if (player.getWorld().getName().equals("world_bedwars_l")) {
+                if (player.getGameMode() == GameMode.SURVIVAL) {
+                    if (player.getLocation().getY() > 70) {
                         event.setCancelled(true);
                     }
                 }

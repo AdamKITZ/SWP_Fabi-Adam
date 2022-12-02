@@ -23,18 +23,19 @@ public class playerWorldChangeEvent implements Listener {
     public void onWorldChange(PlayerChangedWorldEvent event) {
         lobbyCountdown = MainBedwars.getLobbyTimer();
         //When player comes from spawn
-        if(event.getFrom().getName().equals("world")){
+        if (event.getFrom().getName().equals("world")) {
             //When player goes to bedwars_lobby
-            if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")) {
+            if (event.getPlayer().getWorld().getName().equals("world_bedwars_l")) {
                 handlePlayerJoin(event);
             }
-        } else if(event.getFrom().getName().equals("world_bedwars_l")) {
+        } else if (event.getFrom().getName().equals("world_bedwars_l")) {
             handlePlayerQuit(event);
         }
     }
+
     //Start the timer if there are enough players
     public void checkPlayerCount() {
-        if(playerCount >= LobbyState.MIN_PLAYERS) {
+        if (playerCount >= LobbyState.MIN_PLAYERS) {
             lobbyCountdown.start();
         } else {
             lobbyCountdown.stop();
@@ -43,7 +44,7 @@ public class playerWorldChangeEvent implements Listener {
 
     public void handlePlayerJoin(PlayerChangedWorldEvent event) {
         playerCount = Bukkit.getWorld("world_bedwars_l").getPlayers().size();
-        if(playerCount > LobbyState.MAX_PLAYERS) {
+        if (playerCount > LobbyState.MAX_PLAYERS) {
             event.getPlayer().kickPlayer("§cThe lobby is full!");
             return;
         }
@@ -72,7 +73,7 @@ public class playerWorldChangeEvent implements Listener {
     public void handlePlayerQuit(PlayerChangedWorldEvent event) {
         playerCount = Bukkit.getWorld("world_bedwars_l").getPlayers().size();
         checkPlayerCount();
-        if(event.getPlayer().getWorld().getName().equals("world_bedwars")) {
+        if (event.getPlayer().getWorld().getName().equals("world_bedwars")) {
             Bukkit.getScheduler().scheduleSyncDelayedTask(MainBedwars.getPlugin(), new Runnable() {
                 @Override
                 public void run() {

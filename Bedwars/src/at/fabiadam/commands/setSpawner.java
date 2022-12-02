@@ -15,11 +15,11 @@ public class setSpawner implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         plugin = MainBedwars.getPlugin();
-        if(sender instanceof Player) {
+        if (sender instanceof Player) {
             Player player = (Player) sender;
-            if(player.hasPermission("bedwars.start")) {
-                if(player.getWorld().getName().equals("world_bedwars")) {
-                    if(args[0].equalsIgnoreCase("bronze") || args[0].equalsIgnoreCase("iron") || args[0].equalsIgnoreCase("gold")) {
+            if (player.hasPermission("bedwars.start")) {
+                if (player.getWorld().getName().equals("world_bedwars")) {
+                    if (args[0].equalsIgnoreCase("bronze") || args[0].equalsIgnoreCase("iron") || args[0].equalsIgnoreCase("gold")) {
                         if (args[1].matches("[1-4]+")) {
                             FileConfiguration config = plugin.getConfig();
                             config.set("spawner." + args[0] + "." + args[1] + ".log", player.getLocation());
