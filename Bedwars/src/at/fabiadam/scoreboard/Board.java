@@ -21,7 +21,7 @@ public class Board {
             object.getScore("§a✓ §cRed").setScore(4);
             object.getScore("§a✓ §aGreen").setScore(3);
             object.getScore("§a✓ §bBlue").setScore(2);
-            object.getScore("§a✓ §Yellow").setScore(1);
+            object.getScore("§a✓ §yYellow").setScore(1);
             player.setScoreboard(board);
         }
 
