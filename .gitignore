@@ -27,3 +27,8 @@ workspace.xml
 tasks.xml
 *.iml
 
+# IntelliJ
+out/
+
+# Common working directory
+run/

@@ -14,13 +14,14 @@ public class Board {
             Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
             Objective object = board.registerNewObjective("test", "dummy");
             object.setDisplaySlot(DisplaySlot.SIDEBAR);
-            object.setDisplayName("§a§lWelcome!");
+            object.setDisplayName("§a§lScoreboard");
 
+            object.getScore(Bukkit.getName() + "'s Scoreboard").setScore(6);
             object.getScore(" ").setScore(5);
             object.getScore("§a✓ §cRed").setScore(4);
             object.getScore("§a✓ §aGreen").setScore(3);
             object.getScore("§a✓ §bBlue").setScore(2);
-            object.getScore("§a✓ §Yellow").setScore(1);
+            object.getScore("§a✓ §yYellow").setScore(1);
             player.setScoreboard(board);
         }
 
