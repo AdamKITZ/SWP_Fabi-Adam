@@ -9,7 +9,6 @@ import org.bukkit.scoreboard.Team;
 
 public class Board {
 
-
     public void setScoreboard(Player player) {
         if (player.getWorld().getName().equals("world_bedwars")) {
             Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
@@ -17,7 +16,8 @@ public class Board {
             object.setDisplaySlot(DisplaySlot.SIDEBAR);
             object.setDisplayName("§a§lScoreboard");
 
-            object.getScore(Bukkit.getName() + "'s Scoreboard").setScore(6);
+            object.getScore(player.getName() + "'s Scoreboard").setScore(6);
+            //add to check if last letter is a s
             object.getScore(" ").setScore(5);
             object.getScore("§a✓ §cRed").setScore(4);
             object.getScore("§a✓ §aGreen").setScore(3);
@@ -26,6 +26,14 @@ public class Board {
             player.setScoreboard(board);
         }
 
+    }
+
+    public void updateScoreboard(Player player) {
+        if(player.getWorld().getName().equals("world_bedwars")) {
+            Scoreboard board = player.getScoreboard();
+            Objective object = board.getObjective("test");
+            object.getScore("§a✓ §cRed").setScore(4);
+        }
     }
 
     private ColourEnum getColourEnum(Player player){
