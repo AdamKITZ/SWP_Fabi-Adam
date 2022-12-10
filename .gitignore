@@ -29,6 +29,7 @@ tasks.xml
 
 # IntelliJ
 out/
+.idea/
 
 # Common working directory
 run/
