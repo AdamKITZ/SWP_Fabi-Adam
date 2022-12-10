@@ -16,8 +16,26 @@ public class Board {
             object.setDisplaySlot(DisplaySlot.SIDEBAR);
             object.setDisplayName("§a§lScoreboard");
 
-            object.getScore(player.getName() + "'s Scoreboard").setScore(6);
-            //add to check if last letter is a s
+            if(player.getName().endsWith("s")) {
+                String playername = player.getName();
+                object.getScore(playername + " Scoreboard").setScore(6);
+                /*
+                Team team = board.registerNewTeam("team");
+                team.addEntry(player.getName());
+                team.setPrefix("§7");
+                team.setSuffix("§7");
+                 */
+            } else {
+                String playername = player.getName();
+                object.getScore(playername + "'s Scoreboard").setScore(6);
+                /*
+                Team team = board.registerNewTeam("team");
+                team.addEntry(player.getName());
+                team.setPrefix("§7");
+                team.setSuffix("§7s");
+                 */
+            }
+
             object.getScore(" ").setScore(5);
             object.getScore("§a✓ §cRed").setScore(4);
             object.getScore("§a✓ §aGreen").setScore(3);
