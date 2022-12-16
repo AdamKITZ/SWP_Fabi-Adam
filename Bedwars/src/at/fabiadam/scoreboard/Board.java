@@ -9,7 +9,6 @@ import org.bukkit.scoreboard.Team;
 
 public class Board {
 
-
     public void setScoreboard(Player player) {
         if (player.getWorld().getName().equals("world_bedwars")) {
             Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
@@ -17,7 +16,26 @@ public class Board {
             object.setDisplaySlot(DisplaySlot.SIDEBAR);
             object.setDisplayName("§a§lScoreboard");
 
-            object.getScore(Bukkit.getName() + "'s Scoreboard").setScore(6);
+            if(player.getName().endsWith("s")) {
+                String playername = player.getName();
+                object.getScore(playername + " Scoreboard").setScore(6);
+                /*
+                Team team = board.registerNewTeam("team");
+                team.addEntry(player.getName());
+                team.setPrefix("§7");
+                team.setSuffix("§7");
+                 */
+            } else {
+                String playername = player.getName();
+                object.getScore(playername + "'s Scoreboard").setScore(6);
+                /*
+                Team team = board.registerNewTeam("team");
+                team.addEntry(player.getName());
+                team.setPrefix("§7");
+                team.setSuffix("§7s");
+                 */
+            }
+
             object.getScore(" ").setScore(5);
             object.getScore("§a✓ §cRed").setScore(4);
             object.getScore("§a✓ §aGreen").setScore(3);
@@ -26,6 +44,14 @@ public class Board {
             player.setScoreboard(board);
         }
 
+    }
+
+    public void updateScoreboard(Player player) {
+        if(player.getWorld().getName().equals("world_bedwars")) {
+            Scoreboard board = player.getScoreboard();
+            Objective object = board.getObjective("test");
+            object.getScore("§a✓ §cRed").setScore(4);
+        }
     }
 
     private ColourEnum getColourEnum(Player player){

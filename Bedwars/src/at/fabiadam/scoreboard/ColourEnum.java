@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 
 public enum ColourEnum {
     ENTRY_0(0, ChatColor.YELLOW.toString()),
-    ENTRY_1(1, ChatColor.DARK_RED.toString()),
+    ENTRY_1(1, ChatColor.GOLD.toString()),
     ENTRY_2(2, ChatColor.RED.toString());
 
     private final Integer entry;
