@@ -56,10 +56,11 @@ public class Team {
     }
 
 
-    public Team(String color, int maxPlayerCount, Location teamSpawn) {
+    public Team(String color, int maxPlayerCount, Location teamSpawn, boolean bedActive) {
         this.color = color;
         this.maxPlayerCount = maxPlayerCount;
         this.teamSpawn = teamSpawn;
+        this.bedActive =  bedActive;
     }
 
     public Team(String color, int playerCount, int maxPlayerCount, List<Player> players, boolean bedActive) {
