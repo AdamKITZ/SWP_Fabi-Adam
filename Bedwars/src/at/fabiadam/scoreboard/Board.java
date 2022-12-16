@@ -9,42 +9,6 @@ import org.bukkit.scoreboard.Team;
 
 public class Board {
 
-//    public void setScoreboard(Player player) {
-//        if (player.getWorld().getName().equals("world_bedwars")) {
-//            Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
-//            Objective object = board.registerNewObjective("test", "dummy");
-//            object.setDisplaySlot(DisplaySlot.SIDEBAR);
-//            object.setDisplayName("§a§lScoreboard");
-//
-//            if(player.getName().endsWith("s")) {
-//                String playername = player.getName();
-//                object.getScore(playername + " Scoreboard").setScore(6);
-//                /*
-//                Team team = board.registerNewTeam("team");
-//                team.addEntry(player.getName());
-//                team.setPrefix("§7");
-//                team.setSuffix("§7");
-//                 */
-//            } else {
-//                String playername = player.getName();
-//                object.getScore(playername + "'s Scoreboard").setScore(6);
-//                /*
-//                Team team = board.registerNewTeam("team");
-//                team.addEntry(player.getName());
-//                team.setPrefix("§7");
-//                team.setSuffix("§7s");
-//                 */
-//            }
-//
-//            object.getScore(" ").setScore(5);
-//            object.getScore("§a✓ §cRed").setScore(4);
-//            object.getScore("§a✓ §aGreen").setScore(3);
-//            object.getScore("§a✓ §bBlue").setScore(2);
-//            object.getScore("§a✓ §yYellow").setScore(1);
-//            player.setScoreboard(board);
-//        }
-//    }
-
     //timer which updates the scoreboard every second and changes the color of setScore(6)
     public void updateScoreboard(Player player) {
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("Bedwars"), new Runnable() {
@@ -82,12 +46,12 @@ public class Board {
                     object.getScore("§a✓ §bBlue").setScore(2);
                     object.getScore("§a✓ §yYellow").setScore(1);
                     player.setScoreboard(board);
+                } else if (player.getWorld().getName().equals("world_bedwars_l")|| player.getWorld().getName().equals("world")) {
+                    player.removeScoreboardTag("test");
                 }
             }
         }, 0, 20);
     }
-
-
 
     private ColourEnum getColourEnum(Player player){
         if(player.getWorld().getName().equals("world_bedwars")){
