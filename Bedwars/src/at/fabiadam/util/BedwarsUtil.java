@@ -21,14 +21,15 @@ public class BedwarsUtil {
     public Team green;
     public Team yellow;
 
+
     public void start() {
         plugin = MainBedwars.getPlugin();
         board = plugin.getBoard();
         FileConfiguration config = plugin.getConfig();
-        red = new Team("red", 1, config.getLocation("team.red.teamSpawn"));
-        blue = new Team("blue", 1, config.getLocation("team.blue.teamSpawn"));
-        green = new Team("green", 1, config.getLocation("team.green.teamSpawn"));
-        yellow = new Team("yellow", 1, config.getLocation("team.yellow.teamSpawn"));
+        red = new Team("red", 1, config.getLocation("team.red.teamSpawn"), true);
+        blue = new Team("blue", 1, config.getLocation("team.blue.teamSpawn"), true);
+        green = new Team("green", 1, config.getLocation("team.green.teamSpawn"), true);
+        yellow = new Team("yellow", 1, config.getLocation("team.yellow.teamSpawn"), true);
         teamList.add(red);
         teamList.add(blue);
         teamList.add(green);
@@ -67,6 +68,17 @@ public class BedwarsUtil {
         } else {
             return 0;
         }
+    }
+
+    public void setPlayersReady() {
+        Bukkit.getWorld("world_bedwars_l").getPlayers().forEach(p -> {
+            if(p.isDead()) {
+                p.spigot().respawn();
+            }
+            p.setFlySpeed(0);
+            p.setWalkSpeed(0);
+            p.teleport(new Location(Bukkit.getWorld("world_bedwars"), 0, 100, 0));
+        });
     }
 
     public void teleportTeams() {
