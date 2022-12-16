@@ -46,10 +46,10 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new playerInteractEvent(), this);
         pluginManager.registerEvents(new entityDamageByEntityEvent(), this);
         pluginManager.registerEvents(new playerDropEvent(), this);
-        pluginManager.registerEvents(new playerDeathEvent(), this);
         pluginManager.registerEvents(new blockBreakEvent(), this);
         pluginManager.registerEvents(new onPlayerDeath(), this);
         pluginManager.registerEvents(new blockPlaceEvent(), this);
+        pluginManager.registerEvents(new playerMoveEvent(), this);
     }
 
     @Override
