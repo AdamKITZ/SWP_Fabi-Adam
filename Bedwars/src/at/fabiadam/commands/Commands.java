@@ -1,6 +1,7 @@
 package at.fabiadam.commands;
 
 import at.fabiadam.main.MainBedwars;
+import at.fabiadam.util.BedwarsUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -83,6 +84,14 @@ public class  Commands implements CommandExecutor, TabCompleter {
                         } else {
                             player.sendMessage("§cYou do not have enough permission to perform this action!");
                         }
+                    case "test":
+                        if(player.hasPermission("bedwars.test")) {
+                            player.sendMessage("§bTest");
+                            BedwarsUtil util = plugin.getUtil();
+                            boolean test = util.getPlayerTeam(player).isBedActive();
+                            player.sendMessage("§b" + test);
+                        }
+                        break;
                     default:
                         break;
                 }

@@ -22,6 +22,7 @@ public class IngameState extends GameState {
 
         spawnerTimer.startSpawnerScheduler();
         util.start();
+        util.setPlayersReady();
         util.teleportTeams();
         board = plugin.getBoard();
     }

@@ -29,6 +29,7 @@ public class blockBreakEvent implements Listener {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.red.bed", 0);
+                        util.red.setBedActive(false);
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §c§lRED §7bed!");
                     }
@@ -38,6 +39,7 @@ public class blockBreakEvent implements Listener {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.blue.bed", 0);
+                        util.blue.setBedActive(false);
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §9§lBLUE §7bed!");
                     }
@@ -46,6 +48,7 @@ public class blockBreakEvent implements Listener {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.green.bed", 0);
+                        util.green.setBedActive(false);
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §a§lGREEN §7bed!");
                     }
@@ -54,6 +57,7 @@ public class blockBreakEvent implements Listener {
                         event.setCancelled(true);
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.yellow.bed", 0);
+                        util.yellow.setBedActive(false);
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §e§lYELLOW §7bed!");
                     }

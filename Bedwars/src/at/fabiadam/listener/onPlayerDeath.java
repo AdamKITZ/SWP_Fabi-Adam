@@ -30,6 +30,12 @@ public class onPlayerDeath implements Listener {
                 player.setGameMode(GameMode.SPECTATOR);
             }
 
+        } else if(player.getWorld().getName().equals("world_bedwars_l")) {
+            if (player.getWorld().getName().equals("world_bedwars_l")) {
+                if (player.getGameMode() == GameMode.SURVIVAL) {
+                    event.setKeepInventory(true);
+                }
+            }
         }
 
     }

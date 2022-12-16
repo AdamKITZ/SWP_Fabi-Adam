@@ -14,6 +14,7 @@ public class LobbyCountdown extends Timer {
     private SpawnerTimer spawnerTimer;
     private GameStateManager gameStateManager;
     private static int taskId = 0;
+    private int timeLeft;
 
     @Override
     public void start() {
@@ -50,6 +51,7 @@ public class LobbyCountdown extends Timer {
                 }
 
                 i--;
+                timeLeft = i;
             }
 
         }, 0, 20);
@@ -61,5 +63,9 @@ public class LobbyCountdown extends Timer {
     public void stop() {
         Bukkit.getScheduler().cancelTask(taskId);
         taskId = 0;
+    }
+
+    public int timeLeft() {
+        return LOBBY_COUNTDOWN - playerCount;
     }
 }
