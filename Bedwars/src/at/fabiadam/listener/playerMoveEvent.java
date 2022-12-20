@@ -4,6 +4,7 @@ import at.fabiadam.main.MainBedwars;
 import at.fabiadam.objects.Team;
 import at.fabiadam.util.BedwarsUtil;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;

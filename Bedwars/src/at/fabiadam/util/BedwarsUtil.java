@@ -43,7 +43,7 @@ public class BedwarsUtil {
                 if (teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
                     teamList.get(i).addPlayer(p);
                     p.sendMessage(MainBedwars.PREFIX + "You are in team " + teamList.get(i).getTeamColor());
-                    board.setScoreboard(p);
+                    //board.setScoreboard(p);
 
                     break;
                 }
@@ -75,8 +75,8 @@ public class BedwarsUtil {
             if(p.isDead()) {
                 p.spigot().respawn();
             }
-            p.setFlySpeed(0);
-            p.setWalkSpeed(0);
+            //p.setVelocity(0, 0, 0);
+            //p.setWalkSpeed(0);
             p.teleport(new Location(Bukkit.getWorld("world_bedwars"), 0, 100, 0));
         });
     }
