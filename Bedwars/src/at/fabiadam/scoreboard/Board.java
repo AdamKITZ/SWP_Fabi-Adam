@@ -1,5 +1,7 @@
 package at.fabiadam.scoreboard;
 
+import at.fabiadam.main.MainBedwars;
+import at.fabiadam.util.BedwarsUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
@@ -8,9 +10,13 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
 public class Board {
+    MainBedwars plugin;
+    BedwarsUtil util;
 
     //timer which updates the scoreboard every second and changes the color of setScore(6)
     public void updateScoreboard(Player player) {
+        plugin = MainBedwars.getPlugin();
+        util = plugin.getUtil();
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("Bedwars"), new Runnable() {
             @Override
             public void run() {
@@ -23,31 +29,40 @@ public class Board {
                     if(player.getName().endsWith("s")) {
                         String playername = player.getName();
                         object.getScore(playername + " Scoreboard").setScore(6);
-                        /*
-                        Team team = board.registerNewTeam("team");
-                        team.addEntry(player.getName());
-                        team.setPrefix("§7");
-                        team.setSuffix("§7");
-                         */
                     } else {
                         String playername = player.getName();
                         object.getScore(playername + "'s Scoreboard").setScore(6);
-                        /*
-                        Team team = board.registerNewTeam("team");
-                        team.addEntry(player.getName());
-                        team.setPrefix("§7");
-                        team.setSuffix("§7s");
-                         */
                     }
 
                     object.getScore(" ").setScore(5);
-                    object.getScore("§a✓ §cRed").setScore(4);
-                    object.getScore("§a✓ §aGreen").setScore(3);
-                    object.getScore("§a✓ §bBlue").setScore(2);
-                    object.getScore("§a✓ §yYellow").setScore(1);
+
+                    if(util.red.isBedActive() == true){
+                        object.getScore("§a✓ §cRed").setScore(4);
+                    } else {
+                        object.getScore("§a✘ §cRed").setScore(4);
+                    }
+
+                    if(util.red.isBedActive() == true){
+                        object.getScore("§a✓ §aGreen").setScore(3);
+                    } else {
+                        object.getScore("§a✘ §aGreen").setScore(3);
+                    }
+
+                    if(util.red.isBedActive() == true){
+                        object.getScore("§a✓ §bBlue").setScore(2);
+                    } else {
+                        object.getScore("§a✘ §bBlue").setScore(2);
+                    }
+
+                    if(util.red.isBedActive() == true){
+                        object.getScore("§a✓ §yYellow").setScore(1);
+                    } else {
+                        object.getScore("§a✘ §yYellow").setScore(1);
+                    }
+
                     player.setScoreboard(board);
                 } else if (player.getWorld().getName().equals("world_bedwars_l")|| player.getWorld().getName().equals("world")) {
-                    player.removeScoreboardTag("test");
+                    player.removeScoreboardTag("You are not in Bedwars");
                 }
             }
         }, 0, 20);
