@@ -17,7 +17,7 @@ public class Board {
     public void updateScoreboard(Player player) {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("Bedwars"), new Runnable() {
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
             @Override
             public void run() {
                 if (player.getWorld().getName().equals("world_bedwars")) {
