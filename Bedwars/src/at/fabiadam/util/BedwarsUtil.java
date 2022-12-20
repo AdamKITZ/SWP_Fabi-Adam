@@ -43,7 +43,7 @@ public class BedwarsUtil {
                 if (teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
                     teamList.get(i).addPlayer(p);
                     p.sendMessage(MainBedwars.PREFIX + "You are in team " + teamList.get(i).getTeamColor());
-                    board.updateScoreboard(p);
+                    board.updateScoreboard();
 
                     break;
                 }
