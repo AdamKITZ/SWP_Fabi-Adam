@@ -33,7 +33,7 @@ public class BedwarsUtil {
         teamList.add(red);
         teamList.add(blue);
         teamList.add(green);
-        teamList.add(yellow);
+        boolean add = teamList.add(yellow);
 
 
         //Each player should be put into a team --> If team is full, try next team
@@ -43,7 +43,7 @@ public class BedwarsUtil {
                 if (teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
                     teamList.get(i).addPlayer(p);
                     p.sendMessage(MainBedwars.PREFIX + "You are in team " + teamList.get(i).getTeamColor());
-                    //board.setScoreboard(p);
+                    board.updateScoreboard(p);
 
                     break;
                 }
