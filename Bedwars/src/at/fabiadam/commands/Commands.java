@@ -86,10 +86,9 @@ public class  Commands implements CommandExecutor, TabCompleter {
                         }
                     case "test":
                         if(player.hasPermission("bedwars.test")) {
-                            player.sendMessage("§bTest");
-                            BedwarsUtil util = plugin.getUtil();
-                            boolean test = util.getPlayerTeam(player).isBedActive();
-                            player.sendMessage("§b" + test);
+                            player.setWalkSpeed(0.2f);
+                            player.setFlySpeed(0.2f);
+                            player.setVelocity(player.getLocation().getDirection().zero());
                         }
                         break;
                     default:
