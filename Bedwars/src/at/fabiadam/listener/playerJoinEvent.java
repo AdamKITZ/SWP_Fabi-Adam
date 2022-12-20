@@ -12,8 +12,10 @@ public class playerJoinEvent implements Listener {
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
         Location spawn = new Location(Bukkit.getWorld("world"), 180.5, 68, -48.5);
         event.getPlayer().teleport(spawn);
-        event.getPlayer().setHealth(20);
-        event.getPlayer().setFoodLevel(20);
+        if(event.getPlayer().getFoodLevel() < 20 || event.getPlayer().getHealth() < 20) {
+            event.getPlayer().setFoodLevel(20);
+            event.getPlayer().setHealth(20);
+        }
         event.setJoinMessage("§aWelcome to the Server!\nYou can click on the sign to join the game lobby!");
     }
 }
