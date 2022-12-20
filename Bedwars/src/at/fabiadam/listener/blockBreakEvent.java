@@ -1,6 +1,7 @@
 package at.fabiadam.listener;
 
 import at.fabiadam.main.MainBedwars;
+import at.fabiadam.scoreboard.Board;
 import at.fabiadam.util.BedwarsUtil;
 import com.sun.tools.javac.Main;
 import org.bukkit.Bukkit;
@@ -13,15 +14,18 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scoreboard.Scoreboard;
 
 public class blockBreakEvent implements Listener {
     private MainBedwars plugin;
     private BedwarsUtil util;
+    private Board board;
 
     @EventHandler
     public void onBlockBreakEvent(BlockBreakEvent event) {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
+        board = plugin.getBoard();
         if (event.getPlayer().getWorld().getName().equals("world_bedwars")) {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
                 if (event.getBlock().getType() == Material.RED_BED) {
@@ -30,6 +34,7 @@ public class blockBreakEvent implements Listener {
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.red.bed", 0);
                         util.red.setBedActive(false);
+                        board.updateScoreboard();
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §c§lRED §7bed!");
                     }
@@ -40,6 +45,7 @@ public class blockBreakEvent implements Listener {
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.blue.bed", 0);
                         util.blue.setBedActive(false);
+                        board.updateScoreboard();
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §9§lBLUE §7bed!");
                     }
@@ -49,6 +55,7 @@ public class blockBreakEvent implements Listener {
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.green.bed", 0);
                         util.green.setBedActive(false);
+                        board.updateScoreboard();
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §a§lGREEN §7bed!");
                     }
@@ -58,6 +65,7 @@ public class blockBreakEvent implements Listener {
                         FileConfiguration config = plugin.getConfig();
                         config.set("team.yellow.bed", 0);
                         util.yellow.setBedActive(false);
+                        board.updateScoreboard();
                     } else {
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §e§lYELLOW §7bed!");
                     }
