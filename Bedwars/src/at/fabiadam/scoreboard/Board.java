@@ -37,25 +37,25 @@ public class Board {
                 if(util.red.isBedActive() == true){
                     object.getScore("§a✓ §cRed").setScore(4);
                 } else {
-                    object.getScore("§a✘ §cRed").setScore(4);
+                    object.getScore("§c✘ §cRed").setScore(4);
                 }
 
                 if(util.green.isBedActive() == true){
                     object.getScore("§a✓ §aGreen").setScore(3);
                 } else {
-                    object.getScore("§a✘ §aGreen").setScore(3);
+                    object.getScore("§c✘ §aGreen").setScore(3);
                 }
 
                 if(util.blue.isBedActive() == true){
                     object.getScore("§a✓ §bBlue").setScore(2);
                 } else {
-                    object.getScore("§a✘ §bBlue").setScore(2);
+                    object.getScore("§c✘ §bBlue").setScore(2);
                 }
 
                 if(util.yellow.isBedActive() == true){
                     object.getScore("§e✓ §yYellow").setScore(1);
                 } else {
-                    object.getScore("§e✘ §yYellow").setScore(1);
+                    object.getScore("§c✘ §yYellow").setScore(1);
                 }
 
                 player.setScoreboard(board);
