@@ -30,6 +30,8 @@ public class playerMoveEvent implements Listener {
                 Team team = util.getPlayerTeam(event.getPlayer());
                 event.getPlayer().teleport(team.getTeamSpawn());
                 event.getPlayer().spigot().respawn();
+            } else if (event.getPlayer().getLocation().getY() >= 120) {
+                event.setCancelled(true);
             }
         }
     }
