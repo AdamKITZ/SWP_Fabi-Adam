@@ -35,25 +35,25 @@ public class Board {
                 object.getScore(" ").setScore(5);
 
                 if(util.red.isBedActive() == true){
-                    object.getScore("§a§l✓ §cRed").setScore(4);
+                    object.getScore("§a§l✓§r §cRed").setScore(4);
                 } else {
                     object.getScore("§c✘ §cRed").setScore(4);
                 }
 
                 if(util.green.isBedActive() == true){
-                    object.getScore("§a§l✓ §aGreen").setScore(3);
+                    object.getScore("§a§l✓§r §aGreen").setScore(3);
                 } else {
                     object.getScore("§c✘ §aGreen").setScore(3);
                 }
 
                 if(util.blue.isBedActive() == true){
-                    object.getScore("§a§l✓ §bBlue").setScore(2);
+                    object.getScore("§a§l✓§r §bBlue").setScore(2);
                 } else {
                     object.getScore("§c✘ §bBlue").setScore(2);
                 }
 
                 if(util.yellow.isBedActive() == true){
-                    object.getScore("§e§l✓ §yYellow").setScore(1);
+                    object.getScore("§e§l✓§r §yYellow").setScore(1);
                 } else {
                     object.getScore("§c✘ §yYellow").setScore(1);
                 }
