@@ -9,6 +9,8 @@ import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
+import java.util.List;
+
 public class Board {
     MainBedwars plugin;
     BedwarsUtil util;
@@ -37,25 +39,57 @@ public class Board {
                 if(util.red.isBedActive() == true){
                     object.getScore("§a§l✓§r §cRed").setScore(4);
                 } else {
-                    object.getScore("§c✘ §cRed").setScore(4);
+                    List<Player> redPlayers = util.red.getPlayers();
+                    for(Player p : redPlayers) {
+                        if(p.isDead()) {
+                            object.getScore("§c✘ §7§mRed").setScore(4);
+                        }
+                        else {
+                            object.getScore("§c✘ §cRed").setScore(4);
+                        }
+                    }
                 }
 
                 if(util.green.isBedActive() == true){
                     object.getScore("§a§l✓§r §aGreen").setScore(3);
                 } else {
-                    object.getScore("§c✘ §aGreen").setScore(3);
+                    List<Player> redPlayers = util.green.getPlayers();
+                    for(Player p : redPlayers) {
+                        if(p.isDead()) {
+                            object.getScore("§c✘ §7§mGreen").setScore(3);
+                        }
+                        else {
+                            object.getScore("§c✘ §aGreen").setScore(3);
+                        }
+                    }
                 }
 
                 if(util.blue.isBedActive() == true){
                     object.getScore("§a§l✓§r §bBlue").setScore(2);
                 } else {
-                    object.getScore("§c✘ §bBlue").setScore(2);
+                    List<Player> redPlayers = util.blue.getPlayers();
+                    for(Player p : redPlayers) {
+                        if(p.isDead()) {
+                            object.getScore("§c✘ §7§mBlue").setScore(2);
+                        }
+                        else {
+                            object.getScore("§c✘ §bBlue").setScore(2);
+                        }
+                    }
                 }
 
                 if(util.yellow.isBedActive() == true){
                     object.getScore("§a§l✓§r §eYellow").setScore(1);
                 } else {
-                    object.getScore("§c✘ §eYellow").setScore(1);
+                    List<Player> redPlayers = util.yellow.getPlayers();
+                    for(Player p : redPlayers) {
+                        if(p.isDead()) {
+                            object.getScore("§c✘ §7§mYellow").setScore(1);
+                        }
+                        else {
+                            object.getScore("§c✘ §yYellow").setScore(1);
+                        }
+                    }
                 }
 
                 player.setScoreboard(board);
@@ -63,10 +97,7 @@ public class Board {
                 player.removeScoreboardTag("You are not in Bedwars");
             }
         });
-
-
     }
-
 
     private ColourEnum getColourEnum(Player player){
         if(player.getWorld().getName().equals("world_bedwars")){
@@ -94,5 +125,4 @@ public class Board {
         }
         return null;
     }
-
 }
