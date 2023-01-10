@@ -1,6 +1,7 @@
 package at.fabiadam.commands;
 
 import at.fabiadam.main.MainBedwars;
+import at.fabiadam.objects.Team;
 import at.fabiadam.util.BedwarsUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -86,9 +87,9 @@ public class  Commands implements CommandExecutor, TabCompleter {
                         }
                     case "test":
                         if(player.hasPermission("bedwars.test")) {
-                            player.setWalkSpeed(0.2f);
-                            player.setFlySpeed(0.2f);
-                            player.setVelocity(player.getLocation().getDirection().zero());
+                            BedwarsUtil util = plugin.getUtil();
+                            Team t = util.getPlayerTeam(player);
+                            player.sendMessage("Bed:" + t.isBedActive());
                         }
                         break;
                     default:

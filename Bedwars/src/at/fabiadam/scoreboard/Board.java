@@ -79,7 +79,7 @@ public class Board {
                 }
 
                 if(util.yellow.isBedActive() == true){
-                    object.getScore("§e§l✓§r §yYellow").setScore(1);
+                    object.getScore("§a§l✓§r §eYellow").setScore(1);
                 } else {
                     List<Player> redPlayers = util.yellow.getPlayers();
                     for(Player p : redPlayers) {

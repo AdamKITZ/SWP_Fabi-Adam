@@ -6,6 +6,7 @@ import at.fabiadam.scoreboard.Board;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -50,6 +51,16 @@ public class BedwarsUtil {
             }
         });
 
+    }
+
+    //This will be in world reset function
+    public void deleteItems() {
+        Bukkit.getServer().getWorld("world_bedwars").getEntities().forEach(e -> {
+            if (e instanceof Item) {
+                Item item = (Item) e;
+                item.remove();
+            }
+        });
     }
 
     public Team getPlayerTeam(Player player) {
