@@ -53,9 +53,9 @@ public class Board {
                 }
 
                 if(util.yellow.isBedActive() == true){
-                    object.getScore("§e§l✓§r §yYellow").setScore(1);
+                    object.getScore("§a§l✓§r §eYellow").setScore(1);
                 } else {
-                    object.getScore("§c✘ §yYellow").setScore(1);
+                    object.getScore("§c✘ §eYellow").setScore(1);
                 }
 
                 player.setScoreboard(board);
