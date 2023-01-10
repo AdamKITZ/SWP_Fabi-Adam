@@ -24,6 +24,7 @@ public class IngameState extends GameState {
         util.start();
         util.setPlayersReady();
         util.teleportTeams();
+        util.deleteItems();
         board = plugin.getBoard();
     }
 
