@@ -18,7 +18,6 @@ public class playerWorldChangeEvent implements Listener {
     private LobbyCountdown lobbyCountdown;
     public static int playerCount = 0;
 
-
     @EventHandler
     public void onWorldChange(PlayerChangedWorldEvent event) {
         lobbyCountdown = MainBedwars.getLobbyTimer();
@@ -65,7 +64,6 @@ public class playerWorldChangeEvent implements Listener {
                 stickMeta.setDisplayName("§6§lKnockback Stick");
                 stick.setItemMeta(stickMeta);
                 event.getPlayer().getInventory().addItem(stick);
-
             }
         }, 5);
     }
