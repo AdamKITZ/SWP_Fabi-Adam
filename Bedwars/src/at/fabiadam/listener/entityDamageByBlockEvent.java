@@ -21,19 +21,20 @@ public class entityDamageByBlockEvent implements Listener {
                 if (player.getGameMode() == GameMode.SURVIVAL) {
                     //Lösungsansatz 1 (in Lobby)
                     if (event.getCause() == entityDamageEvent.DamageCause.FALL) {
-                        Location l = event.getEntity().getLocation().add(0, -1, 0);
-                        Material mat = l.getBlock().getType();
-                    }
-                }
-            }
-            else if (player.getWorld().getName().equals("world_bedwars_l")) {
-                //Lösungsansatz 2 (ingame)
-                if (player.getGameMode() == GameMode.SURVIVAL) {
-                    if (player.getLocation().getY() < 0) {
                         event.setCancelled(true);
+                        //Location l = event.getEntity().getLocation().add(0, -1, 0);
+                        //Material mat = l.getBlock().getType();
                     }
                 }
             }
+//            else if (player.getWorld().getName().equals("world_bedwars_l")) {
+//                //Lösungsansatz 2 (ingame)
+//                if (player.getGameMode() == GameMode.SURVIVAL) {
+//                    if (player.getLocation().getY() < 0) {
+//                        event.setCancelled(true);
+//                    }
+//                }
+//            }
         }
     }
 }

@@ -31,10 +31,9 @@ public class onPlayerDeath implements Listener {
             }
 
         } else if(player.getWorld().getName().equals("world_bedwars_l")) {
-            if (player.getWorld().getName().equals("world_bedwars_l")) {
-                if (player.getGameMode() == GameMode.SURVIVAL) {
-                    event.setKeepInventory(true);
-                }
+            if (player.getGameMode() == GameMode.SURVIVAL) {
+                event.setKeepInventory(true);
+                player.spigot().respawn();
             }
         }
 
