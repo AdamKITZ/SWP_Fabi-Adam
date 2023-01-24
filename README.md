@@ -36,3 +36,6 @@ Listeners are classes which contain functions that are started when something ha
 •	Object classes (Team)
 This class contains every information about a team. An object Team contains the team color, team players, team spawn many more information
 Of course we have many more classes but explaining everything will be to much
+
+## Our Duties Record Book
+[Duties Record Book _ Adam & Fabian.docx](https://github.com/AdamKITZ/SWP_Fabi-Adam/files/10488960/Duties.Record.Book._.Adam.Fabian.docx)
