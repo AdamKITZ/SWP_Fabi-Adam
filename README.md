@@ -3,7 +3,7 @@
 
 ## currently in work by @AdamKITZ & @stampFabian
 
-My team partner and me are together developing a plugin for the well-known Java game Minecraft: Java edition. We are rebuilding an existing game mode called “Bedwars” where multiple players or teams are battling against each other. Target is to destroy other players beds because then, they will no longer respawn after their dead
+Together we are developing a plugin for the well-known Java game Minecraft: Java edition. We are rebuilding an existing game mode called “Bedwars” where multiple players or teams are battling against each other. Target is to destroy other players beds because then, they will no longer respawn after their death.
 
 ### Trigger
 
@@ -11,7 +11,7 @@ Our plugin starts working as soon as players join the server and then change int
 
 ### Actors
 
-The actors are only players. When the plugin is done, there is no server administrator needed, to change game states or even reset the lobby. Everything works fine with only players playing
+The actors are only players. When the plugin is done, there is no server administrator needed, to change game states or even reset the lobby. Everything works fine with only players playing.
 
 ### Preconditions
 
