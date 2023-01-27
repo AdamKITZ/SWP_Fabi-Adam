@@ -4,7 +4,13 @@
 
 1. Download the provided zip file.
 2. In this file is another zipped file called minecraft. You can either use this file, start "00start.bat" and join the server with address "localhost".
-3. If you do not want to setup the server on your pc, Fabian has build a server at home, that you can join. The adress is "kitzweb.com"
+3. If you do not want to setup the server on your pc, Fabian has build a server at home, that you can join. The adress is "kitzweb.com".
+
+## After joining the server
+1. You are now in the first world. In this world there is nothing but a sign in front of you. You must click on that to get teleportet to the bedwars_lobby in wich you will wait until the needed players joined. IMPORTANT: We set minPlayers to 1, so you can test alone.
+2. After joining the lobby, a countdown will start. It may start instantly, because minPlayers is set to 1. In our lobby you can wait, die or kill other players with the provided "Knockback Stick". Note that you must jump down from the "safe plattform" before being able to hit other players.
+3. When the countdown is over, you will be teleported to the actuall game world (world_bedwars). You should be teleported to your teams color and also get a message that sais, "You are in team COLOR". Currently, you could gather iron, bricks or gold but there is no shop yet. Destroying another team's bed will also work but how would you get there without blocks from shop.
+4. Wait until the plugin is 100% done and have even more fun.
 
 
 
