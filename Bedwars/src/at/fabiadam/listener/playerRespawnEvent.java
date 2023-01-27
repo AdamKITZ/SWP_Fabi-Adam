@@ -28,11 +28,13 @@ public class playerRespawnEvent implements Listener {
         board = plugin.getBoard();
         Player player = event.getPlayer();
         if(player.getWorld().getName().equals("world_bedwars_l")) {
+            //if countdown is running, player will respawn in lobby
             if(lobbyCountdown.timeLeft() > 0) {
                 event.setRespawnLocation(player.getWorld().getSpawnLocation());
             }
         }
         else if(player.getWorld().getName().equals("world_bedwars")) {
+            //if player is in spectator mode, scoreboard will be updated
             if(player.getGameMode() == GameMode.SPECTATOR) {
                 board.updateScoreboard();
             }

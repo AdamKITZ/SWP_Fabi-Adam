@@ -19,6 +19,10 @@ public class blockPlaceEvent implements Listener {
         FileConfiguration config = plugin.getConfig();
         this.util = plugin.getUtil();
 
+        //Anti Spawn Trapping
+
+        //player can not place blocks in his and the other teams spawn points
+        //the annoying tactic of spawn trapping is prevented
 
         if (event.getPlayer().getWorld().getName().equals("world_bedwars")) {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
