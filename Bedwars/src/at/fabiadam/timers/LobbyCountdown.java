@@ -9,6 +9,9 @@ import org.bukkit.Location;
 import static at.fabiadam.listener.playerWorldChangeEvent.playerCount;
 
 public class LobbyCountdown extends Timer {
+    //This is the coundown class that you see in our lobby
+    //It extends the abstract class Timer
+    //The Timer class has a start method that starts the timer
     private static final int LOBBY_COUNTDOWN = 20;
     private MainBedwars plugin;
     private SpawnerTimer spawnerTimer;
@@ -46,6 +49,7 @@ public class LobbyCountdown extends Timer {
                     Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(player -> {
                         player.teleport(bedwarsSpawn);
                     });
+                    //Set gamestate to ingame
                     gameStateManager = plugin.getGameStateManager();
                     gameStateManager.setGameState(GameState.GAME);
                 }
@@ -59,12 +63,14 @@ public class LobbyCountdown extends Timer {
 
     }
 
+    //stop method to cancel the timer
     @Override
     public void stop() {
         Bukkit.getScheduler().cancelTask(taskId);
         taskId = 0;
     }
 
+    //return the time left
     public int timeLeft() {
         return LOBBY_COUNTDOWN - playerCount;
     }

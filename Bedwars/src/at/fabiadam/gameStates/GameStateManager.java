@@ -3,6 +3,8 @@ package at.fabiadam.gameStates;
 import at.fabiadam.main.MainBedwars;
 
 public class GameStateManager {
+    //We have a GameStateManager to manage the gamestates
+    //From here you can stop a gamestate and start another one
 
     private MainBedwars plugin;
     private GameState[] gameStates;
