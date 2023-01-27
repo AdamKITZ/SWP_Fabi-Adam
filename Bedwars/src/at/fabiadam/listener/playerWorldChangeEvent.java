@@ -35,6 +35,7 @@ public class playerWorldChangeEvent implements Listener {
     //Start the timer if there are enough players
     public void checkPlayerCount() {
         if (playerCount >= LobbyState.MIN_PLAYERS) {
+            //check if timer is already running (number of players is needed)
             lobbyCountdown.start();
         } else {
             lobbyCountdown.stop();
@@ -44,11 +45,13 @@ public class playerWorldChangeEvent implements Listener {
     public void handlePlayerJoin(PlayerChangedWorldEvent event) {
         playerCount = Bukkit.getWorld("world_bedwars_l").getPlayers().size();
         if (playerCount > LobbyState.MAX_PLAYERS) {
+            //if lobby is full, player will be kicked
             event.getPlayer().kickPlayer("§cThe lobby is full!");
             return;
         }
         checkPlayerCount();
         Bukkit.getServer().getWorld("world_bedwars_l").getPlayers().forEach(p -> {
+            //send message to all players in lobby
             p.sendMessage(MainBedwars.PREFIX + "§a" + event.getPlayer().getName() + " joined the lobby!");
         });
         Bukkit.getScheduler().scheduleSyncDelayedTask(MainBedwars.getPlugin(), new Runnable() {
