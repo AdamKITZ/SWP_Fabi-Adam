@@ -13,6 +13,7 @@ public class playerJoinEvent implements Listener {
         Location spawn = new Location(Bukkit.getWorld("world"), 180.5, 68, -48.5);
         event.getPlayer().teleport(spawn);
         if(event.getPlayer().getFoodLevel() < 20 || event.getPlayer().getHealth() < 20) {
+            //when player joins the server, set the foodlevel and health to 20
             event.getPlayer().setFoodLevel(20);
             event.getPlayer().setHealth(20);
         }

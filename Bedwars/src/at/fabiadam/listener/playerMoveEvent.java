@@ -18,7 +18,9 @@ public class playerMoveEvent implements Listener {
     // This will cause a lot of performance issues if you do not know what you are doing.
     //
     // Use with care
-    //
+
+    // useful standard settings
+
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         if(event.getPlayer().getWorld().getName().equals("world_bedwars")) {

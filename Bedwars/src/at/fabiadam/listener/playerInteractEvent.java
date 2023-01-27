@@ -20,6 +20,7 @@ public class playerInteractEvent implements Listener {
         if (event.getPlayer().getWorld().getName().equals("world_bedwars_l")) {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
                 event.setCancelled(true);
+                //checks if the player location is > 70, if so cancel the damage (lobby)
                 if (event.getPlayer().getLocation().getY() <= 70) {
                     if (!event.getPlayer().getInventory().contains(Material.STICK)) {
                         ItemStack stick = new ItemStack(Material.STICK);
@@ -27,12 +28,14 @@ public class playerInteractEvent implements Listener {
                         ItemMeta stickMeta = stick.getItemMeta();
                         stickMeta.setDisplayName("§6§lKnockback Stick");
                         stick.setItemMeta(stickMeta);
+                        //player receives a knockback stick
                         event.getPlayer().getInventory().addItem(stick);
                     }
                 }
             }
         } else if (event.getPlayer().getWorld().getName().equals("world_bedwars")) {
             if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                //player is not allowed to interact with beds (sleep)
                 if (event.getClickedBlock().getType() == Material.RED_BED) {
                     event.setCancelled(true);
                 } else if (event.getClickedBlock().getType() == Material.GREEN_BED) {

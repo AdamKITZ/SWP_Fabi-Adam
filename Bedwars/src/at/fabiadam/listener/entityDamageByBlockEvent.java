@@ -19,22 +19,13 @@ public class entityDamageByBlockEvent implements Listener {
             Player player = (Player) event.getEntity();
             if (player.getWorld().getName().equals("world_bedwars")){
                 if (player.getGameMode() == GameMode.SURVIVAL) {
-                    //Lösungsansatz 1 (in Lobby)
+                    //checks if the player gets damage by falling
                     if (event.getCause() == entityDamageEvent.DamageCause.FALL) {
+                        //if player is falling from a high place, cancel the damage
                         event.setCancelled(true);
-                        //Location l = event.getEntity().getLocation().add(0, -1, 0);
-                        //Material mat = l.getBlock().getType();
                     }
                 }
             }
-//            else if (player.getWorld().getName().equals("world_bedwars_l")) {
-//                //Lösungsansatz 2 (ingame)
-//                if (player.getGameMode() == GameMode.SURVIVAL) {
-//                    if (player.getLocation().getY() < 0) {
-//                        event.setCancelled(true);
-//                    }
-//                }
-//            }
         }
     }
 }

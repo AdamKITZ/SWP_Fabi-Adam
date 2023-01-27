@@ -2,6 +2,7 @@ package at.fabiadam.scoreboard;
 
 import org.bukkit.ChatColor;
 
+//currently not used
 public enum ColourEnum {
     ENTRY_0(0, ChatColor.YELLOW.toString()),
     ENTRY_1(1, ChatColor.GOLD.toString()),
