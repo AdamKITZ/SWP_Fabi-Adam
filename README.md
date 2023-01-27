@@ -1,5 +1,13 @@
 # Minecraft Bedwars Plugin
 
+# First Setup
+
+1. Download the provided zip file.
+2. In this file is another zipped file called minecraft. You can either use this file, start "00start.bat" and join the server with address "localhost".
+3. If you do not want to setup the server on your pc, Fabian has build a server at home, that you can join. The adress is "kitzweb.com"
+
+
+
 
 ## currently in work by @AdamKITZ & @stampFabian
 
