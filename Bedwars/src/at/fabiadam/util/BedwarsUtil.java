@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BedwarsUtil {
+    //I think the most important logic is in this class
+    //It handles everything that needs to be done in the game, like teleporting and setting the Team values
+    //We also use this to make ingame-realted map changes, like deleting items
+    //But this class will later on be embedded in the GameStates
     private MainBedwars plugin;
 
     private Board board;
@@ -24,6 +28,9 @@ public class BedwarsUtil {
 
 
     public void start() {
+        //Setting the teams
+        //Each player will be set into a team until its full, then the next team will be filled
+        //All teams together will be stored in a list called teamList
         plugin = MainBedwars.getPlugin();
         board = plugin.getBoard();
         FileConfiguration config = plugin.getConfig();
@@ -54,6 +61,7 @@ public class BedwarsUtil {
     }
 
     //This will be in world reset function
+    //It removes all items from the map
     public void deleteItems() {
         Bukkit.getServer().getWorld("world_bedwars").getEntities().forEach(e -> {
             if (e instanceof Item) {
@@ -63,6 +71,9 @@ public class BedwarsUtil {
         });
     }
 
+
+    //Well sometimes we need to know wich team a player is in
+    //This method will check it and return the whole team
     public Team getPlayerTeam(Player player) {
         for (int i = 0; i < 4; i++) {
             if (teamList.get(i).getPlayers().contains(player)) {
@@ -72,6 +83,7 @@ public class BedwarsUtil {
         return null;
     }
 
+    //Checks if the bed is active or not
     public int isBedActiv(Player player) {
         Team team = getPlayerTeam(player);
         if (team.isBedActive()) {
@@ -81,6 +93,9 @@ public class BedwarsUtil {
         }
     }
 
+    //This is very important for the game
+    //Sometime a player will not be teleported from the lobby to the game world
+    //This method shall fix this, but it is not completely done as of now
     public void setPlayersReady() {
         Bukkit.getWorld("world_bedwars_l").getPlayers().forEach(p -> {
             if(p.isDead()) {
@@ -92,6 +107,7 @@ public class BedwarsUtil {
         });
     }
 
+    //Teleports each player of a team to its correct team spawn
     public void teleportTeams() {
         teamList.forEach(team -> {
             if (team.getPlayerCount() > 0) {
@@ -102,6 +118,8 @@ public class BedwarsUtil {
         });
     }
 
+    //We have a method that returns the blocks around a teamspawn
+    //This will prevent trapping players in their spawn
     public List<Location> getSpawnBlocks(Location spawn) {
         spawn = spawn.getBlock().getLocation();
         List<Location> spawnBlocks = new ArrayList<>();

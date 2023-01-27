@@ -14,7 +14,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainBedwars extends JavaPlugin {
-
+    //Main class of the plugin
+    //We have many private classes that we need to access from other classes
+    //It was best to put all of them here, then you just need to imprt the Main class and get the other classes from there
     public static final String PREFIX = "§8[§6Bedwars§8]§r ";
     private static MainBedwars plugin;
     private static LobbyCountdown lobbyCountdown;
@@ -23,6 +25,10 @@ public class MainBedwars extends JavaPlugin {
     private BedwarsUtil util;
     private Board board;
 
+
+    //First starting method
+    //We register all the listeners and commands here
+    //Also we create the objects and start the LobbyState
     @Override
     public void onEnable() {
         plugin = this;
@@ -54,6 +60,9 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new entityDamageEvent(), this);
     }
 
+
+
+    //Those are basically just getters
     @Override
     public void onDisable() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "Plugin disabled");

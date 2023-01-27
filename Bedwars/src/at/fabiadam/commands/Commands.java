@@ -13,6 +13,9 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+//Class commands that handles all commands, i also added a tab completer for easy tap completion
 public class  Commands implements CommandExecutor, TabCompleter {
     public MainBedwars plugin;
 
@@ -22,7 +25,12 @@ public class  Commands implements CommandExecutor, TabCompleter {
         if (sender instanceof Player) {
             if (command.getName().equalsIgnoreCase("bw")) {
                 Player player = (Player) sender;
+
+                //This switch-case checks the actuall command
+                //All bw related commands start with /bw
+                //After that we have setspawner, setbed, setspawn... e.g. /bw setspawner bronze 1
                 switch (args[0].toLowerCase()) {
+                    //In each case, the parameter after the command is checked
                     case "setspawner":
                         if (player.hasPermission("bedwars.setspawner")) {
                             if (player.getWorld().getName().equals("world_bedwars")) {
@@ -102,6 +110,10 @@ public class  Commands implements CommandExecutor, TabCompleter {
         return true;
     }
 
+
+    //This method is called when a player taps tab
+    //If you for example write "/bw s" and tap tab, it will complete the command to "/bw setspawner"
+    //Depending on in which case you are, it will complete the command with the right parameters
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
         List<String> result = new ArrayList<>();
