@@ -12,6 +12,7 @@ public class playerDropEvent implements Listener {
         Player player = event.getPlayer();
         if (player.getWorld().getName().equals("world_bedwars_l")) {
             if (player.getGameMode() == GameMode.SURVIVAL) {
+                //player can't drop items in the lobby
                 event.setCancelled(true);
             }
         }
