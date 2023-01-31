@@ -3,6 +3,7 @@ package at.fabiadam.commands;
 import at.fabiadam.main.MainBedwars;
 import at.fabiadam.objects.Team;
 import at.fabiadam.util.BedwarsUtil;
+import at.fabiadam.util.MapReset;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -95,9 +96,8 @@ public class  Commands implements CommandExecutor, TabCompleter {
                         }
                     case "test":
                         if(player.hasPermission("bedwars.test")) {
-                            BedwarsUtil util = plugin.getUtil();
-                            Team t = util.getPlayerTeam(player);
-                            player.sendMessage("Bed:" + t.isBedActive());
+                            MapReset mapReset = plugin.getMapReset();
+                            mapReset.restore();
                         }
                         break;
                     default:
