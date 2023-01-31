@@ -9,6 +9,7 @@ import at.fabiadam.scoreboard.Board;
 import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
+import at.fabiadam.util.MapReset;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +25,7 @@ public class MainBedwars extends JavaPlugin {
     private GameStateManager gameStateManager;
     private BedwarsUtil util;
     private Board board;
+    private MapReset mapReset;
 
 
     //First starting method
@@ -40,6 +42,7 @@ public class MainBedwars extends JavaPlugin {
         gameStateManager.setGameState(GameState.LOBBY);
         util = new BedwarsUtil();
         board = new Board();
+        mapReset = new MapReset();
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
@@ -58,6 +61,7 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new playerMoveEvent(), this);
         pluginManager.registerEvents(new entityDamageByBlockEvent(), this);
         pluginManager.registerEvents(new entityDamageEvent(), this);
+        pluginManager.registerEvents(new MapReset(), this);
     }
 
 
@@ -91,4 +95,6 @@ public class MainBedwars extends JavaPlugin {
     public Board getBoard() {
         return board;
     }
+
+    public MapReset getMapReset() { return mapReset; }
 }

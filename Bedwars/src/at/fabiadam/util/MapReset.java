@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,34 +20,26 @@ public class MapReset implements Listener {
     //My plan is to not regenerate the whole map, but to track what locations a block was placed and then delete them
     //This also means we can not track for example an exploding tnt, I mean we could but will not!
     //Resetting a map is not that easy and Fabis raspberry will not hande millions of blocks :D
+    private static List<Location> locs = new ArrayList<Location>();
 
-    private static List<BlockData> changes = new LinkedList<>();
-    private static List<Location> changesLoc = new LinkedList<>();
-    private static List<Material> changesMat = new LinkedList<>();
-
-    public static void restore() {
+    public void restore() {
         int blocks = 0;
 
-        /*for(String b : changes) {
-            String[] blockdata = b.split(":");
-
-            BlockData data = blockdata[0];
-        }*/
+        for(Location l : locs) {
+            l.getBlock().setType(Material.AIR);
+            blocks++;
+        }
+        locs.clear();
     }
 
-    @EventHandler
-    public void onBlockBreak(BlockBreakEvent event) {
-        Block b = event.getBlock();
-        changes.add(b.getBlockData());
-        changesLoc.add(b.getLocation());
-        changesMat.add(b.getType());
-    }
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
-        Block b = event.getBlock();
-        String block = b.getType() + ":" + b.getBlockData() + ":" + b.getLocation();
-        //changes.add(block);
+        if(event.getPlayer().getWorld().getName().equals("world_bedwars")) {
+            if(event.isCancelled()) return;
+            Block b = event.getBlock();
+            locs.add(b.getLocation());
+        }
     }
 
 }
