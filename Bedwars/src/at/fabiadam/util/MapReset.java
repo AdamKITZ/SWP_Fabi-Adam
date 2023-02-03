@@ -1,8 +1,11 @@
 package at.fabiadam.util;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.BlockState;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,6 +33,14 @@ public class MapReset implements Listener {
             blocks++;
         }
         locs.clear();
+        restoreBeds();
+    }
+
+    public void restoreBeds() {
+        restoreRedBed();
+        restoreGreenBed();
+        restoreBlueBed();
+        restoreYellowBed();
     }
 
 
@@ -41,5 +52,47 @@ public class MapReset implements Listener {
             locs.add(b.getLocation());
         }
     }
+    
+    public void restoreRedBed() {
+        Block foot = Bukkit.getServer().getWorld("world_bedwars").getBlockAt(-1, 81, 90);
+        foot.setType(Material.RED_BED);
+        Block head = Bukkit.getServer().getWorld("world_bedwars").getBlockAt(-1, 81, 91);
+        head.setType(Material.RED_BED);
+        BlockState footState = foot.getState();
+        BlockState headState = head.getState();
+        footState.setRawData((byte) 0x0);
+        headState.setRawData((byte) 0x8);
+        footState.update(true, false);
+        headState.update(true, true);
+    }
+
+    public void restoreGreenBed() {
+        BlockData bedData = Bukkit.createBlockData("minecraft:green_bed[facing=west,part=foot]");
+        BlockData bedHeadData = Bukkit.createBlockData("minecraft:green_bed[facing=west,part=head]");
+        Location bedLoc = new Location(Bukkit.getServer().getWorld("world_bedwars"), -90, 80, -1);
+        Location bedHeadLoc = new Location(Bukkit.getServer().getWorld("world_bedwars"), -91, 80, -1);
+        bedLoc.getBlock().setBlockData(bedData);
+        bedHeadLoc.getBlock().setBlockData(bedHeadData);
+    }
+
+    public void restoreBlueBed() {
+
+        BlockData bedData = Bukkit.createBlockData("minecraft:blue_bed[facing=north,part=foot]");
+        BlockData bedHeadData = Bukkit.createBlockData("minecraft:blue_bed[facing=north,part=head]");
+        Location bedLoc = new Location(Bukkit.getServer().getWorld("world_bedwars"), 1, 80, -90);
+        Location bedHeadLoc = new Location(Bukkit.getServer().getWorld("world_bedwars"), 1, 80, -91);
+        bedLoc.getBlock().setBlockData(bedData);
+        bedHeadLoc.getBlock().setBlockData(bedHeadData);
+    }
+
+    public void restoreYellowBed() {
+        BlockData bedData = Bukkit.createBlockData("minecraft:yellow_bed[facing=east,part=foot]");
+        BlockData bedHeadData = Bukkit.createBlockData("minecraft:yellow_bed[facing=east,part=head]");
+        Location bedLoc = new Location(Bukkit.getServer().getWorld("world_bedwars"), 90, 80, 1);
+        Location bedHeadLoc = new Location(Bukkit.getServer().getWorld("world_bedwars"), 91, 80, 1);
+        bedLoc.getBlock().setBlockData(bedData);
+        bedHeadLoc.getBlock().setBlockData(bedHeadData);
+    }
+
 
 }
