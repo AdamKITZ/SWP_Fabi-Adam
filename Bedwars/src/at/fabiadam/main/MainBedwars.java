@@ -70,6 +70,7 @@ public class MainBedwars extends JavaPlugin {
     @Override
     public void onDisable() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "Plugin disabled");
+        mapReset.restore();
     }
 
     public static MainBedwars getPlugin() {
