@@ -15,28 +15,34 @@ public class Board {
     MainBedwars plugin;
     BedwarsUtil util;
 
-    //timer which updates the scoreboard every second and changes the color of setScore(6)
     public void updateScoreboard() {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
         Bukkit.getWorld("world_bedwars").getPlayers().forEach( player -> {
             if (player.getWorld().getName().equals("world_bedwars")) {
+                //create a new scoreboard
                 Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
+                //register a new objective
                 Objective object = board.registerNewObjective("test", "dummy");
+                //set the display slot to the sidebar
                 object.setDisplaySlot(DisplaySlot.SIDEBAR);
-                object.setDisplayName("§a§lScoreboard");
 
+                //object.setDisplayName("§a§lScoreboard");
+
+                //set Scoreboard name
                 if(player.getName().endsWith("s")) {
                     String playername = player.getName();
-                    object.getScore(playername + " Scoreboard").setScore(6);
+                    object.setDisplayName("§a§l" + playername + " Scoreboard");
                 } else {
                     String playername = player.getName();
-                    object.getScore(playername + "'s Scoreboard").setScore(6);
+                    object.setDisplayName("§a§l" + playername + "'s Scoreboard");
                 }
 
                 object.getScore(" ").setScore(5);
 
                 if(util.red.isBedActive() == true){
+                    //checks if the bed is active and if it is, it will display a green checkmark and the team name with team color
+                    //if bed is not active, it will display a red cross and the team name with grey
                     object.getScore("§a§l✓§r §cRed").setScore(4);
                 } else {
                     List<Player> redPlayers = util.red.getPlayers();
@@ -94,11 +100,14 @@ public class Board {
 
                 player.setScoreboard(board);
             } else if (player.getWorld().getName().equals("world_bedwars_l")|| player.getWorld().getName().equals("world")) {
+                //if the player is not in the bedwars world, then the scoreboard will be removed
                 player.removeScoreboardTag("You are not in Bedwars");
             }
         });
     }
 
+    //currently not in use
+    //region colorEnum
     private ColourEnum getColourEnum(Player player){
         if(player.getWorld().getName().equals("world_bedwars")){
             if(player.getDisplayName().contains("§y")){
@@ -125,4 +134,5 @@ public class Board {
         }
         return null;
     }
+    //endregion
 }

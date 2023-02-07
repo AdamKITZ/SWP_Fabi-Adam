@@ -9,12 +9,15 @@ import at.fabiadam.scoreboard.Board;
 import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
+import at.fabiadam.util.MapReset;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainBedwars extends JavaPlugin {
-
+    //Main class of the plugin
+    //We have many private classes that we need to access from other classes
+    //It was best to put all of them here, then you just need to imprt the Main class and get the other classes from there
     public static final String PREFIX = "§8[§6Bedwars§8]§r ";
     private static MainBedwars plugin;
     private static LobbyCountdown lobbyCountdown;
@@ -22,7 +25,12 @@ public class MainBedwars extends JavaPlugin {
     private GameStateManager gameStateManager;
     private BedwarsUtil util;
     private Board board;
+    private MapReset mapReset;
 
+
+    //First starting method
+    //We register all the listeners and commands here
+    //Also we create the objects and start the LobbyState
     @Override
     public void onEnable() {
         plugin = this;
@@ -34,6 +42,7 @@ public class MainBedwars extends JavaPlugin {
         gameStateManager.setGameState(GameState.LOBBY);
         util = new BedwarsUtil();
         board = new Board();
+        mapReset = new MapReset();
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
@@ -52,13 +61,19 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new playerMoveEvent(), this);
         pluginManager.registerEvents(new entityDamageByBlockEvent(), this);
         pluginManager.registerEvents(new entityDamageEvent(), this);
+        pluginManager.registerEvents(new MapReset(), this);
     }
 
+
+    //We just send a message to the console that the plugin is disabled
+    //And we restore the map
     @Override
     public void onDisable() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "Plugin disabled");
+        mapReset.restore();
     }
 
+    //Those are basically just getters
     public static MainBedwars getPlugin() {
         return plugin;
     }
@@ -82,4 +97,6 @@ public class MainBedwars extends JavaPlugin {
     public Board getBoard() {
         return board;
     }
+
+    public MapReset getMapReset() { return mapReset; }
 }

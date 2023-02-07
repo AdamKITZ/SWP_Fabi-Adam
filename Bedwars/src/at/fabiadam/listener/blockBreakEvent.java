@@ -26,13 +26,19 @@ public class blockBreakEvent implements Listener {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
         board = plugin.getBoard();
+        //checks if the player is in the bedwars world
         if (event.getPlayer().getWorld().getName().equals("world_bedwars")) {
+            //checks if the player is in survival mode
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+                //Items can not be dropped anymore
                 event.setDropItems(false);
+                //checks if the destroyed material is a (team color) bed
                 if (event.getBlock().getType() == Material.RED_BED) {
                     if (util.getPlayerTeam(event.getPlayer()).getTeamColor().equals("red")) {
+                        //if the player is in the same team as the bed, the event will be cancelled
                         event.setCancelled(true);
                     } else {
+                        //if the player is in a different team as the bed, the bed will be destroyed and the scoreboard will be updated
                         Bukkit.broadcastMessage("§c§l" + event.getPlayer().getName() + " §7destroyed the  §c§lRED §7bed!");
                         util.red.setBedActive(false);
                         board.updateScoreboard();

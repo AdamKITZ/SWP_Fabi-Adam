@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class IngameState extends GameState {
+    //Explained in LobbyState.java
     private BedwarsUtil util;
     private MainBedwars plugin;
     private SpawnerTimer spawnerTimer;

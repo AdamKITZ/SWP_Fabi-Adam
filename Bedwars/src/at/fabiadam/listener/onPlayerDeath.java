@@ -19,11 +19,14 @@ public class onPlayerDeath implements Listener {
         util = plugin.getUtil();
         Player player = (Player) event.getEntity();
         if (player.getWorld().getName().equals("world_bedwars")) {
+            //checks if bed is activated
             if (util.isBedActiv(player) == 1) {
+                //if bed is activated, player is allowed to respawn
                 player.spigot().respawn();
                 Team team = util.getPlayerTeam(player);
                 player.teleport(team.getTeamSpawn());
             } else {
+                //if bed is not activated, player will be in spectator mode
                 player.spigot().respawn();
                 Team team = util.getPlayerTeam(player);
                 player.teleport(team.getTeamSpawn());
@@ -32,6 +35,7 @@ public class onPlayerDeath implements Listener {
 
         } else if(player.getWorld().getName().equals("world_bedwars_l")) {
             if (player.getGameMode() == GameMode.SURVIVAL) {
+                //in lobby (because of knockbackstick minigame) player will keep his inventory
                 event.setKeepInventory(true);
                 player.spigot().respawn();
             }

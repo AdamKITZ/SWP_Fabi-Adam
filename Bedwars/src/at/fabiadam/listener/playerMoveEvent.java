@@ -18,7 +18,9 @@ public class playerMoveEvent implements Listener {
     // This will cause a lot of performance issues if you do not know what you are doing.
     //
     // Use with care
-    //
+
+    // useful standard settings
+
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         if(event.getPlayer().getWorld().getName().equals("world_bedwars")) {
@@ -32,6 +34,11 @@ public class playerMoveEvent implements Listener {
                 event.getPlayer().spigot().respawn();
             } else if (event.getPlayer().getLocation().getY() >= 120) {
                 event.setCancelled(true);
+            }
+        } else if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")) {
+            if(event.getPlayer().getLocation().getY() < 62) {
+                event.getPlayer().teleport(new Location(event.getPlayer().getWorld(), 0.5, 75, 0.5, 180, 0));
+                event.getPlayer().setHealth(20);
             }
         }
     }

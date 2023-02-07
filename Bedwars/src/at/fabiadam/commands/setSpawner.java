@@ -9,9 +9,12 @@ import org.bukkit.entity.Player;
 
 
 public class setSpawner implements CommandExecutor {
-
     private MainBedwars plugin;
 
+
+    //This command is actually not used, but I left it in here for reference
+    //This is what it would look like if you would use a command class for each command
+    //Later I preferred to use a switch-case in the main command class
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         plugin = MainBedwars.getPlugin();
