@@ -11,8 +11,11 @@ import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
 import at.fabiadam.util.MapReset;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.List;
 
 public class MainBedwars extends JavaPlugin {
     //Main class of the plugin
@@ -26,6 +29,9 @@ public class MainBedwars extends JavaPlugin {
     private BedwarsUtil util;
     private Board board;
     private MapReset mapReset;
+
+    private List<Material> destroyableMaterials;
+
 
 
     //First starting method
@@ -99,4 +105,8 @@ public class MainBedwars extends JavaPlugin {
     }
 
     public MapReset getMapReset() { return mapReset; }
+
+    public List<Material> getDestroyableMaterials() {
+        return destroyableMaterials;
+    }
 }
