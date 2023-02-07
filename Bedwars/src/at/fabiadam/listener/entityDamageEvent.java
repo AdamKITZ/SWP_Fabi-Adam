@@ -12,13 +12,10 @@ public class entityDamageEvent implements Listener {
     public void onEntityDamageEvent(EntityDamageEvent event) {
         if(event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
-            if (player.getWorld().getName().equals("world_bedwars_l") || player.getWorld().getName().equals("world")) {
+            if (player.getWorld().getName().equals("world_bedwars_l")) {
                 //checks if the player gets damage, if so set the health and foodlevel to 20 again
-                if (player.getHealth() <= 10) {
-                    player.setHealth(20);
-                }
-                if (player.getFoodLevel() <= 10) {
-                    player.setFoodLevel(20);
+                if(event.getCause() == EntityDamageEvent.DamageCause.FALL) {
+                    event.setCancelled(true);
                 }
             }
         }
