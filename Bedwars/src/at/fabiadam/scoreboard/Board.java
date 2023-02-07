@@ -26,15 +26,16 @@ public class Board {
                 Objective object = board.registerNewObjective("test", "dummy");
                 //set the display slot to the sidebar
                 object.setDisplaySlot(DisplaySlot.SIDEBAR);
-                object.setDisplayName("§a§lScoreboard");
 
-                //if the player name ends with s, then it will be "(player name) Scoreboard" instead of "(player name)'s Scoreboard"
+                //object.setDisplayName("§a§lScoreboard");
+
+                //set Scoreboard name
                 if(player.getName().endsWith("s")) {
                     String playername = player.getName();
-                    object.getScore(playername + " Scoreboard").setScore(6);
+                    object.setDisplayName("§a§l" + playername + " Scoreboard");
                 } else {
                     String playername = player.getName();
-                    object.getScore(playername + "'s Scoreboard").setScore(6);
+                    object.setDisplayName("§a§l" + playername + "'s Scoreboard");
                 }
 
                 object.getScore(" ").setScore(5);
