@@ -65,14 +65,15 @@ public class MainBedwars extends JavaPlugin {
     }
 
 
-
-    //Those are basically just getters
+    //We just send a message to the console that the plugin is disabled
+    //And we restore the map
     @Override
     public void onDisable() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "Plugin disabled");
         mapReset.restore();
     }
 
+    //Those are basically just getters
     public static MainBedwars getPlugin() {
         return plugin;
     }

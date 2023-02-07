@@ -35,6 +35,11 @@ public class playerMoveEvent implements Listener {
             } else if (event.getPlayer().getLocation().getY() >= 120) {
                 event.setCancelled(true);
             }
+        } else if(event.getPlayer().getWorld().getName().equals("world_bedwars_l")) {
+            if(event.getPlayer().getLocation().getY() < 62) {
+                event.getPlayer().teleport(new Location(event.getPlayer().getWorld(), 0.5, 75, 0.5, 180, 0));
+                event.getPlayer().setHealth(20);
+            }
         }
     }
 }
