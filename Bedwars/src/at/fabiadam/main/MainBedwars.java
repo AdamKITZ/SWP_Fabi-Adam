@@ -4,6 +4,7 @@ import at.fabiadam.commands.Commands;
 import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.GameState;
+import at.fabiadam.items.BlockEnum;
 import at.fabiadam.listener.*;
 import at.fabiadam.scoreboard.Board;
 import at.fabiadam.timers.LobbyCountdown;
@@ -30,7 +31,7 @@ public class MainBedwars extends JavaPlugin {
     private Board board;
     private MapReset mapReset;
 
-    private List<Material> destroyableMaterials;
+    private List<String> destroyableMaterials;
 
 
 
@@ -68,6 +69,11 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new entityDamageByBlockEvent(), this);
         pluginManager.registerEvents(new entityDamageEvent(), this);
         pluginManager.registerEvents(new MapReset(), this);
+
+        for (BlockEnum b : BlockEnum.values()) {
+            destroyableMaterials.add(b.toString());
+
+        }
     }
 
 
@@ -106,7 +112,7 @@ public class MainBedwars extends JavaPlugin {
 
     public MapReset getMapReset() { return mapReset; }
 
-    public List<Material> getDestroyableMaterials() {
+    public List<String> getDestroyableMaterials() {
         return destroyableMaterials;
     }
 }

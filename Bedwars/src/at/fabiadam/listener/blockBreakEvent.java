@@ -72,6 +72,8 @@ public class blockBreakEvent implements Listener {
                         util.yellow.setBedActive(false);
                         board.updateScoreboard();
                     }
+                } else if(plugin.getDestroyableMaterials().contains(event.getBlock().getType().toString())){
+                    return;
                 } else {
                     event.setCancelled(true);
                 }
