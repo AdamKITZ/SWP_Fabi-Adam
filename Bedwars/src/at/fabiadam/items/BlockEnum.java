@@ -6,10 +6,10 @@ public enum BlockEnum {
     END_STONE,
     GLASS,
     PACKED_ICE,
-    GLOWSTONE_BLOCK,
+    GLOWSTONE,
     INFESTED_STONE,
     IRON_BLOCK,
-    WOOD_PLANKS,
+    OAK_PLANKS,
     SLIME_BLOCK,
-    ACACIA_WOOD_STAIRS;
+    ACACIA_STAIRS;
 }
