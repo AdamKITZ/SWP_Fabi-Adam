@@ -1,5 +1,6 @@
 package at.fabiadam.objects;
 
+import at.fabiadam.items.BlockEnum;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -66,6 +67,7 @@ public class Team {
     public void setBedActive(boolean active) {
         bedActive = active;
     }
+
 
 
     //Constructor
