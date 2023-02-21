@@ -9,7 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Villager;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +105,11 @@ public class  Commands implements CommandExecutor, TabCompleter {
                         }
                         break;
                     case "spawnshop":
-
+                        Villager shop = (Villager) player.getWorld().spawnEntity(player.getLocation(), EntityType.VILLAGER);
+                        shop.setAI(false);
+                        shop.setCustomName("§bShop");
+                        shop.setCustomNameVisible(true);
+                        shop.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 500));
                         break;
                     default:
                         break;
