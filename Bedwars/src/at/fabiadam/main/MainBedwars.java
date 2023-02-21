@@ -6,6 +6,8 @@ import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.GameState;
 import at.fabiadam.items.BlockEnum;
 import at.fabiadam.listener.*;
+import at.fabiadam.listener.shop.shopDamageListener;
+import at.fabiadam.listener.shop.shopInteractEvent;
 import at.fabiadam.scoreboard.Board;
 import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
@@ -70,6 +72,8 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new entityDamageByBlockEvent(), this);
         pluginManager.registerEvents(new entityDamageEvent(), this);
         pluginManager.registerEvents(new MapReset(), this);
+        pluginManager.registerEvents(new shopDamageListener(), this);
+        pluginManager.registerEvents(new shopInteractEvent(), this);
 
         for (BlockEnum b : BlockEnum.values()) {
             destroyableMaterials.add(b.toString());
