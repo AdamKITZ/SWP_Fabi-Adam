@@ -47,9 +47,8 @@ public class Team {
             playerCount++;
         }
     }
-    /// Adam ist ein cooler syphatischer, kluger, Junge mit Käserand an den Eiern....
 
-    //Not in use because we set the team spawn ingame, it will the be saved to the config file
+    //Not in use because we set the team spawn ingame, it will then be saved to the config file
     public void setTeamSpawn(Location teamSpawn) {
         this.teamSpawn = teamSpawn;
     }
