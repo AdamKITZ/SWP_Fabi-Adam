@@ -1,47 +1,15 @@
 package at.fabiadam.items;
 
 public enum BlockEnum {
-    SANSDSTONE, SAND;
-
-
-    /*
-    SANDSTONE
-    END_STONE
-    GLASS
-    PACKED_ICE
-    GLOWSTONE_BLOCK
-    INFESTED_STONE
-    IRON_BLOCK
-
-    CLAY_BLOCK
-    WOOD
-    SLIME_BLOCK
-    ACACIA_WOOD_STAIRS
-
-    CHAINMAIL_ARMOR
-    IRON_ARMOR
-    DIAMOND_ARMOR
-
-    WOODEN_PICKAXE
-    STONE_PICKAXE
-    IRON_PICKAXE
-
-    STONE_AXE
-    IRON_AXE
-
-    KNOCKBACK_1
-    STONE_SWORD
-    IRON_SWORD
-    DIAMOND_SWORD
-
-    BOW
-
-    HEALING_POTION
-
-    SNOWBALL
-    //Teleporter
-    //Rettungsplattform
-    FIREBALL
-    ENDER_PEARL
-     */
+    //This enum is used to store all the blocks that are able to be destroyed in game
+    SANDSTONE,
+    END_STONE,
+    GLASS,
+    PACKED_ICE,
+    GLOWSTONE_BLOCK,
+    INFESTED_STONE,
+    IRON_BLOCK,
+    WOOD_PLANKS,
+    SLIME_BLOCK,
+    ACACIA_WOOD_STAIRS;
 }
