@@ -16,6 +16,7 @@ import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainBedwars extends JavaPlugin {
@@ -31,7 +32,7 @@ public class MainBedwars extends JavaPlugin {
     private Board board;
     private MapReset mapReset;
 
-    private List<String> destroyableMaterials;
+    private List<String> destroyableMaterials = new ArrayList<>();
 
 
 
