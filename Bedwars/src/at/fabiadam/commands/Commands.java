@@ -100,6 +100,9 @@ public class  Commands implements CommandExecutor, TabCompleter {
                             mapReset.restore();
                         }
                         break;
+                    case "spawnshop":
+
+                        break;
                     default:
                         break;
                 }
