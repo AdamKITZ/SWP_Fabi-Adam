@@ -6,8 +6,8 @@ public class GameStateManager {
     //We have a GameStateManager to manage the gamestates
     //From here you can stop a gamestate and start another one
 
-    private MainBedwars plugin;
-    private GameState[] gameStates;
+    private final MainBedwars plugin;
+    private final GameState[] gameStates;
     private GameState currentGameState;
 
     public GameStateManager(MainBedwars plugin) {

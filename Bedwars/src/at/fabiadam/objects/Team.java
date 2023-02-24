@@ -12,9 +12,9 @@ public class Team {
     //This class is used to store all information about a team
     //It also includes many useful methods
     //For example it stores the players in a team, some bed information, the spawn location and the team color
-    private String color;
+    private final String color;
     private int playerCount;
-    private int maxPlayerCount;
+    private final int maxPlayerCount;
     private List<Player> players = new ArrayList<>();
     private boolean bedActive;
     private Location teamSpawn;

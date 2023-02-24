@@ -23,7 +23,7 @@ public class MapReset implements Listener {
     //My plan is to not regenerate the whole map, but to track what locations a block was placed and then delete them
     //This also means we can not track for example an exploding tnt, I mean we could but will not!
     //Resetting a map is not that easy and Fabis raspberry will not hande millions of blocks :D
-    private static List<Location> locs = new ArrayList<Location>();
+    private static final List<Location> locs = new ArrayList<Location>();
 
     public void restore() {
         int blocks = 0;
