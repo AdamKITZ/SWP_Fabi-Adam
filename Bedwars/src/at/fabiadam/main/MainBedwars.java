@@ -34,7 +34,7 @@ public class MainBedwars extends JavaPlugin {
     private Board board;
     private MapReset mapReset;
 
-    private List<String> destroyableMaterials = new ArrayList<>();
+    private final List<String> destroyableMaterials = new ArrayList<>();
 
 
 

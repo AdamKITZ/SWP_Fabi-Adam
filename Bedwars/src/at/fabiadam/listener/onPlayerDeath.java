@@ -17,7 +17,7 @@ public class onPlayerDeath implements Listener {
     public void onPlayerDeath(PlayerDeathEvent event) {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
-        Player player = (Player) event.getEntity();
+        Player player = event.getEntity();
         if (player.getWorld().getName().equals("world_bedwars")) {
             //checks if bed is activated
             if (util.isBedActiv(player) == 1) {

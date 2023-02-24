@@ -17,7 +17,7 @@ public class LobbyState extends GameState {
     @Override
     public void start() {
         this.plugin = MainBedwars.getPlugin();
-        Bukkit.getConsoleSender().sendMessage(plugin.PREFIX + "LobbyState started");
+        Bukkit.getConsoleSender().sendMessage(MainBedwars.PREFIX + "LobbyState started");
     }
 
     @Override

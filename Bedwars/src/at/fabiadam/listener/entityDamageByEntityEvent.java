@@ -12,8 +12,7 @@ public class entityDamageByEntityEvent implements Listener {
 
     @EventHandler
     public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
-        if (event.getEntity() instanceof Player) {
-            Player player = (Player) event.getEntity();
+        if (event.getEntity() instanceof Player player) {
             if (player.getWorld().getName().equals("world_bedwars_l")) {
                 if (player.getGameMode() == GameMode.SURVIVAL) {
                     //checks if the player location is > 70, if so cancel the damage

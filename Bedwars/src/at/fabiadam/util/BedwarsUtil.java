@@ -63,8 +63,7 @@ public class BedwarsUtil {
     //It removes all items from the map
     public void deleteItems() {
         Bukkit.getServer().getWorld("world_bedwars").getEntities().forEach(e -> {
-            if (e instanceof Item) {
-                Item item = (Item) e;
+            if (e instanceof Item item) {
                 item.remove();
             }
         });
