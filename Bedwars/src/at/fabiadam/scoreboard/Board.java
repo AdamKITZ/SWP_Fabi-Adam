@@ -27,14 +27,11 @@ public class Board {
                 //set the display slot to the sidebar
                 object.setDisplaySlot(DisplaySlot.SIDEBAR);
 
-                //object.setDisplayName("§a§lScoreboard");
-
                 //set Scoreboard name
+                String playername = player.getName();
                 if(player.getName().endsWith("s")) {
-                    String playername = player.getName();
                     object.setDisplayName("§a§l" + playername + " Scoreboard");
                 } else {
-                    String playername = player.getName();
                     object.setDisplayName("§a§l" + playername + "'s Scoreboard");
                 }
 
@@ -97,7 +94,6 @@ public class Board {
                         }
                     }
                 }
-
                 player.setScoreboard(board);
             } else if (player.getWorld().getName().equals("world_bedwars_l")|| player.getWorld().getName().equals("world")) {
                 //if the player is not in the bedwars world, then the scoreboard will be removed
@@ -105,34 +101,4 @@ public class Board {
             }
         });
     }
-
-    //currently not in use
-    //region colorEnum
-    private ColourEnum getColourEnum(Player player){
-        if(player.getWorld().getName().equals("world_bedwars")){
-            if(player.getDisplayName().contains("§y")){
-                return ColourEnum.ENTRY_0;
-            } else if(player.getDisplayName().contains("§cc")){
-                return ColourEnum.ENTRY_1;
-            } else if(player.getDisplayName().contains("§c")){
-                return ColourEnum.ENTRY_2;
-            }
-        }
-        return null;
-    }
-
-    private Team getTeam(Player player){
-        if(player.getWorld().getName().equals("world_bedwars")){
-            Scoreboard board = player.getScoreboard();
-            if(board.getTeam(getColourEnum(player).getEntryString()) == null){
-                Team team = board.registerNewTeam(getColourEnum(player).getEntryString());
-                team.addEntry(getColourEnum(player).getEntryString());
-                return team;
-            } else {
-                return board.getTeam(getColourEnum(player).getEntryString());
-            }
-        }
-        return null;
-    }
-    //endregion
 }
