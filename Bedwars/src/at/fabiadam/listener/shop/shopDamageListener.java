@@ -10,8 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 public class shopDamageListener implements Listener {
     @EventHandler
     public void shopDamage(EntityDamageByEntityEvent event) {
-        if(!(event.getEntity() instanceof Villager)) return;
-        Villager shop = (Villager) event.getEntity();
+        if(!(event.getEntity() instanceof Villager shop)) return;
         try {
             if(shop.getCustomName().equals("§bShop")) {
                 event.setCancelled(true);
@@ -19,9 +18,8 @@ public class shopDamageListener implements Listener {
         } catch (Exception ignored) {
             return;
         }
-        if(!(event.getDamager() instanceof Player)) return;
+        if(!(event.getDamager() instanceof Player player)) return;
         event.setCancelled(true);
-        Player player = (Player) event.getDamager();
         if(player.getItemInHand().getType() == Material.BARRIER) {
             shop.setHealth(0);
             player.sendMessage("§cShop got deleted!");

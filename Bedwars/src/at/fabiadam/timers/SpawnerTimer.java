@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class SpawnerTimer {
     //This time activates the spawners
     //It extends the abstract class Timer
-    private static int taskId = 0;
+    private static final int taskId = 0;
     private static World bedwarsWorld;
     private static double time;
     private MainBedwars plugin;

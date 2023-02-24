@@ -10,8 +10,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 public class entityDamageByBlockEvent implements Listener {
     @EventHandler
     public void onEntityDamageByBlockEvent(EntityDamageByBlockEvent event){
-        if(event.getEntity() instanceof Player) {
-            Player player = (Player) event.getEntity();
+        if(event.getEntity() instanceof Player player) {
             if (player.getWorld().getName().equals("world_bedwars_l")) {
                 //checks if the player gets damage by falling
                 if (event.getCause() == EntityDamageEvent.DamageCause.FALL) {
