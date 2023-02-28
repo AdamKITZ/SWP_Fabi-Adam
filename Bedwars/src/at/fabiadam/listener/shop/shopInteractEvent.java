@@ -13,7 +13,7 @@ public class shopInteractEvent implements Listener {
         if(player.getWorld().getName().equals("world_bedwars")){
             if (event.getRightClicked().getCustomName().equals("§bShop")) {
                 event.setCancelled(true);
-                player.openInventory(ShopUtil.shopInventory);
+                ShopUtil.openShopInventory(player, true);
             }
         }
     }
