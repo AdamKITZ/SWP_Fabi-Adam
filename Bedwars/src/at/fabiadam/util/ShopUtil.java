@@ -22,51 +22,61 @@ public class ShopUtil {
         if (firstOpen) {
             player.playSound(player.getLocation(), Sound.ENTITY_SLIME_ATTACK, 1, 1);
         }
-        player.openInventory(shopInventory);
+
 
         shopInventory.setItem(10, ShopItems.blocks);
         shopInventory.setItem(12, ShopItems.weapons);
         shopInventory.setItem(14, ShopItems.armor);
         shopInventory.setItem(16, ShopItems.special);
+
+        player.openInventory(shopInventory);
     }
 
     public static void openBlocksInventory(Player player, Boolean firstOpen) {
 
-        player.openInventory(blocksInventory);
+
 
         blocksInventory.setItem(10, ShopItems.blocks);
         blocksInventory.setItem(12, ShopItems.weapons);
         blocksInventory.setItem(14, ShopItems.armor);
         blocksInventory.setItem(16, ShopItems.special);
+
+        player.openInventory(blocksInventory);
     }
 
     public static void openWeaponsInventory(Player player, Boolean firstOpen) {
 
-        player.openInventory(weaponsInventory);
+
 
         weaponsInventory.setItem(10, ShopItems.blocks);
         weaponsInventory.setItem(12, ShopItems.weapons);
         weaponsInventory.setItem(14, ShopItems.armor);
         weaponsInventory.setItem(16, ShopItems.special);
+
+        player.openInventory(weaponsInventory);
     }
 
     public static void openArmorInventory(Player player, Boolean firstOpen) {
 
-        player.openInventory(armorInventory);
+
 
         armorInventory.setItem(10, ShopItems.blocks);
         armorInventory.setItem(12, ShopItems.weapons);
         armorInventory.setItem(14, ShopItems.armor);
         armorInventory.setItem(16, ShopItems.special);
+
+        player.openInventory(armorInventory);
     }
 
     public static void openSpecialInventory(Player player, Boolean firstOpen) {
 
-        player.openInventory(specialInventory);
+
 
         specialInventory.setItem(10, ShopItems.blocks);
         specialInventory.setItem(12, ShopItems.weapons);
         specialInventory.setItem(14, ShopItems.armor);
         specialInventory.setItem(16, ShopItems.special);
+
+        player.openInventory(specialInventory);
     }
 }
