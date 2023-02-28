@@ -5,6 +5,7 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 public class ShopUtil {
     public static final String SHOP_TITLE = "§bShop";
@@ -78,5 +79,12 @@ public class ShopUtil {
         specialInventory.setItem(16, ShopItems.special);
 
         player.openInventory(specialInventory);
+    }
+
+    public static void buyItem(Player player, ItemStack itemStack) {
+        Inventory playerInventory = player.getInventory();
+       //if(playerInventory.containsAtLeast()) {
+
+        //}
     }
 }
