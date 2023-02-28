@@ -13,6 +13,7 @@ import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
 import at.fabiadam.util.MapReset;
+import at.fabiadam.util.ShopItems;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
@@ -79,6 +80,8 @@ public class MainBedwars extends JavaPlugin {
             destroyableMaterials.add(b.toString());
 
         }
+
+        ShopItems.renameAll();
     }
 
 

@@ -11,4 +11,12 @@ public class ShopItems {
     static ItemStack armor = new ItemStack(Material.DIAMOND_CHESTPLATE);
 
     static ItemStack special = new ItemStack(Material.FIRE_CHARGE);
+
+    public static void renameAll() {
+
+        blocks.getItemMeta().setDisplayName("§bBlocks");
+        weapons.getItemMeta().setDisplayName("§bWeapons");
+        armor.getItemMeta().setDisplayName("§bArmor");
+        special.getItemMeta().setDisplayName("§bSpecial");
+    }
 }
