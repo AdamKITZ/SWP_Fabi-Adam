@@ -1,11 +1,15 @@
 package at.fabiadam.util;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.HashMap;
 
 public class ShopUtil {
     public static final String SHOP_TITLE = "§bShop";
@@ -82,9 +86,62 @@ public class ShopUtil {
     }
 
     public static void buyItem(Player player, ItemStack itemStack) {
-        Inventory playerInventory = player.getInventory();
+        String name = itemStack.getItemMeta().getDisplayName();
+        name = name.replaceAll("[a-zA-Z\\s]", "");
+        double costDouble = Double.parseDouble(cost) * sellAmount;
        //if(playerInventory.containsAtLeast()) {
 
         //}
+    }
+    public static void handleSell(Material material, int sellAmount, Player player, String cost) {
+        cost = cost.replaceAll("[a-zA-Z\\s]", "");
+        double costDouble = Double.parseDouble(cost) * sellAmount;
+
+        if(!checkAmount(material, player.getInventory(), sellAmount, player)) {
+            player.sendMessage("§cNot able to sell! (Do you have any?)");
+            return;
+        }
+        int notremoved = removeItems(player.getInventory(), material, sellAmount);
+        if(notremoved>0) {
+            player.sendMessage("§c" + notremoved + " items could not be sold");
+        }
+        //player.getInventory().remove(new ItemStack(material, 1));
+        double currentMoney = config.getDouble("server.user." + player.getUniqueId() + ".money");
+        config.set("server.user." + player.getUniqueId() + ".money",(currentMoney+costDouble)-notremoved*(costDouble/sellAmount));
+        if(sellAmount == 64) {
+            player.giveExp(2);
+        } else if(sellAmount == 32) {
+            player.giveExp(1);
+        }
+        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 2, 2);
+        data.saveNewConfig();
+    }
+
+    public static Boolean checkAmount(Material material, Inventory inventory, int amount, Player player) {
+        if(inventory.contains(material, amount)) {
+            return true;
+        }
+        player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 1, 1);
+        return false;
+    }
+    public static int removeItems(Inventory inventory, Material type, int amount) {
+
+        if(type == null || inventory == null)
+            return -1;
+        if (amount <= 0)
+            return -1;
+
+        if (amount == Integer.MAX_VALUE) {
+            inventory.remove(type);
+            return 0;
+        }
+
+        HashMap<Integer,ItemStack> retVal = inventory.removeItem(new ItemStack(type,amount));
+
+        int notRemoved = 0;
+        for(ItemStack item: retVal.values()) {
+            notRemoved+=item.getAmount();
+        }
+        return notRemoved;
     }
 }
