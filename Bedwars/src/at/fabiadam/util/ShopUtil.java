@@ -39,12 +39,13 @@ public class ShopUtil {
 
     public static void openBlocksInventory(Player player, Boolean firstOpen) {
 
-
-
-        blocksInventory.setItem(10, ShopItems.blocks);
-        blocksInventory.setItem(12, ShopItems.weapons);
-        blocksInventory.setItem(14, ShopItems.armor);
-        blocksInventory.setItem(16, ShopItems.special);
+        blocksInventory.setItem(1, ShopItems.sandstone);
+        blocksInventory.setItem(2, ShopItems.end_stone);
+        blocksInventory.setItem(3, ShopItems.obsidian);
+        blocksInventory.setItem(4, ShopItems.glass);
+        blocksInventory.setItem(5, ShopItems.glowstone);
+        blocksInventory.setItem(6, ShopItems.nether_brick);
+        blocksInventory.setItem(7, ShopItems.infested_stone);
 
         player.openInventory(blocksInventory);
     }
