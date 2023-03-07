@@ -23,6 +23,8 @@ public void onShopInventoryClick(InventoryClickEvent event) {
             return;
         }
 
+
+        //Logic for tho main page of the shop
         if (title.equals("§bShop")) {
             event.setCancelled(true);
 
@@ -30,23 +32,31 @@ public void onShopInventoryClick(InventoryClickEvent event) {
             if(event.getClickedInventory().getType() == InventoryType.PLAYER) return;
             if(!(event.getClick() == ClickType.LEFT)) return;
             if(!(event.getView().getTopInventory() == event.getClickedInventory())) return;
-            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§bBlocks")) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("Blocks")) {
                 //event.setCancelled(true);
                 ShopUtil.openBlocksInventory(player, true);
             }
-            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§bWeapons")) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("Weapons")) {
                 //event.setCancelled(true);
                 ShopUtil.openWeaponsInventory(player, true);
             }
-            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§bArmor")) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("Armor")) {
                 //event.setCancelled(true);
                 ShopUtil.openArmorInventory(player, true);
             }
-            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("§bSpecial")) {
+            if (event.getCurrentItem().getItemMeta().getDisplayName().equals("Special")) {
                 //event.setCancelled(true);
                 ShopUtil.openSpecialInventory(player, true);
             }
+        } else if(title.equals("Blocks") || title.equals("Weapons") || title.equals("Armor") || title.equals("Special")) {
+            event.setCancelled(true);
 
+            if(event.getClickedInventory() == null) return;
+            if(event.getClickedInventory().getType() == InventoryType.PLAYER) return;
+            if(!(event.getClick() == ClickType.LEFT)) return;
+            if(!(event.getView().getTopInventory() == event.getClickedInventory())) return;
+            if(event.getCurrentItem() == null) return;
+            ShopUtil.buyItem(player, event.getCurrentItem());
         }
     }
 }

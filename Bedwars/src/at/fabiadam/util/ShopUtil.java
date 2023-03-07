@@ -87,44 +87,40 @@ public class ShopUtil {
     }
 
     public static void buyItem(Player player, ItemStack itemStack) {
+        Inventory playerInventory = player.getInventory();
         String name = itemStack.getItemMeta().getDisplayName();
-        name = name.replaceAll("[a-zA-Z\\s]", "");
-        double costDouble = Double.parseDouble(cost) * sellAmount;
-       //if(playerInventory.containsAtLeast()) {
+        String[] nameArr = name.split(" ");
+        //String material = nameArr[0];
+        int amount = Integer.parseInt(nameArr[0]);
+        int cost = Integer.parseInt(nameArr[nameArr.length - 2]);
+        String currency = nameArr[nameArr.length - 1];
+        ItemStack bronze = new ItemStack(Material.BRICK);
+        ItemStack iron = new ItemStack(Material.IRON_INGOT);
+        ItemStack gold = new ItemStack(Material.GOLD_INGOT);
 
-        //}
-    }
-    public static void handleSell(Material material, int sellAmount, Player player, String cost) {
-        cost = cost.replaceAll("[a-zA-Z\\s]", "");
-        double costDouble = Double.parseDouble(cost) * sellAmount;
+        switch(currency.toLowerCase()) {
+            case "bronze":
+                if(playerInventory.containsAtLeast(bronze, cost)) {
+                    player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
+                    removeItems(playerInventory, bronze.getType(), cost);
+                }
+                break;
+            case "iron":
+                if(playerInventory.containsAtLeast(iron, cost)) {
+                    player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
+                    removeItems(playerInventory, iron.getType(), cost);
+                }
+                break;
+            case "gold":
+                if(playerInventory.containsAtLeast(gold, cost)) {
+                    player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
+                    removeItems(playerInventory, gold.getType(), cost);
+                }
+                break;
+        }
 
-        if(!checkAmount(material, player.getInventory(), sellAmount, player)) {
-            player.sendMessage("§cNot able to sell! (Do you have any?)");
-            return;
-        }
-        int notremoved = removeItems(player.getInventory(), material, sellAmount);
-        if(notremoved>0) {
-            player.sendMessage("§c" + notremoved + " items could not be sold");
-        }
-        //player.getInventory().remove(new ItemStack(material, 1));
-        double currentMoney = config.getDouble("server.user." + player.getUniqueId() + ".money");
-        config.set("server.user." + player.getUniqueId() + ".money",(currentMoney+costDouble)-notremoved*(costDouble/sellAmount));
-        if(sellAmount == 64) {
-            player.giveExp(2);
-        } else if(sellAmount == 32) {
-            player.giveExp(1);
-        }
-        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 2, 2);
-        data.saveNewConfig();
     }
 
-    public static Boolean checkAmount(Material material, Inventory inventory, int amount, Player player) {
-        if(inventory.contains(material, amount)) {
-            return true;
-        }
-        player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 1, 1);
-        return false;
-    }
     public static int removeItems(Inventory inventory, Material type, int amount) {
 
         if(type == null || inventory == null)
@@ -144,5 +140,17 @@ public class ShopUtil {
             notRemoved+=item.getAmount();
         }
         return notRemoved;
+    }
+
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
