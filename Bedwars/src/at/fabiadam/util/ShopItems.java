@@ -70,12 +70,12 @@ public class ShopItems {
         ItemMeta nether_brickMeta = nether_brick.getItemMeta();
         ItemMeta infested_stoneMeta = infested_stone.getItemMeta();
         sandstoneMeta.setDisplayName("§b16 Sandstone 16 Bronze");
-        end_stoneMeta.setDisplayName("§b1End Stone 6 Bronze");
+        end_stoneMeta.setDisplayName("§b1 End Stone 6 Bronze");
         obsidianMeta.setDisplayName("§b4 Obsidian 4 Gold");
-        glassMeta.setDisplayName("§b1Glass 2 Bronze");
+        glassMeta.setDisplayName("§b1 Glass 2 Bronze");
         glowstoneMeta.setDisplayName("§b2 Glowstone 4 Bronze");
-        nether_brickMeta.setDisplayName("§b1Nether Brick 2 Bronze");
-        infested_stoneMeta.setDisplayName("§b1Infested Stone 24 Bronze");
+        nether_brickMeta.setDisplayName("§b1 Nether Brick 2 Bronze");
+        infested_stoneMeta.setDisplayName("§b1 Infested Stone 24 Bronze");
         sandstone.setItemMeta(sandstoneMeta);
         end_stone.setItemMeta(end_stoneMeta);
         obsidian.setItemMeta(obsidianMeta);
