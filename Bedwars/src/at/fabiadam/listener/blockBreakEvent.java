@@ -33,8 +33,9 @@ public class blockBreakEvent implements Listener {
         //Items can not be dropped anymore
         event.setDropItems(false);
 
-        if (!(plugin.getDestroyableMaterials().contains(event.getBlock().getType().toString()))) {
-            event.setCancelled(true);
+        if ((plugin.getDestroyableMaterials().contains(event.getBlock().getType().toString()))) {
+            return;
+
         }
         //checks if the destroyed material is a (team color) bed
         if (event.getBlock().getType() == Material.RED_BED) {
@@ -73,7 +74,6 @@ public class blockBreakEvent implements Listener {
                 board.updateScoreboard();
             }
         }  else {
-            Bukkit.broadcastMessage(event.getBlock().getType().toString());
             event.setCancelled(true);
         }
     }

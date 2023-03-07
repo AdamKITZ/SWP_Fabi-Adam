@@ -19,6 +19,7 @@ public class onPlayerDeath implements Listener {
         util = plugin.getUtil();
         Player player = event.getEntity();
         if (player.getWorld().getName().equals("world_bedwars")) {
+            event.getDrops().clear();
             //checks if bed is activated
             if (util.isBedActiv(player) == 1) {
                 //if bed is activated, player is allowed to respawn
