@@ -23,6 +23,8 @@ public void onShopInventoryClick(InventoryClickEvent event) {
             return;
         }
 
+
+        //Logic for tho main page of the shop
         if (title.equals("§bShop")) {
             event.setCancelled(true);
 
@@ -46,7 +48,15 @@ public void onShopInventoryClick(InventoryClickEvent event) {
                 //event.setCancelled(true);
                 ShopUtil.openSpecialInventory(player, true);
             }
+        } else if(title.equals("Blocks")) {
+            event.setCancelled(true);
 
+            if(event.getClickedInventory() == null) return;
+            if(event.getClickedInventory().getType() == InventoryType.PLAYER) return;
+            if(!(event.getClick() == ClickType.LEFT)) return;
+            if(!(event.getView().getTopInventory() == event.getClickedInventory())) return;
+            if(event.getCurrentItem() == null) return;
+            ShopUtil.buyItem(player, event.getCurrentItem());
         }
     }
 }
