@@ -90,9 +90,10 @@ public class ShopUtil {
         Inventory playerInventory = player.getInventory();
         String name = itemStack.getItemMeta().getDisplayName();
         String[] nameArr = name.split(" ");
-        String material = nameArr[0];
-        int cost = Integer.parseInt(nameArr[1]);
-        String currency = nameArr[2];
+        //String material = nameArr[0];
+        int amount = Integer.parseInt(nameArr[0]);
+        int cost = Integer.parseInt(nameArr[nameArr.length - 2]);
+        String currency = nameArr[nameArr.length - 1];
         ItemStack bronze = new ItemStack(Material.BRICK);
         ItemStack iron = new ItemStack(Material.IRON_INGOT);
         ItemStack gold = new ItemStack(Material.GOLD_INGOT);
@@ -100,29 +101,23 @@ public class ShopUtil {
         switch(currency.toLowerCase()) {
             case "bronze":
                 if(playerInventory.containsAtLeast(bronze, cost)) {
-                    player.getInventory().addItem(new ItemStack(itemStack.getType()));
+                    player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
                     removeItems(playerInventory, bronze.getType(), cost);
                 }
                 break;
             case "iron":
                 if(playerInventory.containsAtLeast(iron, cost)) {
-                    player.getInventory().addItem(new ItemStack(itemStack.getType()));
+                    player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
                     removeItems(playerInventory, iron.getType(), cost);
                 }
                 break;
             case "gold":
                 if(playerInventory.containsAtLeast(gold, cost)) {
-                    player.getInventory().addItem(new ItemStack(itemStack.getType()));
+                    player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
                     removeItems(playerInventory, gold.getType(), cost);
                 }
                 break;
         }
-
-
-
-
-
-
 
     }
 
@@ -145,5 +140,17 @@ public class ShopUtil {
             notRemoved+=item.getAmount();
         }
         return notRemoved;
+    }
+
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
