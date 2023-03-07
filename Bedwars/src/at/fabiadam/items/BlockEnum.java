@@ -11,5 +11,7 @@ public enum BlockEnum {
     IRON_BLOCK,
     OAK_PLANKS,
     SLIME_BLOCK,
-    ACACIA_STAIRS
+    ACACIA_STAIRS,
+    OBSIDIAN,
+    NETHER_BRICK
 }
