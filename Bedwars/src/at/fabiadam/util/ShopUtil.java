@@ -52,36 +52,36 @@ public class ShopUtil {
 
     public static void openWeaponsInventory(Player player, Boolean firstOpen) {
 
-
-
-        weaponsInventory.setItem(10, ShopItems.blocks);
-        weaponsInventory.setItem(12, ShopItems.weapons);
-        weaponsInventory.setItem(14, ShopItems.armor);
-        weaponsInventory.setItem(16, ShopItems.special);
+        weaponsInventory.setItem(1, ShopItems.stick);
+        weaponsInventory.setItem(2, ShopItems.diamond_sword);
+        weaponsInventory.setItem(3, ShopItems.iron_sword);
+        weaponsInventory.setItem(4, ShopItems.stone_sword);
+        weaponsInventory.setItem(5, ShopItems.bow);
+        weaponsInventory.setItem(6, ShopItems.wooden_axe);
+        weaponsInventory.setItem(7, ShopItems.stone_axe);
 
         player.openInventory(weaponsInventory);
     }
 
     public static void openArmorInventory(Player player, Boolean firstOpen) {
 
-
-
-        armorInventory.setItem(10, ShopItems.blocks);
-        armorInventory.setItem(12, ShopItems.weapons);
-        armorInventory.setItem(14, ShopItems.armor);
-        armorInventory.setItem(16, ShopItems.special);
+        armorInventory.setItem(1, ShopItems.chainmail_chestplate);
+        armorInventory.setItem(2, ShopItems.iron_chestplate);
+        armorInventory.setItem(3, ShopItems.diamond_chestplate);
+        armorInventory.setItem(4, ShopItems.leather_helmet);
+        armorInventory.setItem(5, ShopItems.leather_chestplate);
+        armorInventory.setItem(6, ShopItems.leather_leggings);
+        armorInventory.setItem(7, ShopItems.leather_boots);
 
         player.openInventory(armorInventory);
     }
 
     public static void openSpecialInventory(Player player, Boolean firstOpen) {
 
-
-
-        specialInventory.setItem(10, ShopItems.blocks);
-        specialInventory.setItem(12, ShopItems.weapons);
-        specialInventory.setItem(14, ShopItems.armor);
-        specialInventory.setItem(16, ShopItems.special);
+        specialInventory.setItem(2, ShopItems.fire_charge);
+        specialInventory.setItem(3, ShopItems.ender_pearl);
+        specialInventory.setItem(4, ShopItems.snowball);
+        specialInventory.setItem(6, ShopItems.healing_potion);
 
         player.openInventory(specialInventory);
     }
