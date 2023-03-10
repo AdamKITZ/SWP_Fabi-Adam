@@ -28,7 +28,6 @@ public class ShopUtil {
             player.playSound(player.getLocation(), Sound.ENTITY_SLIME_ATTACK, 1, 1);
         }
 
-
         shopInventory.setItem(10, ShopItems.blocks);
         shopInventory.setItem(12, ShopItems.weapons);
         shopInventory.setItem(14, ShopItems.armor);
@@ -47,6 +46,8 @@ public class ShopUtil {
         blocksInventory.setItem(6, ShopItems.nether_brick);
         blocksInventory.setItem(7, ShopItems.infested_stone);
 
+        blocksInventory.setItem(17, ShopItems.red_dye);
+
         player.openInventory(blocksInventory);
     }
 
@@ -59,6 +60,8 @@ public class ShopUtil {
         weaponsInventory.setItem(5, ShopItems.bow);
         weaponsInventory.setItem(6, ShopItems.wooden_axe);
         weaponsInventory.setItem(7, ShopItems.stone_axe);
+
+        weaponsInventory.setItem(17, ShopItems.red_dye);
 
         player.openInventory(weaponsInventory);
     }
@@ -73,6 +76,8 @@ public class ShopUtil {
         armorInventory.setItem(6, ShopItems.leather_leggings);
         armorInventory.setItem(7, ShopItems.leather_boots);
 
+        armorInventory.setItem(17, ShopItems.red_dye);
+
         player.openInventory(armorInventory);
     }
 
@@ -82,6 +87,8 @@ public class ShopUtil {
         specialInventory.setItem(3, ShopItems.ender_pearl);
         specialInventory.setItem(4, ShopItems.snowball);
         specialInventory.setItem(6, ShopItems.healing_potion);
+
+        specialInventory.setItem(17, ShopItems.red_dye);
 
         player.openInventory(specialInventory);
     }
@@ -118,7 +125,6 @@ public class ShopUtil {
                 }
                 break;
         }
-
     }
 
     public static int removeItems(Inventory inventory, Material type, int amount) {
