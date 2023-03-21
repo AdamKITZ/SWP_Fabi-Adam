@@ -10,12 +10,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class playerJoinEvent implements Listener {
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
-        Location spawn = new Location(Bukkit.getWorld("world"), 180.5, 68, -48.5);
-        event.getPlayer().teleport(spawn);
-        if(event.getPlayer().getFoodLevel() < 20 || event.getPlayer().getHealth() < 20) {
-            //when player joins the server, set the foodlevel and health to 20
-            event.getPlayer().setFoodLevel(20);
-            event.getPlayer().setHealth(20);
+        int maximum = 20;
+        Location spawnLocation = new Location(Bukkit.getWorld("world"), 180.5, 68, -48.5);
+        event.getPlayer().teleport(spawnLocation);
+        if(event.getPlayer().getFoodLevel() < maximum || event.getPlayer().getHealth() < maximum) {
+            event.getPlayer().setFoodLevel(maximum);
+            event.getPlayer().setHealth(maximum);
         }
         event.setJoinMessage("§aWelcome to the Server!\nYou can click on the sign to join the game lobby!");
     }
