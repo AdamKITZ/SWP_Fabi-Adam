@@ -2,6 +2,7 @@ package at.fabiadam.listener.shop;
 
 import at.fabiadam.util.ShopUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -56,6 +57,10 @@ public void onShopInventoryClick(InventoryClickEvent event) {
             if(!(event.getClick() == ClickType.LEFT)) return;
             if(!(event.getView().getTopInventory() == event.getClickedInventory())) return;
             if(event.getCurrentItem() == null) return;
+            if(event.getCurrentItem().getType() == Material.RED_DYE) {
+                ShopUtil.openShopInventory(player, false);
+                return;
+            }
             ShopUtil.buyItem(player, event.getCurrentItem());
         }
     }
