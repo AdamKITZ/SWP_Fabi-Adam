@@ -12,6 +12,9 @@ public class ShopItems {
     static ItemStack armor = new ItemStack(Material.DIAMOND_CHESTPLATE);
     static ItemStack special = new ItemStack(Material.FIRE_CHARGE);
 
+    //Back Button
+    static ItemStack red_dye = new ItemStack(Material.RED_DYE);
+
     //Blocks Menu
     static ItemStack sandstone = new ItemStack(Material.SANDSTONE);
     static ItemStack end_stone = new ItemStack(Material.END_STONE);
@@ -69,6 +72,7 @@ public class ShopItems {
         ItemMeta glowstoneMeta = glowstone.getItemMeta();
         ItemMeta nether_brickMeta = nether_brick.getItemMeta();
         ItemMeta infested_stoneMeta = infested_stone.getItemMeta();
+        ItemMeta red_dyeMeta = red_dye.getItemMeta();
         sandstoneMeta.setDisplayName("16 Sandstone 16 Bronze");
         end_stoneMeta.setDisplayName("1 End Stone 6 Bronze");
         obsidianMeta.setDisplayName("4 Obsidian 4 Gold");
