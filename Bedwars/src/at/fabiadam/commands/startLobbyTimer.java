@@ -19,8 +19,7 @@ public class startLobbyTimer implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         lobbyCountdown = MainBedwars.getLobbyTimer();
         //lobbyCountdown = LobbyCountdown.getLobbyTImer();
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+        if (sender instanceof Player player) {
             if (player.hasPermission("bedwars.start")) {
                 if (player.getWorld().getName().equals("world_bedwars_l")) {
                     lobbyCountdown.start();

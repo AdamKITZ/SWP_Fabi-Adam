@@ -1,5 +1,6 @@
 package at.fabiadam.objects;
 
+import at.fabiadam.items.BlockEnum;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -11,9 +12,9 @@ public class Team {
     //This class is used to store all information about a team
     //It also includes many useful methods
     //For example it stores the players in a team, some bed information, the spawn location and the team color
-    private String color;
+    private final String color;
     private int playerCount;
-    private int maxPlayerCount;
+    private final int maxPlayerCount;
     private List<Player> players = new ArrayList<>();
     private boolean bedActive;
     private Location teamSpawn;
@@ -46,9 +47,8 @@ public class Team {
             playerCount++;
         }
     }
-    /// Adam ist ein cooler syphatischer, kluger, Junge mit Käserand an den Eiern....
 
-    //Not in use because we set the team spawn ingame, it will the be saved to the config file
+    //Not in use because we set the team spawn ingame, it will then be saved to the config file
     public void setTeamSpawn(Location teamSpawn) {
         this.teamSpawn = teamSpawn;
     }
@@ -67,6 +67,7 @@ public class Team {
     public void setBedActive(boolean active) {
         bedActive = active;
     }
+
 
 
     //Constructor

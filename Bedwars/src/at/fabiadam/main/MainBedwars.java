@@ -4,15 +4,24 @@ import at.fabiadam.commands.Commands;
 import at.fabiadam.commands.startLobbyTimer;
 import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.GameState;
+import at.fabiadam.items.BlockEnum;
 import at.fabiadam.listener.*;
+import at.fabiadam.listener.shop.shopDamageListener;
+import at.fabiadam.listener.shop.shopInteractEvent;
+import at.fabiadam.listener.shop.shopInventoryClickEvent;
 import at.fabiadam.scoreboard.Board;
 import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
 import at.fabiadam.util.MapReset;
+import at.fabiadam.util.ShopItems;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainBedwars extends JavaPlugin {
     //Main class of the plugin
@@ -26,6 +35,9 @@ public class MainBedwars extends JavaPlugin {
     private BedwarsUtil util;
     private Board board;
     private MapReset mapReset;
+
+    private final List<String> destroyableMaterials = new ArrayList<>();
+
 
 
     //First starting method
@@ -62,6 +74,16 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new entityDamageByBlockEvent(), this);
         pluginManager.registerEvents(new entityDamageEvent(), this);
         pluginManager.registerEvents(new MapReset(), this);
+        pluginManager.registerEvents(new shopDamageListener(), this);
+        pluginManager.registerEvents(new shopInteractEvent(), this);
+        pluginManager.registerEvents(new shopInventoryClickEvent(), this);
+
+        for (BlockEnum b : BlockEnum.values()) {
+            destroyableMaterials.add(b.toString());
+
+        }
+
+        ShopItems.renameAll();
     }
 
 
@@ -99,4 +121,8 @@ public class MainBedwars extends JavaPlugin {
     }
 
     public MapReset getMapReset() { return mapReset; }
+
+    public List<String> getDestroyableMaterials() {
+        return destroyableMaterials;
+    }
 }

@@ -43,7 +43,6 @@ public class BedwarsUtil {
         teamList.add(green);
         boolean add = teamList.add(yellow);
 
-
         //Each player should be put into a team --> If team is full, try next team
         List<Player> players = Bukkit.getServer().getWorld("world_bedwars").getPlayers();
         players.forEach(p -> {
@@ -64,8 +63,7 @@ public class BedwarsUtil {
     //It removes all items from the map
     public void deleteItems() {
         Bukkit.getServer().getWorld("world_bedwars").getEntities().forEach(e -> {
-            if (e instanceof Item) {
-                Item item = (Item) e;
+            if (e instanceof Item item) {
                 item.remove();
             }
         });
