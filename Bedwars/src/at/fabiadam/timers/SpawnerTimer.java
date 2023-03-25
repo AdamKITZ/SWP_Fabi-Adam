@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class SpawnerTimer {
     //This time activates the spawners
     //It extends the abstract class Timer
-    private static final int taskId = 0;
+    private static int taskId = 0;
     private static World bedwarsWorld;
     private static double time;
     private MainBedwars plugin;
@@ -22,7 +22,7 @@ public class SpawnerTimer {
         config = plugin.getConfig();
         bedwarsWorld = Bukkit.getWorld("world_bedwars");
         time = 0;
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
+        taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
             @Override
             public void run() {
                 //So any second, a brick is dropped at the spawner
@@ -64,5 +64,10 @@ public class SpawnerTimer {
                 bedwarsWorld.dropItem(config.getLocation("spawner.gold." + i + ".loc"), new ItemStack(Material.GOLD_INGOT));
             }
         }
+    }
+
+    public void stop() {
+        Bukkit.getScheduler().cancelTask(taskId);
+        taskId = 0;
     }
 }

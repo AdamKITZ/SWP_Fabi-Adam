@@ -37,7 +37,7 @@ public class Board {
 
                 object.getScore(" ").setScore(5);
 
-                if(util.red.isBedActive()){
+                if(util.red.isBedActive() && util.red.isActive()){
                     //checks if the bed is active and if it is, it will display a green checkmark and the team name with team color
                     //if bed is not active, it will display a red cross and the team name with grey
                     object.getScore("§a§l✓§r §cRed").setScore(4);
@@ -53,7 +53,7 @@ public class Board {
                     }
                 }
 
-                if(util.green.isBedActive()){
+                if(util.green.isBedActive()&& util.green.isActive()){
                     object.getScore("§a§l✓§r §aGreen").setScore(3);
                 } else {
                     List<Player> redPlayers = util.green.getPlayers();
@@ -67,7 +67,7 @@ public class Board {
                     }
                 }
 
-                if(util.blue.isBedActive()){
+                if(util.blue.isBedActive() && util.blue.isActive()){
                     object.getScore("§a§l✓§r §bBlue").setScore(2);
                 } else {
                     List<Player> redPlayers = util.blue.getPlayers();
@@ -81,7 +81,7 @@ public class Board {
                     }
                 }
 
-                if(util.yellow.isBedActive()){
+                if(util.yellow.isBedActive() && util.yellow.isActive()){
                     object.getScore("§a§l✓§r §eYellow").setScore(1);
                 } else {
                     List<Player> redPlayers = util.yellow.getPlayers();

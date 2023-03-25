@@ -1,5 +1,6 @@
 package at.fabiadam.util;
 
+import at.fabiadam.main.MainBedwars;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -24,8 +25,11 @@ public class MapReset implements Listener {
     //This also means we can not track for example an exploding tnt, I mean we could but will not!
     //Resetting a map is not that easy and Fabis raspberry will not hande millions of blocks :D
     private static final List<Location> locs = new ArrayList<Location>();
+    private MainBedwars plugin;
+    private BedwarsUtil util;
 
     public void restore() {
+
         int blocks = 0;
 
         for(Location l : locs) {
@@ -37,10 +41,20 @@ public class MapReset implements Listener {
     }
 
     public void restoreBeds() {
-        restoreRedBed();
-        restoreGreenBed();
-        restoreBlueBed();
-        restoreYellowBed();
+        plugin = MainBedwars.getPlugin();
+        util = plugin.getUtil();
+        if(util.red.isActive()) {
+            restoreRedBed();
+        }
+        if(util.blue.isActive()) {
+            restoreBlueBed();
+        }
+        if(util.green.isActive()) {
+            restoreGreenBed();
+        }
+        if(util.yellow.isActive()) {
+            restoreYellowBed();
+        }
     }
 
 
