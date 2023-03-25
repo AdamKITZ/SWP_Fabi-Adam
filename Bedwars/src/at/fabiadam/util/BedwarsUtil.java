@@ -50,12 +50,14 @@ public class BedwarsUtil {
                 if (teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
                     teamList.get(i).addPlayer(p);
                     p.sendMessage(MainBedwars.PREFIX + "You are in team " + teamList.get(i).getTeamColor());
+                    teamList.get(i).setActive(true);
                     board.updateScoreboard();
 
                     break;
                 }
             }
         });
+        //setTeamsActive();
 
     }
 
@@ -112,6 +114,14 @@ public class BedwarsUtil {
                 team.getPlayers().forEach(p -> {
                     p.teleport(team.getTeamSpawn());
                 });
+            }
+        });
+    }
+
+    public void setTeamsActive() {
+        teamList.forEach(team -> {
+            if(team.getPlayerCount() > 0) {
+                team.setActive(true);
             }
         });
     }
