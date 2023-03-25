@@ -1,5 +1,7 @@
 package at.fabiadam.listener;
 
+import at.fabiadam.gameStates.GameState;
+import at.fabiadam.gameStates.GameStateManager;
 import at.fabiadam.gameStates.LobbyState;
 import at.fabiadam.main.MainBedwars;
 import at.fabiadam.timers.LobbyCountdown;
@@ -16,6 +18,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class playerWorldChangeEvent implements Listener {
     private LobbyCountdown lobbyCountdown;
+    private MainBedwars plugin;
+    private GameStateManager gameStateManager;
+
+    private LobbyState lobbyState;
+
     public static int playerCount = 0;
 
     @EventHandler
@@ -43,6 +50,12 @@ public class playerWorldChangeEvent implements Listener {
     }
 
     public void handlePlayerJoin(PlayerChangedWorldEvent event) {
+        plugin = MainBedwars.getPlugin();
+        gameStateManager = plugin.getGameStateManager();
+        /*if(gameStateManager.getGameState() != lobbyState) {
+            event.getPlayer().kickPlayer("§cThe game has already started!");
+            return;
+        }*/
         playerCount = Bukkit.getWorld("world_bedwars_l").getPlayers().size();
         if (playerCount > LobbyState.MAX_PLAYERS) {
             //if lobby is full, player will be kicked
