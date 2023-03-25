@@ -4,6 +4,9 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class ShopItems {
     //Main Menu
@@ -93,7 +96,7 @@ public class ShopItems {
         ItemMeta stickMeta = stick.getItemMeta();
         stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
         ItemMeta stickNewMeta = stick.getItemMeta();
-        stickNewMeta.setDisplayName("§6§lKnockback Stick");
+        stickNewMeta.setDisplayName("1 Knockback Stick 7 Bronze");
         stick.setItemMeta(stickNewMeta);
 
         ItemMeta stone_swordMeta = stone_sword.getItemMeta();
@@ -102,12 +105,12 @@ public class ShopItems {
         ItemMeta bowMeta = bow.getItemMeta();
         ItemMeta wooden_axeMeta = wooden_axe.getItemMeta();
         ItemMeta stone_axeMeta = stone_axe.getItemMeta();
-        stone_swordMeta.setDisplayName("Stone Sword 1 Bronze");
-        iron_swordMeta.setDisplayName("Iron Sword 2 Bronze");
-        diamond_swordMeta.setDisplayName("Diamond Sword 3 Bronze");
-        bowMeta.setDisplayName("Bow 2 Bronze");
-        wooden_axeMeta.setDisplayName("Wooden Axe 12 Bronze");
-        stone_axeMeta.setDisplayName("Stone Axe 2 Iron");
+        stone_swordMeta.setDisplayName("1 Stone Sword 1 Bronze");
+        iron_swordMeta.setDisplayName("1 Iron Sword 2 Bronze");
+        diamond_swordMeta.setDisplayName("1 Diamond Sword 3 Bronze");
+        bowMeta.setDisplayName("1 Bow 2 Bronze");
+        wooden_axeMeta.setDisplayName("1 Wooden Axe 12 Bronze");
+        stone_axeMeta.setDisplayName("1 Stone Axe 2 Iron");
         stone_sword.setItemMeta(stone_swordMeta);
         iron_sword.setItemMeta(iron_swordMeta);
         diamond_sword.setItemMeta(diamond_swordMeta);
@@ -123,13 +126,13 @@ public class ShopItems {
         ItemMeta leather_helmetMeta = leather_helmet.getItemMeta();
         ItemMeta leather_leggingsMeta = leather_leggings.getItemMeta();
         ItemMeta leather_bootsMeta = leather_boots.getItemMeta();
-        chainmail_chestplateMeta.setDisplayName("Chainmail Chestplate 32 Bronze");
-        iron_chestplateMeta.setDisplayName("Iron Chestplate 12 Iron");
-        diamond_chestplateMeta.setDisplayName("Diamond Chestplate 16 Gold");
-        leather_chestplateMeta.setDisplayName("Leather Chestplate 2 Iron");
-        leather_helmetMeta.setDisplayName("Leather Helmet 2 Iron");
-        leather_leggingsMeta.setDisplayName("Leather Leggings 2 Iron");
-        leather_bootsMeta.setDisplayName("Leather Boots 2 Iron");
+        chainmail_chestplateMeta.setDisplayName("1 Chainmail Chestplate 32 Bronze");
+        iron_chestplateMeta.setDisplayName("1 Iron Chestplate 12 Iron");
+        diamond_chestplateMeta.setDisplayName("1 Diamond Chestplate 16 Gold");
+        leather_chestplateMeta.setDisplayName("1 Leather Chestplate 2 Iron");
+        leather_helmetMeta.setDisplayName("1 Leather Helmet 2 Iron");
+        leather_leggingsMeta.setDisplayName("1 Leather Leggings 2 Iron");
+        leather_bootsMeta.setDisplayName("1 Leather Boots 2 Iron");
         chainmail_chestplate.setItemMeta(chainmail_chestplateMeta);
         iron_chestplate.setItemMeta(iron_chestplateMeta);
         diamond_chestplate.setItemMeta(diamond_chestplateMeta);
@@ -139,17 +142,26 @@ public class ShopItems {
         leather_boots.setItemMeta(leather_bootsMeta);
 
         //Special menu
+
+        //healing potion
+
+        //noch in arbeit
+        PotionMeta healing_potionMeta = (PotionMeta) healing_potion.getItemMeta();
+        healing_potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 60*20,1), true);
+        ItemMeta healingPotionNewItemMeta = healing_potion.getItemMeta();
+        healing_potionMeta.setDisplayName("1 Healing Potion 3 Iron");
+        healing_potion.setItemMeta(healing_potionMeta);
+        //
+
+
         ItemMeta fire_chargeMeta = fire_charge.getItemMeta();
         ItemMeta ender_pearlMeta = ender_pearl.getItemMeta();
         ItemMeta snowballMeta = snowball.getItemMeta();
-        ItemMeta healing_potionMeta = healing_potion.getItemMeta();
-        fire_chargeMeta.setDisplayName("Fire Charge 2 Iron");
-        ender_pearlMeta.setDisplayName("Ender Pearl 11 Gold");
-        snowballMeta.setDisplayName("Snowball 8 Bronze");
-        healing_potionMeta.setDisplayName("Healing Potion 3 Iron");
+        fire_chargeMeta.setDisplayName("1 Fire Charge 2 Iron");
+        ender_pearlMeta.setDisplayName("1 Ender Pearl 11 Gold");
+        snowballMeta.setDisplayName("16 Snowball 8 Bronze");
         fire_charge.setItemMeta(fire_chargeMeta);
         ender_pearl.setItemMeta(ender_pearlMeta);
         snowball.setItemMeta(snowballMeta);
-        healing_potion.setItemMeta(healing_potionMeta);
     }
 }
