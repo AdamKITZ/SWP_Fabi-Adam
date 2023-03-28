@@ -10,7 +10,7 @@ public class LobbyState extends GameState {
     //The start method will be called when the gamestate starts and will hande everything that needs to be done
     //The lobby state does not do anything speacial, but you may find more interesting stuff in "IngameState.java"
     public static final int MAX_PLAYERS = 4;
-    public static final int MIN_PLAYERS = 1;
+    public static final int MIN_PLAYERS = 2;
     private MainBedwars plugin;
 
 

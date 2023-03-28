@@ -57,6 +57,11 @@ public class Team {
         }
     }
 
+    public void removePlayer(Player player) {
+        players.remove(player);
+        playerCount--;
+    }
+
     //Not in use because we set the team spawn ingame, it will then be saved to the config file
     public void setTeamSpawn(Location teamSpawn) {
         this.teamSpawn = teamSpawn;

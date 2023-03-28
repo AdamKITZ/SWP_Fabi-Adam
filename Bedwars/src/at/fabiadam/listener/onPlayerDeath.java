@@ -23,15 +23,19 @@ public class onPlayerDeath implements Listener {
             //checks if bed is activated
             if (util.isBedActiv(player) == 1) {
                 //if bed is activated, player is allowed to respawn
-                player.spigot().respawn();
-                Team team = util.getPlayerTeam(player);
-                player.teleport(team.getTeamSpawn());
+                //player.spigot().respawn();
+                //Team team = util.getPlayerTeam(player);
+                //player.teleport(team.getTeamSpawn());
             } else {
                 //if bed is not activated, player will be in spectator mode
-                player.spigot().respawn();
+                //player.spigot().respawn();
                 Team team = util.getPlayerTeam(player);
                 player.teleport(team.getTeamSpawn());
                 player.setGameMode(GameMode.SPECTATOR);
+                team.removePlayer(player);
+                if(team.getPlayers().size() == 0) {
+                    team.setActive(false);
+                }
             }
 
         } else if(player.getWorld().getName().equals("world_bedwars_l")) {
