@@ -40,6 +40,7 @@ public class EndingChecker extends Timer {
                         player.sendTitle("§6You won!", "§a" + i + "");
                         if(i == 0) {
                             player.teleport(mainSpawn);
+                            player.setScoreboard(null);
                         }
                     });
 
