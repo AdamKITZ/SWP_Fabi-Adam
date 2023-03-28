@@ -51,6 +51,7 @@ public class ShopItems {
     static ItemStack ender_pearl = new ItemStack(Material.ENDER_PEARL);
     static ItemStack snowball = new ItemStack(Material.SNOWBALL);
     static ItemStack healing_potion = new ItemStack(Material.POTION);
+    static PotionEffect potionEffect = new PotionEffect(PotionEffectType.HEAL, 1, 1);
 
     public static void renameAll() {
         //Main menu
@@ -146,9 +147,9 @@ public class ShopItems {
         //healing potion
         PotionMeta healing_potionMeta = (PotionMeta) healing_potion.getItemMeta();
         healing_potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 60*20,1), true);
-        ItemMeta healingPotionNewItemMeta = healing_potion.getItemMeta();
         healing_potionMeta.setDisplayName("1 Healing Potion 3 Iron");
-        healing_potion.setItemMeta(healingPotionNewItemMeta);
+        healing_potion.setItemMeta(healing_potionMeta);
+
 
         ItemMeta fire_chargeMeta = fire_charge.getItemMeta();
         ItemMeta ender_pearlMeta = ender_pearl.getItemMeta();
