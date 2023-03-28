@@ -144,15 +144,11 @@ public class ShopItems {
         //Special menu
 
         //healing potion
-
-        //noch in arbeit
         PotionMeta healing_potionMeta = (PotionMeta) healing_potion.getItemMeta();
         healing_potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 60*20,1), true);
         ItemMeta healingPotionNewItemMeta = healing_potion.getItemMeta();
         healing_potionMeta.setDisplayName("1 Healing Potion 3 Iron");
-        healing_potion.setItemMeta(healing_potionMeta);
-        //
-
+        healing_potion.setItemMeta(healingPotionNewItemMeta);
 
         ItemMeta fire_chargeMeta = fire_charge.getItemMeta();
         ItemMeta ender_pearlMeta = ender_pearl.getItemMeta();
