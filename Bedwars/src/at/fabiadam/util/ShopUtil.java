@@ -58,7 +58,7 @@ public class ShopUtil {
         weaponsInventory.setItem(3, ShopItems.iron_sword);
         weaponsInventory.setItem(4, ShopItems.stone_sword);
         weaponsInventory.setItem(5, ShopItems.bow);
-        weaponsInventory.setItem(6, ShopItems.wooden_axe);
+        weaponsInventory.setItem(6, ShopItems.stone_pickaxe);
         weaponsInventory.setItem(7, ShopItems.stone_axe);
 
         weaponsInventory.setItem(26, ShopItems.red_dye);
