@@ -80,6 +80,8 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new shopDamageListener(), this);
         pluginManager.registerEvents(new shopInteractEvent(), this);
         pluginManager.registerEvents(new shopInventoryClickEvent(), this);
+        pluginManager.registerEvents(new playerRespawnEvent(), this);
+        pluginManager.registerEvents(new onRespawnEvent(), this);
 
         for (BlockEnum b : BlockEnum.values()) {
             destroyableMaterials.add(b.toString());

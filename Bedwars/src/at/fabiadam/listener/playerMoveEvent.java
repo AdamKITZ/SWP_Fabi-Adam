@@ -29,9 +29,9 @@ public class playerMoveEvent implements Listener {
                 this.plugin = MainBedwars.getPlugin();
                 this.util = plugin.getUtil();
                 event.getPlayer().setHealth(0);
-                Team team = util.getPlayerTeam(event.getPlayer());
-                event.getPlayer().teleport(team.getTeamSpawn());
-                event.getPlayer().spigot().respawn();
+                //Team team = util.getPlayerTeam(event.getPlayer());
+                //event.getPlayer().teleport(team.getTeamSpawn());
+                //event.getPlayer().spigot().respawn();
             } else if (event.getPlayer().getLocation().getY() >= 120) {
                 event.setCancelled(true);
             }
