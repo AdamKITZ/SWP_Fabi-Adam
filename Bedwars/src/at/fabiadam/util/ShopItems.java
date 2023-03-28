@@ -2,6 +2,7 @@ package at.fabiadam.util;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
@@ -33,8 +34,9 @@ public class ShopItems {
     static ItemStack iron_sword = new ItemStack(Material.IRON_SWORD);
     static ItemStack stone_sword = new ItemStack(Material.STONE_SWORD);
     static ItemStack bow = new ItemStack(Material.BOW);
-    static ItemStack wooden_axe = new ItemStack(Material.WOODEN_AXE);
+    //static ItemStack wooden_axe = new ItemStack(Material.WOODEN_AXE);
     static ItemStack stone_axe = new ItemStack(Material.STONE_AXE);
+    static ItemStack stone_pickaxe = new ItemStack(Material.STONE_PICKAXE);
 
 
     //Armor menu
@@ -77,7 +79,7 @@ public class ShopItems {
         ItemMeta nether_brickMeta = nether_brick.getItemMeta();
         ItemMeta infested_stoneMeta = infested_stone.getItemMeta();
         ItemMeta red_dyeMeta = red_dye.getItemMeta();
-        sandstoneMeta.setDisplayName("16 Sandstone 16 Bronze");
+        sandstoneMeta.setDisplayName("2 Sandstone 1 Bronze");
         end_stoneMeta.setDisplayName("1 End Stone 6 Bronze");
         obsidianMeta.setDisplayName("4 Obsidian 4 Gold");
         glassMeta.setDisplayName("1 Glass 2 Bronze");
@@ -104,19 +106,22 @@ public class ShopItems {
         ItemMeta iron_swordMeta = iron_sword.getItemMeta();
         ItemMeta diamond_swordMeta = diamond_sword.getItemMeta();
         ItemMeta bowMeta = bow.getItemMeta();
-        ItemMeta wooden_axeMeta = wooden_axe.getItemMeta();
+        //ItemMeta wooden_axeMeta = wooden_axe.getItemMeta();
+        ItemMeta stone_pickaxeMeta = stone_axe.getItemMeta();
         ItemMeta stone_axeMeta = stone_axe.getItemMeta();
         stone_swordMeta.setDisplayName("1 Stone Sword 1 Bronze");
-        iron_swordMeta.setDisplayName("1 Iron Sword 2 Bronze");
-        diamond_swordMeta.setDisplayName("1 Diamond Sword 3 Bronze");
+        iron_swordMeta.setDisplayName("1 Iron Sword 12 Iron");
+        diamond_swordMeta.setDisplayName("1 Diamond Sword 6 Gold");
         bowMeta.setDisplayName("1 Bow 2 Bronze");
-        wooden_axeMeta.setDisplayName("1 Wooden Axe 12 Bronze");
+        //wooden_axeMeta.setDisplayName("1 Wooden Axe 12 Bronze");
+        stone_pickaxeMeta.setDisplayName("1 Stone Pickaxe 30 Bronze");
         stone_axeMeta.setDisplayName("1 Stone Axe 2 Iron");
         stone_sword.setItemMeta(stone_swordMeta);
         iron_sword.setItemMeta(iron_swordMeta);
         diamond_sword.setItemMeta(diamond_swordMeta);
         bow.setItemMeta(bowMeta);
-        wooden_axe.setItemMeta(wooden_axeMeta);
+        //wooden_axe.setItemMeta(wooden_axeMeta);
+        stone_pickaxe.setItemMeta(stone_pickaxeMeta);
         stone_axe.setItemMeta(stone_axeMeta);
 
         //Armor menu
@@ -147,14 +152,14 @@ public class ShopItems {
         //healing potion
         PotionMeta healing_potionMeta = (PotionMeta) healing_potion.getItemMeta();
         healing_potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 60*20,1), true);
-        healing_potionMeta.setDisplayName("1 Healing Potion 3 Iron");
+        healing_potionMeta.setDisplayName("1 Healing Potion 4 Iron");
         healing_potion.setItemMeta(healing_potionMeta);
 
 
         ItemMeta fire_chargeMeta = fire_charge.getItemMeta();
         ItemMeta ender_pearlMeta = ender_pearl.getItemMeta();
         ItemMeta snowballMeta = snowball.getItemMeta();
-        fire_chargeMeta.setDisplayName("1 Fire Charge 2 Iron");
+        fire_chargeMeta.setDisplayName("2 Fire Charge 8 Iron");
         ender_pearlMeta.setDisplayName("1 Ender Pearl 11 Gold");
         snowballMeta.setDisplayName("16 Snowball 8 Bronze");
         fire_charge.setItemMeta(fire_chargeMeta);
