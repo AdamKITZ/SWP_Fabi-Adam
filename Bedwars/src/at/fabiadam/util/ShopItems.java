@@ -55,6 +55,9 @@ public class ShopItems {
     static ItemStack healing_potion = new ItemStack(Material.POTION);
     static PotionEffect potionEffect = new PotionEffect(PotionEffectType.HEAL, 1, 1);
 
+    //Back Button
+    static ItemStack back = new ItemStack(Material.RED_DYE);
+
     public static void renameAll() {
         //Main menu
         ItemMeta blocksMeta = blocks.getItemMeta();
@@ -165,5 +168,10 @@ public class ShopItems {
         fire_charge.setItemMeta(fire_chargeMeta);
         ender_pearl.setItemMeta(ender_pearlMeta);
         snowball.setItemMeta(snowballMeta);
+
+        //Back button
+        ItemMeta backMeta = back.getItemMeta();
+        backMeta.setDisplayName("Back");
+        back.setItemMeta(backMeta);
     }
 }
