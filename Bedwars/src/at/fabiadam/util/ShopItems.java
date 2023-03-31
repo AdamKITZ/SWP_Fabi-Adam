@@ -3,6 +3,7 @@ package at.fabiadam.util;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Item;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
@@ -158,18 +159,22 @@ public class ShopItems {
         healing_potionMeta.setDisplayName("1 Healing Potion 4 Iron");
         healing_potion.setItemMeta(healing_potionMeta);
 
-
+        //throwable fire charge which explodes on impact
         ItemMeta fire_chargeMeta = fire_charge.getItemMeta();
+        fire_chargeMeta.addEnchant(Enchantment.DURABILITY, 1, false);
+        fire_chargeMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        fire_chargeMeta.setDisplayName("2 Fire Charge 8 Iron");
+        fire_charge.setItemMeta(fire_chargeMeta);
+
         ItemMeta ender_pearlMeta = ender_pearl.getItemMeta();
         ItemMeta snowballMeta = snowball.getItemMeta();
-        fire_chargeMeta.setDisplayName("2 Fire Charge 8 Iron");
         ender_pearlMeta.setDisplayName("1 Ender Pearl 11 Gold");
         snowballMeta.setDisplayName("16 Snowball 8 Bronze");
-        fire_charge.setItemMeta(fire_chargeMeta);
         ender_pearl.setItemMeta(ender_pearlMeta);
         snowball.setItemMeta(snowballMeta);
 
         //Back button
+
         ItemMeta backMeta = back.getItemMeta();
         backMeta.setDisplayName("Back");
         back.setItemMeta(backMeta);
