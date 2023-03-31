@@ -13,5 +13,6 @@ public enum BlockEnum {
     SLIME_BLOCK,
     ACACIA_STAIRS,
     OBSIDIAN,
-    NETHER_BRICK
+    NETHER_BRICK,
+    FIRE
 }

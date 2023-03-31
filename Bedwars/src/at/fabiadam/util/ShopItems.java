@@ -28,6 +28,8 @@ public class ShopItems {
     static ItemStack glowstone = new ItemStack(Material.GLOWSTONE);
     static ItemStack nether_brick = new ItemStack(Material.PACKED_ICE);
     static ItemStack infested_stone = new ItemStack(Material.INFESTED_STONE);
+    //chest
+    static ItemStack chest = new ItemStack(Material.CHEST);
 
     //Weapons menu
     static ItemStack stick = new ItemStack(Material.STICK);
@@ -38,6 +40,14 @@ public class ShopItems {
     //static ItemStack wooden_axe = new ItemStack(Material.WOODEN_AXE);
     static ItemStack stone_axe = new ItemStack(Material.STONE_AXE);
     static ItemStack stone_pickaxe = new ItemStack(Material.STONE_PICKAXE);
+    //Iron Pickaxe
+    static ItemStack iron_pickaxe = new ItemStack(Material.IRON_PICKAXE);
+    //Golden Pickaxe
+    static ItemStack golden_pickaxe = new ItemStack(Material.GOLDEN_PICKAXE);
+    //Diamond Pickaxe
+    static ItemStack diamond_pickaxe = new ItemStack(Material.DIAMOND_PICKAXE);
+    //Arrow
+    static ItemStack arrow = new ItemStack(Material.ARROW);
 
 
     //Armor menu
@@ -97,6 +107,10 @@ public class ShopItems {
         glowstone.setItemMeta(glowstoneMeta);
         nether_brick.setItemMeta(nether_brickMeta);
         infested_stone.setItemMeta(infested_stoneMeta);
+        //chest
+        ItemMeta chestMeta = chest.getItemMeta();
+        chestMeta.setDisplayName("1 Chest 8 Iron");
+        chest.setItemMeta(chestMeta);
 
         //Weapons menu
         //Knockbackstick
@@ -127,6 +141,22 @@ public class ShopItems {
         //wooden_axe.setItemMeta(wooden_axeMeta);
         stone_pickaxe.setItemMeta(stone_pickaxeMeta);
         stone_axe.setItemMeta(stone_axeMeta);
+        //Iron Pickaxe
+        ItemMeta iron_pickaxeMeta = iron_pickaxe.getItemMeta();
+        iron_pickaxeMeta.setDisplayName("1 Iron Pickaxe 12 Iron");
+        iron_pickaxe.setItemMeta(iron_pickaxeMeta);
+        //Gold Pickaxe
+        ItemMeta gold_pickaxeMeta = golden_pickaxe.getItemMeta();
+        gold_pickaxeMeta.setDisplayName("1 Gold Pickaxe 6 Gold");
+        golden_pickaxe.setItemMeta(gold_pickaxeMeta);
+        //Diamond Pickaxe
+        ItemMeta diamond_pickaxeMeta = diamond_pickaxe.getItemMeta();
+        diamond_pickaxeMeta.setDisplayName("1 Diamond Pickaxe 2 Gold");
+        diamond_pickaxe.setItemMeta(diamond_pickaxeMeta);
+        //Arrow
+        ItemMeta arrowMeta = arrow.getItemMeta();
+        arrowMeta.setDisplayName("1 Arrow 1 Bronze");
+        arrow.setItemMeta(arrowMeta);
 
         //Armor menu
         ItemMeta chainmail_chestplateMeta = chainmail_chestplate.getItemMeta();
