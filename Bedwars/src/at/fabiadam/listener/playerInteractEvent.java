@@ -53,12 +53,15 @@ public class playerInteractEvent implements Listener {
                 }
             } else if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_AIR) {
                 if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null) {
-                    FallingBlock fireCharge = player.getWorld().spawnFallingBlock(player.getLocation(), Material.FIRE, (byte) 0);
-                    fireCharge.setDropItem(false);
-                    fireNades.add(fireCharge);
-                    fireCharge.setVelocity(player.getLocation().getDirection().multiply(2));
-                    fireNades.add(fireCharge);
-                    event.setCancelled(true);
+                    if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.FIRE_CHARGE)) {
+                        FallingBlock fireCharge = player.getWorld().spawnFallingBlock(player.getLocation(), Material.FIRE, (byte) 0);
+                        fireCharge.setDropItem(false);
+                        fireNades.add(fireCharge);
+                        fireCharge.setVelocity(player.getLocation().getDirection().multiply(2));
+                        fireNades.add(fireCharge);
+                        event.setCancelled(true);
+                    }
+
                 }
             }
         }

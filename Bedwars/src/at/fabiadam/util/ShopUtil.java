@@ -45,6 +45,7 @@ public class ShopUtil {
         blocksInventory.setItem(5, ShopItems.glowstone);
         blocksInventory.setItem(6, ShopItems.nether_brick);
         blocksInventory.setItem(7, ShopItems.infested_stone);
+        blocksInventory.setItem(8, ShopItems.chest);
 
         blocksInventory.setItem(26, ShopItems.back);
 
@@ -60,6 +61,10 @@ public class ShopUtil {
         weaponsInventory.setItem(5, ShopItems.bow);
         weaponsInventory.setItem(6, ShopItems.stone_pickaxe);
         weaponsInventory.setItem(7, ShopItems.stone_axe);
+        weaponsInventory.setItem(8, ShopItems.iron_pickaxe);
+        weaponsInventory.setItem(9, ShopItems.golden_pickaxe);
+        weaponsInventory.setItem(10, ShopItems.diamond_pickaxe);
+        weaponsInventory.setItem(11, ShopItems.arrow);
 
         weaponsInventory.setItem(26, ShopItems.back);
 
