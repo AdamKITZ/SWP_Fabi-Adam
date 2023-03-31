@@ -27,7 +27,7 @@ import java.util.List;
 public class MainBedwars extends JavaPlugin {
     //Main class of the plugin
     //We have many private classes that we need to access from other classes
-    //It was best to put all of them here, then you just need to imprt the Main class and get the other classes from there
+    //It was best to put all of them here, then you just need to import the Main class and get the other classes from there
     public static final String PREFIX = "§8[§6Bedwars§8]§r ";
     private static MainBedwars plugin;
     private static LobbyCountdown lobbyCountdown;
@@ -82,6 +82,8 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new shopInventoryClickEvent(), this);
         pluginManager.registerEvents(new playerRespawnEvent(), this);
         pluginManager.registerEvents(new onRespawnEvent(), this);
+        pluginManager.registerEvents(new onFallEvent(), this);
+
 
         for (BlockEnum b : BlockEnum.values()) {
             destroyableMaterials.add(b.toString());
