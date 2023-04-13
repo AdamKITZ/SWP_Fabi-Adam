@@ -45,8 +45,9 @@ public class ShopUtil {
         blocksInventory.setItem(5, ShopItems.glowstone);
         blocksInventory.setItem(6, ShopItems.nether_brick);
         blocksInventory.setItem(7, ShopItems.infested_stone);
+        blocksInventory.setItem(8, ShopItems.chest);
 
-        blocksInventory.setItem(26, ShopItems.red_dye);
+        blocksInventory.setItem(26, ShopItems.back);
 
         player.openInventory(blocksInventory);
     }
@@ -58,10 +59,14 @@ public class ShopUtil {
         weaponsInventory.setItem(3, ShopItems.iron_sword);
         weaponsInventory.setItem(4, ShopItems.stone_sword);
         weaponsInventory.setItem(5, ShopItems.bow);
-        weaponsInventory.setItem(6, ShopItems.wooden_axe);
+        weaponsInventory.setItem(6, ShopItems.stone_pickaxe);
         weaponsInventory.setItem(7, ShopItems.stone_axe);
+        weaponsInventory.setItem(8, ShopItems.iron_pickaxe);
+        weaponsInventory.setItem(9, ShopItems.golden_pickaxe);
+        weaponsInventory.setItem(10, ShopItems.diamond_pickaxe);
+        weaponsInventory.setItem(11, ShopItems.arrow);
 
-        weaponsInventory.setItem(26, ShopItems.red_dye);
+        weaponsInventory.setItem(26, ShopItems.back);
 
         player.openInventory(weaponsInventory);
     }
@@ -76,7 +81,7 @@ public class ShopUtil {
         armorInventory.setItem(6, ShopItems.leather_leggings);
         armorInventory.setItem(7, ShopItems.leather_boots);
 
-        armorInventory.setItem(26, ShopItems.red_dye);
+        armorInventory.setItem(26, ShopItems.back);
 
         player.openInventory(armorInventory);
     }
@@ -88,7 +93,7 @@ public class ShopUtil {
         specialInventory.setItem(4, ShopItems.snowball);
         specialInventory.setItem(6, ShopItems.healing_potion);
 
-        specialInventory.setItem(26, ShopItems.red_dye);
+        specialInventory.setItem(26, ShopItems.back);
 
         player.openInventory(specialInventory);
     }

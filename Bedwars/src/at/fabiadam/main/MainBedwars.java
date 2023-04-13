@@ -10,6 +10,7 @@ import at.fabiadam.listener.shop.shopDamageListener;
 import at.fabiadam.listener.shop.shopInteractEvent;
 import at.fabiadam.listener.shop.shopInventoryClickEvent;
 import at.fabiadam.scoreboard.Board;
+import at.fabiadam.timers.EndingChecker;
 import at.fabiadam.timers.LobbyCountdown;
 import at.fabiadam.timers.SpawnerTimer;
 import at.fabiadam.util.BedwarsUtil;
@@ -26,7 +27,7 @@ import java.util.List;
 public class MainBedwars extends JavaPlugin {
     //Main class of the plugin
     //We have many private classes that we need to access from other classes
-    //It was best to put all of them here, then you just need to imprt the Main class and get the other classes from there
+    //It was best to put all of them here, then you just need to import the Main class and get the other classes from there
     public static final String PREFIX = "§8[§6Bedwars§8]§r ";
     private static MainBedwars plugin;
     private static LobbyCountdown lobbyCountdown;
@@ -35,6 +36,7 @@ public class MainBedwars extends JavaPlugin {
     private BedwarsUtil util;
     private Board board;
     private MapReset mapReset;
+    private EndingChecker endingChecker;
 
     private final List<String> destroyableMaterials = new ArrayList<>();
 
@@ -55,6 +57,7 @@ public class MainBedwars extends JavaPlugin {
         util = new BedwarsUtil();
         board = new Board();
         mapReset = new MapReset();
+        endingChecker = new EndingChecker();
 
         //Register all created commands
         getCommand("start").setExecutor(new startLobbyTimer());
@@ -77,6 +80,10 @@ public class MainBedwars extends JavaPlugin {
         pluginManager.registerEvents(new shopDamageListener(), this);
         pluginManager.registerEvents(new shopInteractEvent(), this);
         pluginManager.registerEvents(new shopInventoryClickEvent(), this);
+        pluginManager.registerEvents(new playerRespawnEvent(), this);
+        pluginManager.registerEvents(new onRespawnEvent(), this);
+        pluginManager.registerEvents(new onFallEvent(), this);
+
 
         for (BlockEnum b : BlockEnum.values()) {
             destroyableMaterials.add(b.toString());
@@ -124,5 +131,9 @@ public class MainBedwars extends JavaPlugin {
 
     public List<String> getDestroyableMaterials() {
         return destroyableMaterials;
+    }
+
+    public EndingChecker getEndingChecker() {
+        return endingChecker;
     }
 }

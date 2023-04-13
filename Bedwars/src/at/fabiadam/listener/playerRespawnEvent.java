@@ -33,7 +33,7 @@ public class playerRespawnEvent implements Listener {
                 event.setRespawnLocation(player.getWorld().getSpawnLocation());
             }
         }
-        else if(player.getWorld().getName().equals("world_bedwars") || player.getWorld().getName().equals("world")) {
+        else if(player.getWorld().getName().equals("world")) {
             //Inventory will be cleared
             player.getInventory().clear();
             //if player is in spectator mode, scoreboard will be updated

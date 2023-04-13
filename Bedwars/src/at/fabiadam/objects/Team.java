@@ -18,6 +18,7 @@ public class Team {
     private List<Player> players = new ArrayList<>();
     private boolean bedActive;
     private Location teamSpawn;
+    private boolean active = false;
 
 
     //Gets how much players are in one team, currently we only allow 1 player per team and 4 Teams
@@ -28,6 +29,14 @@ public class Team {
     //Gets the max player count, currently we only allow 1 player per team
     public int getMaxPlayerCount() {
         return maxPlayerCount;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     //Not in use yet, but it will be used to set the max player count
@@ -46,6 +55,11 @@ public class Team {
             players.add(player);
             playerCount++;
         }
+    }
+
+    public void removePlayer(Player player) {
+        players.remove(player);
+        playerCount--;
     }
 
     //Not in use because we set the team spawn ingame, it will then be saved to the config file

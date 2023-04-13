@@ -25,6 +25,7 @@ public class BedwarsUtil {
     public Team blue;
     public Team green;
     public Team yellow;
+    public List<Team> deadTeams = new ArrayList<>();
 
 
     public void start() {
@@ -50,13 +51,15 @@ public class BedwarsUtil {
                 if (teamList.get(i).getPlayerCount() < teamList.get(i).getMaxPlayerCount()) {
                     teamList.get(i).addPlayer(p);
                     p.sendMessage(MainBedwars.PREFIX + "You are in team " + teamList.get(i).getTeamColor());
+                    teamList.get(i).setActive(true);
                     board.updateScoreboard();
 
                     break;
                 }
             }
         });
-
+        //setTeamsActive();
+        setDeadTeams();
     }
 
     //This will be in world reset function
@@ -116,6 +119,14 @@ public class BedwarsUtil {
         });
     }
 
+    public void setTeamsActive() {
+        teamList.forEach(team -> {
+            if(team.getPlayerCount() > 0) {
+                team.setActive(true);
+            }
+        });
+    }
+
     //We have a method that returns the blocks around a teamspawn
     //This will prevent trapping players in their spawn
     public List<Location> getSpawnBlocks(Location spawn) {
@@ -140,6 +151,40 @@ public class BedwarsUtil {
         spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() + 1, spawn.getY() + 1, spawn.getZ() - 1));
         spawnBlocks.add(new Location(spawn.getWorld(), spawn.getX() - 1, spawn.getY() + 1, spawn.getZ() + 1));
         return spawnBlocks;
+    }
+
+    public boolean teamWon() {
+        int activeTeams = 0;
+        for (int i = 0; i < 4; i++) {
+            if (teamList.get(i).isBedActive()) {
+                activeTeams++;
+            }
+        }
+        return activeTeams == 1;
+    }
+
+    public void setDeadTeams() {
+        for (int i = 0; i < 4; i++) {
+            if (teamList.get(i).getPlayerCount() == 0) {
+                if(!deadTeams.contains(teamList.get(i))) {
+                    deadTeams.add(teamList.get(i));
+                }
+            }
+        }
+    }
+
+    public Team getWinner() {
+        if(deadTeams.size() == 3) {
+            for (int i = 0; i < 4; i++) {
+                if (deadTeams.contains(teamList.get(i))) {
+                    continue;
+                } else {
+                    return teamList.get(i);
+                }
+            }
+            return null;
+        }
+        return null;
     }
 
 }

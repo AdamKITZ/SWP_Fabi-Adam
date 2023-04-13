@@ -4,7 +4,9 @@ package at.fabiadam.listener;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class playerInteractEvent implements Listener {
-
+    public List<FallingBlock> fireNades = new ArrayList<>();
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
@@ -41,11 +43,25 @@ public class playerInteractEvent implements Listener {
                 }
             }
         } else if (player.getWorld().getName().equals("world_bedwars")) {
+
             Material[] materials = {Material.RED_BED, Material.GREEN_BED, Material.BLUE_BED, Material.YELLOW_BED};
+
             if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 //player is not allowed to interact with beds (sleep)
                 if (Arrays.asList(materials).contains(event.getClickedBlock().getType())) {
                     event.setCancelled(true);
+                }
+            } else if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_AIR) {
+                if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null) {
+                    if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.FIRE_CHARGE)) {
+                        FallingBlock fireCharge = player.getWorld().spawnFallingBlock(player.getLocation(), Material.FIRE, (byte) 0);
+                        fireCharge.setDropItem(false);
+                        fireNades.add(fireCharge);
+                        fireCharge.setVelocity(player.getLocation().getDirection().multiply(2));
+                        fireNades.add(fireCharge);
+                        event.setCancelled(true);
+                    }
+
                 }
             }
         }
