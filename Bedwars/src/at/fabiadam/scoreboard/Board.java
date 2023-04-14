@@ -95,9 +95,9 @@ public class Board {
                     }
                 }
                 player.setScoreboard(board);
-            } else if (player.getWorld().getName().equals("world_bedwars_l")|| player.getWorld().getName().equals("world")) {
+            } else {
                 //if the player is not in the bedwars world, then the scoreboard will be removed
-                player.removeScoreboardTag("You are not in Bedwars");
+                player.setScoreboard(null);
             }
         });
     }
