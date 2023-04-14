@@ -87,7 +87,6 @@ public class MainBedwars extends JavaPlugin {
 
         for (BlockEnum b : BlockEnum.values()) {
             destroyableMaterials.add(b.toString());
-
         }
 
         ShopItems.renameAll();
