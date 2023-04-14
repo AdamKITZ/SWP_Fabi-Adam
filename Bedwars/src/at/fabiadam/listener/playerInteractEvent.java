@@ -54,11 +54,9 @@ public class playerInteractEvent implements Listener {
             } else if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_AIR) {
                 if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null) {
                     if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.FIRE_CHARGE)) {
-                        FallingBlock fireCharge = player.getWorld().spawnFallingBlock(player.getLocation(), Material.FIRE_CHARGE, (byte) 0);
-                        FallingBlock fireEffect = player.getWorld().spawnFallingBlock(player.getLocation(), Material.FIRE, (byte) 0);
+                        FallingBlock fireCharge = player.getWorld().spawnFallingBlock(player.getLocation(), Material.TNT, (byte) 0);
                         fireCharge.setDropItem(false);
                         fireNades.add(fireCharge);
-                        fireNades.add(fireEffect);
                         fireCharge.setVelocity(player.getLocation().getDirection().multiply(2));
                         player.getInventory().removeItem(new ItemStack(Material.FIRE_CHARGE, 1));
                         event.setCancelled(true);
