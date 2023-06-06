@@ -41,12 +41,16 @@ Now players are able to fight and if one team is the winner, ending state will b
 
 So our plugin has many different classes which are able to handle all of the above steps.
 Here’s a list of the most important classes and what they do:
+
 •	Commands
 This class contains all logic for the commands the server administrator can perform. He is able to create spawns of material and players
+
 •	GameStateManager | LobbyState | IngameState | EndingState
 The manager class is able to change the current gamestate. The rest contains all logic for the gamestates
+
 •	Listeners (e.g. blockBreakEvent, onPlayerDeath, playerWorldChangeEvent)
 Listeners are classes which contain functions that are started when something happens on the server. For example: When a player breaks a block in Minecraft, a function in the class “blockBreakEvent” is called. We are checking in which world the player is. Then we check the block and decide if the player shall be able to break it, otherwise the event will be cancled
+
 •	Object classes (Team)
 This class contains every information about a team. An object Team contains the team color, team players, team spawn many more information
 Of course we have many more classes but explaining everything will be to much
