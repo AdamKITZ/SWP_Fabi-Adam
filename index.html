@@ -1,51 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Bedwars Plugin</title>
-  <link href="styles.css" rel="stylesheet" type="text/css">
+  <title>Minecraft Bedwars Plugin</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<header>
   <h1>Minecraft Bedwars Plugin</h1>
-  <p>This is a plugin for the Java edition of Minecraft that recreates the popular game mode called "Bedwars". In Bedwars, multiple players or teams battle against each other, aiming to destroy each other's beds to prevent respawning after death.</p>
-  
-  <h2>Project Details</h2>
-  <ul>
-    <li>Developers: Adam and Fabian</li>
-    <li>GitHub Repository: <a href="https://github.com/AdamKITZ/SWP_Fabi-Adam">https://github.com/AdamKITZ/SWP_Fabi-Adam</a></li>
-  </ul>
-  
-  <h2>Setup Instructions</h2>
-  <ol>
-    <li>Download the provided zip file.</li>
-    <li>Extract the zip file, which contains another zipped file called "minecraft".</li>
-    <li>Run the "00start.bat" file to start the server locally, or join the server at "kitzweb.com".</li>
-    <li>In the game, click on the sign in front of you to teleport to the bedwars_lobby.</li>
-    <li>Wait in the lobby for other players to join.</li>
-    <li>When enough players have joined, a countdown will start, and you will be teleported to the actual game world (world_bedwars).</li>
-    <li>Play the game, gather resources, and try to destroy other players' beds.</li>
-  </ol>
-  
-  <h2>Plugin States</h2>
-  <p>The plugin has different states that control the flow of the game:</p>
-  <ul>
-    <li>Lobby State: Players join the lobby world and wait for more players to join.</li>
-    <li>Ingame State: The game starts, and players are teleported to their team spawns in the battle world.</li>
-    <li>Ending State: One team wins, the world resets, and the server is available for another round.</li>
-  </ul>
-  
-  <h2>Involved Classes</h2>
-  <p>The plugin contains several classes that handle different aspects of the game:</p>
-  <ul>
-    <li>Commands: Contains logic for server administrator commands.</li>
-    <li>GameStateManager | LobbyState | IngameState | EndingState: Manage and handle game states.</li>
-    <li>Listeners: Handle events such as block breaks, player deaths, and world changes.</li>
-    <li>Object classes (e.g., Team): Store information about teams, players, and spawns.</li>
-  </ul>
-  
-  <h2>Current Progress</h2>
-  <p>The plugin is currently in development by Adam and Fabian. Please refer to the GitHub repository for the latest updates and progress.</p>
-  
-  <img src="forkit.gif" id="octocat" alt="Fork it!" />
+  <nav>
+    <ul>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#setup">First Setup</a></li>
+      <li><a href="#gameplay">Gameplay</a></li>
+      <li><a href="#classes">Involved Classes</a></li>
+      <li><a href="#duties">Duties Record Book</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section id="project">
+    <h2>Project</h2>
+    <p>
+      Together, AdamKITZ and stampFabian are developing a plugin for the well-known Java game Minecraft: Java Edition.
+      The plugin aims to recreate the popular game mode called "Bedwars" where players or teams battle against each other.
+      The objective is to destroy other players' beds to prevent them from respawning after death.
+    </p>
+  </section>
+  <section id="setup">
+    <h2>First Setup</h2>
+    <ol>
+      <li>Download the provided zip file.</li>
+      <li>Extract the zip file, which contains another zipped file called "minecraft".</li>
+      <li>You can either use this file and start "00start.bat" to join the server at "localhost".</li>
+      <li>If you prefer not to set up the server on your PC, you can join the server hosted by Fabian at "kitzweb.com".</li>
+    </ol>
+  </section>
+  <section id="gameplay">
+    <h2>Gameplay</h2>
+    <ol>
+      <li>After joining the server, you will be in the first world.</li>
+      <li>Click on the sign in front of you to teleport to the "bedwars_lobby" where you wait for other players to join.</li>
+      <li>A countdown will start, and once it's over, you will be teleported to the actual game world "world_bedwars".</li>
+      <li>In the game world, you should be teleported to your team's color and receive a message stating your team.</li>
+      <li>Gather resources and strategize to destroy other teams' beds and emerge victorious.</li>
+      <li>Keep in mind that the plugin is still a work in progress, so more features will be added in the future.</li>
+    </ol>
+  </section>
+  <section id="classes">
+    <h2>Involved Classes</h2>
+    <ul>
+      <li>Commands: Contains logic for server administrator commands.</li>
+      <li>GameStateManager, LobbyState, IngameState, EndingState: Manages game states and their corresponding logic.</li>
+      <li>Listeners (e.g., blockBreakEvent, onPlayerDeath, playerWorldChangeEvent): Classes that handle events and perform actions based on server events.</li>
+      <li>Object classes (Team): Contains information about teams in the game, including color, players, and spawn points.</li>
+    </ul>
+  </section>
+  <section id="duties">
+    <h2>Duties Record Book</h2>
+    <a href="https://github.com/AdamKITZ/SWP_Fabi-Adam/files/10488960/Duties.Record.Book._.Adam.Fabian.docx">Duties Record Book</a>
+  </section>
+</main>
+<footer>
+  <p>Created by AdamKITZ and stampFabian</p>
+</footer>
 </body>
-</html>
