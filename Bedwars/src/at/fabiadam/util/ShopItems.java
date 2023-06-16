@@ -116,6 +116,7 @@ public class ShopItems {
         //Knockbackstick
         ItemMeta stickMeta = stick.getItemMeta();
         stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
+        stick.setItemMeta(stickMeta);
         ItemMeta stickNewMeta = stick.getItemMeta();
         stickNewMeta.setDisplayName("1 Knockback Stick 7 Bronze");
         stick.setItemMeta(stickNewMeta);
