@@ -4,10 +4,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
 
@@ -113,8 +115,22 @@ public class ShopUtil {
         switch(currency.toLowerCase()) {
             case "bronze":
                 if(playerInventory.containsAtLeast(bronze, cost)) {
-                    player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
-                    removeItems(playerInventory, bronze.getType(), cost);
+                    if(itemStack.getType() == Material.STICK) {
+                        ItemStack stick = new ItemStack(Material.STICK, 1);
+                        stick.addUnsafeEnchantment(Enchantment.KNOCKBACK, 3);
+                        ItemMeta stickMeta = stick.getItemMeta();
+                        stickMeta.setDisplayName("Knockback Stick");
+                        stick.setItemMeta(stickMeta);
+                        player.getInventory().addItem(stick);
+                        removeItems(playerInventory, bronze.getType(), cost);
+                    } else if(itemStack.getType() == Material.POTION) {
+                        player.getInventory().addItem(ShopItems.healing_potion);
+                        removeItems(playerInventory, bronze.getType(), cost);
+                    } else {
+                        player.getInventory().addItem(new ItemStack(itemStack.getType(), amount));
+                        removeItems(playerInventory, bronze.getType(), cost);
+                    }
+
                 }
                 break;
             case "iron":
