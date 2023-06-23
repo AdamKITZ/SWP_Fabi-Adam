@@ -25,8 +25,6 @@ public class EndingChecker extends Timer {
         plugin = MainBedwars.getPlugin();
         util = plugin.getUtil();
         gameStateManager = plugin.getGameStateManager();
-
-
         taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(MainBedwars.getPlugin(), new Runnable() {
             int i = 20;
             @Override
@@ -44,7 +42,6 @@ public class EndingChecker extends Timer {
                             player.teleport(mainSpawn);
                             ScoreboardManager manager = Bukkit.getScoreboardManager();
                             player.setScoreboard(manager.getNewScoreboard());
-
                         }
                     });
                     if (i <= 0) {
@@ -56,9 +53,7 @@ public class EndingChecker extends Timer {
                                 ScoreboardManager manager = Bukkit.getScoreboardManager();
                                 player.setScoreboard(manager.getNewScoreboard());
                             });
-
                         });
-
                         gameStateManager.setGameState(GameState.END);
                         mapReset = plugin.getMapReset();
                         mapReset.restore();
@@ -66,23 +61,15 @@ public class EndingChecker extends Timer {
                         //Reset
                         Bukkit.getScheduler().cancelTask(taskId);
                         taskId = 0;
-
                     }
-
-
                     if(i != 0) {
                         i--;
                     }
-
                 }
                 //Teleport all players to the game world and reset variables
-
-
             }
-
         }, 0, 20);
     }
-
     @Override
     public void stop() {
 

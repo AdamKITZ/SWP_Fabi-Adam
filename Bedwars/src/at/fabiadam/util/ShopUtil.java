@@ -10,6 +10,9 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.HashMap;
 
@@ -124,6 +127,10 @@ public class ShopUtil {
                         player.getInventory().addItem(stick);
                         removeItems(playerInventory, bronze.getType(), cost);
                     } else if(itemStack.getType() == Material.POTION) {
+                        ItemStack potion = new ItemStack(Material.POTION, 1);
+                        PotionMeta potionMeta = (PotionMeta) potion.getItemMeta();
+                        potionMeta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 1, 1), true);
+                        potion.setItemMeta(potionMeta);
                         player.getInventory().addItem(ShopItems.healing_potion);
                         removeItems(playerInventory, bronze.getType(), cost);
                     } else {
