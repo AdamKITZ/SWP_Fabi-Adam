@@ -57,7 +57,7 @@ public class IngameState extends GameState {
             player.setHealthScale(20);
             player.setHealthScaled(false);
             player.setGlowing(false);
-            player.setScoreboard(null);
+            player.getScoreboard().getObjective("test").unregister();
         });
     }
 }
